@@ -1,2 +1,1 @@
-My CMEECourseWork Repository
-Do I like this better?
+My CMEE CourseWork Repository
