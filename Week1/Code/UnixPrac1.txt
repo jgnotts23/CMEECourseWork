@@ -1,0 +1,18 @@
+#1 wc -l ../Data/{407228326.fasta,407228412.fasta,E.coli.fasta}
+
+#2 tail -n +2 ../Data/E.coli.fasta
+
+#3 tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | wc -m
+
+#4 tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i ATGC | wc -l
+
+#5 tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i AT | wc -l > ../Results/AT.txt && tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i GC | wc -l > ../GC.txt
+
+
+tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i AT | wc -l > ../Results/AT.txt && tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i GC | wc -l > ../GC.txt && echo "$(< ../Results/AT.txt(< ../Results/AT.txt + < ../Results/GC.txt))
+
+
+a=$(tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i AT | wc -l) && b=$(tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i GC | wc -l) && echo "$((a / (a + b)))"
+
+try expr and bc 
+ - A+T / G+C
