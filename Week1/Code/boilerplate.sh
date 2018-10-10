@@ -5,6 +5,7 @@
 # Arguments: None
 # Date: Oct 2018
 
-echo -e "\nThis is a shell script! \n" # What does -e do?
+echo -e "\nThis is a shell script! \n" 
+# echo displays a line of text and -e enables interpretation of backslash escapes
 
 # Exit

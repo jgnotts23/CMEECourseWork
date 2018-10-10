@@ -1,18 +1,34 @@
-#1 wc -l ../Data/{407228326.fasta,407228412.fasta,E.coli.fasta}
+#1 - Count how many lines are in each file
+# 'wc' prints newline, word and byte counts for a specified file or set of files and '-l' limits this to just the newline counts
 
-#2 tail -n +2 ../Data/E.coli.fasta
-
-#3 tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | wc -m
-
-#4 tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i ATGC | wc -l
-
-#5 tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i AT | wc -l > ../Results/AT.txt && tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i GC | wc -l > ../GC.txt
+wc -l ../Data/{407228326.fasta,407228412.fasta,E.coli.fasta}
 
 
-tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i AT | wc -l > ../Results/AT.txt && tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i GC | wc -l > ../GC.txt && echo "$(< ../Results/AT.txt(< ../Results/AT.txt + < ../Results/GC.txt))
+#2 - Print everything starting from the second line for the E. coli genome
+# 'tail' outputs the last part of a file starting from a specific location. '-n' tells 'tail' to start from a specific line, in this case line 2
+
+tail -n +2 ../Data/E.coli.fasta
 
 
-a=$(tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i AT | wc -l) && b=$(tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o -i GC | wc -l) && echo "$((a / (a + b)))"
+#3 - Count the sequence length of the genome
+# 'tr' translates or deletes characters and '-d' specifies deletion of characters in SET1. In this case I have instructed the deletion of newline characters, '\n'. I have used 'wc' again but with '-m' this time to print the character counts. 'tail' has been used again to start the count from line 2 as line 1 doesn't contain genomic data.
 
-try expr and bc 
- - A+T / G+C
+tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | wc -m
+
+
+#4 - Count the matches of a particular sequence, "ATGC" in the genome of E. coli
+# 'grep' searches a file for lines containing a match to a given pattern. If a pattern appears twice on the same line, grep by default will only count that as one matching line. '-o' is used here to specify that all occurences of the pattern need to be output onto a line so 'wc' will count the correct number of occurrences of this pattern.
+
+tail -n +2 ../Data/E.coli.fasta | tr -d '\n' | grep -o ATGC | wc -l
+
+
+#5 - Compute the AT/GC ratio
+# '&&' is used here to connect a series of commands. '&&' ensures that the operation only continues if the previous operation was successful. '$' is used to assign variables which are then used in an expression. 'bc' is a calculator and '-l' is used to define the standard math library. 'echo' is used to display the result of the calculation in the terminal.
+
+a=$(tail -n +2 ../Data/E.coli.fasta | grep -o A | wc -l) && 
+g=$(tail -n +2 ../Data/E.coli.fasta | grep -o G | wc -l) && 
+t=$(tail -n +2 ../Data/E.coli.fasta | grep -o T | wc -l) && 
+c=$(tail -n +2 ../Data/E.coli.fasta | grep -o C | wc -l) && 
+result=$(echo "($a+$t)/($g+$c)" | bc -l) && echo "AT/GC ratio = $result"
+
+

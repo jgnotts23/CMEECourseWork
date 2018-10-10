@@ -1,4 +1,9 @@
 #!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: variables.sh
+# Desc: bash script to illustrate the use of variables in UNIX
+# Arguments: None
+# Date: Oct 2018
 
 # Shows the use of variables
 MyVar='some string'

@@ -1,4 +1,9 @@
 #!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: CompileLaTex.sh
+# Desc: bash script to compile a LaTex document with references
+# Arguments: None
+# Date: Oct 2018
 
 file="$1"
 filename="${file%%.*}"
