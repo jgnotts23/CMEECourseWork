@@ -62,3 +62,8 @@ Samraat Pawar, s.pawar@imperial.ac.uk
 github CMEE Coursework repository: https://github.com/jgnotts23/CMEECourseWork
 github week 1 repository: https://github.com/jgnotts23/CMEECourseWork/tree/master/Week1
 
+### .gitignore list
+
+*~
+*.tmp
+
