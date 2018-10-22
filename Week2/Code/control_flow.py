@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 
-"""Some functions exemplifying the use of control statements"""
-#docstrings are considered part of the running code (normal comments are
-#stripped). Hence, you can access your docstrings at run time.
-__appname__ = 'control flow'
-__author__ = 'Samraat Pawar (s.pawar@imperial.ac.uk)'
+""" Some functions exemplifying the use of control statements """
+
+__appname__ = 'control_flow.py'
+__author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
 __version__ = '0.0.1'
 
-## imports ##
+# Docstrings are considered part of the running code (normal comments are
+# stripped). Hence, you can access your docstrings at run time.
+
+## Imports ##
 import sys # module to interface our program with the operating system
 
-## constants ##
+## Constants ##
 
-## functions ##
+## Functions ##
 def even_or_odd(x=0): # if not specified, x should take value 0.
 
     """Find whether a number x is even or odd."""

@@ -1,10 +1,18 @@
+#!/usr/bin/env python3
+
+""" A script to learn how to input and output with python """
+
+__appname__ = 'basic_io.py'
+__author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
+__version__ = '0.0.1'
+
 #############################
 # FILE INPUT
 #############################
 # Open a file for reading
 f = open('../Sandbox/test.txt','r')
-# use "implicit" for loop:
-# if the object is a file, python will cycle over lines
+# Use "implicit" for loop:
+# If the object is a file, python will cycle over lines
 for line in f:
     print(line)
 
@@ -14,7 +22,7 @@ f.close()
 # Same example, skip blank lines
 f = open('../Sandbox/test.txt', 'r')
 for line in f:
-    if len(line.strip()) > 0:
+    if len(line.strip()) > 0: # Only reads lines with a value
         print(line)
 
 f.close()
@@ -37,7 +45,7 @@ f.close()
 # To save an object (even complex) for later use
 my_dictionary = {"a key": 10, "another key": 11}
 
-import pickle
+import pickle 
 
 f = open('../Sandbox/testp.p', 'wb') ## note the b: accept binary files
 pickle.dump(my_dictionary, f)

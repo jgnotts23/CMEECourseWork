@@ -1,5 +1,18 @@
-## Try this first
+#!/usr/bin/env python3
 
+""" A simple program to demonstrate the difference between
+    local and global variables """
+
+__appname__ = 'scope.py'
+__author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+## Imports ##
+
+## Constants ##
+
+## Functions ##
+# Try this first
 _a_global = 10
 
 def a_function():
@@ -13,8 +26,8 @@ a_function()
 
 print("Outside the function, the value is ", _a_global)
 
-## Now try this
 
+# Now try this
 _a_global = 10
 
 def a_function():

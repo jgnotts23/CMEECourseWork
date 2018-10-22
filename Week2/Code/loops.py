@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+
+""" Some functions to practice the use of loops """
+
+__appname__ = 'loops.py'
+__author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+## Imports ##
+
+## Constants ##
+
+## Functions ##
 # FOR loops in Python
 for i in range(5):
     print(i)
