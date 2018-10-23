@@ -1,3 +1,23 @@
+#!/usr/bin/env Rscript
+library(tools)
+
+args <- commandArgs(trailingOnly = TRUE)
+file_in <- args[1]
+MyData <- read.csv(file = file_in, header = TRUE) 
+
+for (i in MyData){ #i here just means for the 'ith' row
+        radians <- MyData$Angle.degrees * pi / 180 # Referencing columns directly
+        height <- MyData$Distance.m * tan(radians)
+        Tree.Height.m <- c(height) # Make a new vector called Tree,height.m
+}
+
+tree.heights <- data.frame(MyData, Tree.Height.m)
+
+file_out <- basename(file_path_sans_ext(file_in))
+
+write.csv(tree.heights, paste0("../Results/", file_out, "_treeheights", ".csv"))
+
+
 # This function calculates heights of trees given distance of each tree
 # from its base and angle to its top, using the trigonometric formula
 #
@@ -9,19 +29,3 @@
 #
 # OUTPUT
 # The heights of the tree, same units as "distance"
-
-# Importing dataframe from existing file
-MyData <- read.csv(*.csv, header = TRUE) # import with headers
-
-# Creating a function to calculate tree height
-for (i in MyData){ #i here just means for the 'ith' row
-        radians <- MyData$Angle.degrees * pi / 180 # Referencing columns directly
-        height <- MyData$Distance.m * tan(radians)
-        Tree.Height.m <- c(height) # Make a new vector called Tree,height.m
-}
-
-# Creating a new dataframe 'tree.heights' with previous columns plus new column 'Tree.Height.m'
-tree.heights <- data.frame(MyData, Tree.Height.m)
-
-# Creating new .csv file for new dataframe
-write.csv(tree.heights, "../Results/TreeHts2.csv") #write it out as a new file
