@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+#!/bin/bash
 # Script: run_get_TreeHeight.sh
-# Desc: simple boilerplate for shell scripts
-# Arguments: None
+# Desc: tests get_TreeHeight.sh
 # Date: Oct 2018
 
 echo "Testing get_TreeHeight.R..."

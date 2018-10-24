@@ -1,3 +1,7 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 # A simple script to illustrate R input-output.
 # Run line by line and check inputs outputs to understand what is happening
 

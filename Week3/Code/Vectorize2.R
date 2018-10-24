@@ -1,3 +1,7 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 # Runs the stochastic (with gaussian fluctuations) Ricker Eqn .
 
 rm(list=ls())
@@ -19,6 +23,7 @@ stochrick<-function(p0=runif(1000,.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 
 }
 
+print("Non-Vectorized Stochastic Ricker takes:")
 print(system.time(stochrick()))
 
 # Now write another function called stochrickvect that vectorizes the above 

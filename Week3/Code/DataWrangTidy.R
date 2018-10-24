@@ -1,3 +1,7 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
@@ -41,12 +45,11 @@ colnames(TempData) <- MyData[1,] # assign column names from original data
 ############# Convert from wide to long format  ###############
 require(reshape2) # load the reshape2 package
 
-?melt #check out the melt function
 
 MyWrangledData <- melt(TempData, id=c("Cultivation", "Block", "Plot", "Quadrat"), 
 variable.name = "Species", value.name = "Count")
 
-MyWrangledData <- tidyr::gather(TempData, "Cultivation", "Block", "Plot", "Quadrat", "Species", "Count", 1:6)
+#MyWrangledData <- tidyr::gather(TempData, "Cultivation", "Block", "Plot", "Quadrat", "Species", "Count", 1:6)
 
 MyWrangledData[, "Cultivation"] <- as.factor(MyWrangledData[, "Cultivation"])
 MyWrangledData[, "Block"] <- as.factor(MyWrangledData[, "Block"])
@@ -57,5 +60,3 @@ MyWrangledData[, "Count"] <- as.numeric(MyWrangledData[, "Count"])
 dplyr::glimpse(MyWrangledData)  #str(MyWrangledData)
 dplyr::tbl_df(MyWrangledData) #head(MyWrangledData)
 dim(MyWrangledData)
-
-############# Start exploring the data (extend the script below)!  ###############

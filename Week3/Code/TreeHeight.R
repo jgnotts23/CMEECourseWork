@@ -1,3 +1,7 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 # This function calculates heights of trees given distance of each tree
 # from its base and angle to its top, using the trigonometric formula
 #

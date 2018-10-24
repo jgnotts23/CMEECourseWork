@@ -1,4 +1,10 @@
-SomeOperation <- function(v){  #What does this function do?
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
+# Using apply to define your own functions
+
+SomeOperation <- function(v){  
     if (sum(v) > 0){
         return (v * 100)
     }

@@ -1,3 +1,7 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 ## run a simulation that involves sampling from a population
 
 x <- rnorm(50) #Generate your population

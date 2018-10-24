@@ -1,3 +1,9 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
+# A script demonstrating how vectorisation can be used to speed up processes
+
 M <- matrix(runif(1000000),1000,1000)
 
 SumAllElements <- function(M){  

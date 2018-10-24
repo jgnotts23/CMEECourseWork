@@ -1,3 +1,7 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
@@ -47,5 +51,3 @@ MyWrangledData[, "Count"] <- as.numeric(MyWrangledData[, "Count"])
 str(MyWrangledData)
 head(MyWrangledData)
 dim(MyWrangledData)
-
-############# Start exploring the data (extend the script below)!  ###############
