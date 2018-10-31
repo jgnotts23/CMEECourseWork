@@ -49,7 +49,7 @@ require(reshape2) # load the reshape2 package
 MyWrangledData <- melt(TempData, id=c("Cultivation", "Block", "Plot", "Quadrat"), 
 variable.name = "Species", value.name = "Count")
 
-#MyWrangledData <- tidyr::gather(TempData, "Cultivation", "Block", "Plot", "Quadrat", "Species", "Count", 1:6)
+MyWrangledData <- tidyr::gather(TempData, "Cultivation", "Block", "Plot", "Quadrat", "Species", "Count", 1:6)
 
 MyWrangledData[, "Cultivation"] <- as.factor(MyWrangledData[, "Cultivation"])
 MyWrangledData[, "Block"] <- as.factor(MyWrangledData[, "Block"])
