@@ -8,7 +8,7 @@
 # # predator mass, prey mass, and predator-prey
 # # size-ratios to a csv file 
 
-MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv")
+MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv", header=T)
 
 library(dplyr)
 library(lattice)
@@ -17,74 +17,57 @@ library(lattice)
 
 # Predator mass lattice
 pdf("../Results/Pred_Lattice.pdf", 11.7, 8.3)
-densityplot(~log(Predator.mass) | Type.of.feeding.interaction, data=MyDF,
+pred <- densityplot(~log(Predator.mass) | Type.of.feeding.interaction, data=MyDF,
     xlab = "Predator Mass (kg)")
+print(pred)
 graphics.off()
 
 # Prey mass lattice
 pdf("../Results/Prey_Lattice.pdf", 11.7, 8.3)
-densityplot(~log(Prey.mass) | Type.of.feeding.interaction, data=MyDF, 
+prey <- densityplot(~log(Prey.mass) | Type.of.feeding.interaction, data=MyDF, 
     xlab = "Prey Mass (kg)")
+print(prey)
 graphics.off()
 
 # Predator-prey size-ratios lattice
 pdf("../Results/SizeRatio_Lattice.pdf", 11.7, 8.3)
 pp_ratio <- MyDF$Predator.mass/MyDF$Prey.mass
-densityplot(~log(pp_ratio) | Type.of.feeding.interaction, data=MyDF, 
+sizeratio <- densityplot(~log(pp_ratio) | Type.of.feeding.interaction, data=MyDF, 
     xlab = "Predator-prey Size-ratio")
+print(sizeratio)
 graphics.off()
 
 
 ### Mean and Median Calculations ###
 
-# Predator mean
-pred_mean <- MyDF %>%
+# Predator mean & median
+pred <- MyDF %>% group_by(Type.of.feeding.interaction) %>%
+            summarise(
+            mean = mean(log(Predator.mass)),
+            median = median(log(Predator.mass))
+        )
+
+
+# Prey mean & median
+prey <- MyDF %>%
         group_by(Type.of.feeding.interaction) %>%
             summarise(
-            Predator.mean = mean(log(Predator.mass))
+            mean = mean(log(Prey.mass)),
+            median = median(log(Prey.mass))
         ) 
 
-# Predator median
-pred_median <- MyDF %>%
+
+# Predator:prey mean & median
+predprey <- MyDF %>%
         group_by(Type.of.feeding.interaction) %>%
             summarise(
-            Predator.median = median(log(Predator.mass))
+            mean = mean(log(Predator.mass/Prey.mass)),
+            median = mean(log(Predator.mass/Prey.mass))
         ) 
 
-# Prey mean
-prey_mean <- MyDF %>%
-        group_by(Type.of.feeding.interaction) %>%
-            summarise(
-            Prey.mean = mean(log(Prey.mass))
-        ) 
-
-# Prey median
-prey_median <- MyDF %>%
-        group_by(Type.of.feeding.interaction) %>%
-            summarise(
-            Prey.median = median(log(Prey.mass))
-        ) 
-
-# Predator:prey mean
-predprey_mean <- MyDF %>%
-        group_by(Type.of.feeding.interaction) %>%
-            summarise(
-            Pred_prey.mean = mean(log(Predator.mass/Prey.mass))
-        ) 
-
-# Predator:prey median
-predprey_median <- MyDF %>%
-        group_by(Type.of.feeding.interaction) %>%
-            summarise(
-            Pred_prey.median = median(log(Predator.mass/Prey.mass))
-        ) 
 
 # Creating new dataframe
-NewDF <- left_join(pred_mean, pred_median, by='Type.of.feeding.interaction') %>%
-                left_join(., prey_mean, by='Type.of.feeding.interaction') %>%
-                left_join(., prey_median, by='Type.of.feeding.interaction') %>%
-                left_join(., predprey_mean, by='Type.of.feeding.interaction') %>%
-                left_join(., predprey_median, by='Type.of.feeding.interaction')
+NewDF <- rbind(pred, prey, predprey)
 
 write.csv(NewDF, "../Results/PP_Results.csv")
 
