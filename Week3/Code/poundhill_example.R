@@ -1,3 +1,7 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 # Load the data into R
 # Using as.matrix, setting the header and using stringsAsFactors
 # guarantees the data are imported "as is" so they can be wrangled

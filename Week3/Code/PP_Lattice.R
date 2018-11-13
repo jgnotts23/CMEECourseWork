@@ -1,12 +1,15 @@
-# # Script that draws and saves 3 lattice graphs
-# # by feeding interaction type:
-#     # Predator mass
-#     # Prey mass
-#     # Size ratio of prey mass over predator mass
-# # Use logarithms of masses for all 3 plots
-# # Script will also calculate mean and median
-# # predator mass, prey mass, and predator-prey
-# # size-ratios to a csv file 
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
+# Script that draws and saves 3 lattice graphs
+# by feeding interaction type (log):
+     # Predator mass
+     # Prey mass
+     # Size ratio of prey mass over predator mass
+# Script will also calculate mean and median of
+# predator mass, prey mass, and predator-prey (log)
+# size-ratios and output to a csv file 
 
 MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv", header=T)
 

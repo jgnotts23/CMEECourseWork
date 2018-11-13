@@ -45,6 +45,15 @@ A script that creates a world map and plots species locations on it. The R maps 
 A script demonstrating the use of next to move to the next iteration of a loop.
 For numbers between 1 and 10 it will print only odd numbers.
 
+>plotLin.R
+Demonstrates how to annotate a plot in R. Output to Results directory.
+
+> PP_Lattice.R
+A script that creates three lattice graphs based on feeding interaction data. Mean and medians are calculated in each instance and saved to a csv file. All outputs will appear in the Results directory.
+
+> PP_Regress.R
+A script that reproduces a figure shown by my demonstrate, S. Pawar. Output to the Results directory.
+
 > preallocate.R
 A script demonstrating the use of preallocation in R to speed up processes. The first output is a function without preallocation and the second is a function that uses preallocation. Preallocation reduces the system time drastically.
 

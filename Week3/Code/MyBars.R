@@ -1,3 +1,8 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
+
 require(ggplot2)
 
 a <- read.table("../Data/Results.txt", header = TRUE)

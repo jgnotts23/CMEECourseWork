@@ -1,0 +1,13 @@
+#### Osborne et al. (2018) ####
+
+Arbuscular mycorrhizal fungi (AMF) promote coexistence and niche divergence of sympatric palm species on a remote oceanic island.
+
+Sympatric speciation in the Howea palms of Lord Howe Island.
+
+H. forsteriana
+- Can grow on both calcerous and volcanic soils
+
+H. belmoreana
+- Restricted, but more successful on, volcanic soils
+
+AMF are significantly depleted on H. forsteriana on volcanic soil, relative to both H. belmoreana on volcanic soil and H. forsteriana on calcerous soil. This is mirrored by sterilisation of natural soil reduces Howea fitness in every soil-species combination except H. forsteriana on volcanic soil. AMF-associated genes exhibit evidence of divergent selection between Howea species.

@@ -1,0 +1,51 @@
+#### Introduction to Genomics ####
+
+Genomics -> Transcriptomics -> Proteomics -> Epigenomics -> Cistromics
+
+Sources of DNA and RNA
+- RNA much more sensitive 
+- Invasive sampling: biopsy darts, tissue, blood, roots, etc.
+- Non invasive sampling: faeces, saliva, urine, etc.
+- Environmental DNA: water, soil, etc.
+
+Genomics
+- Types of genomes (mitochondrial, plastid, nuclear)
+- Types of genes (coding, ribosomal, etc.)
+- Types of sequencing platform (MiSeq, HiSeq, Pacbio)
+- Type of reads (paired-end, single end, short, long)
+- Difficulties with combining short and long reads
+
+N50 - an important metric for genome assembly. Defined as the minimum contig length needed to cover 50% of the genome. It means, half of the genome sequence is in contigs larger than or equal to the N50 contig size
+
+
+Metagenomics/Metabarcoding
+- In metabarcoding, read numbers is roughly proportional to species abundance
+- Mitochondrial DNA used for barcoding animals
+- Plastid DNA used for barcoding plants
+
+Transcriptomics and RNA-seq
+- Differential gene expression: read numer is proportional to level of expression, usually represented with heat map and Venn diagram
+- Positive selection which is identified by calculating the ratio of nonsynonymous to synonymous substitutions; usually shown on protein 3D structure
+
+
+### Case Study: Ecological Genomics ###
+
+Lord Howe Island
+Two palm species:
+- Kentia or Thatch palm: grow anywhere
+- Curly Palm: volcanic soils
+- The two species are fully sympatric in 20% of their distribution
+- Reproductive isolation through flowering time differences
+- Believed to be derived from a recent ancestor species
+
+Tests the 4 criteria of sympatric spectation:
+- Sympatry: random quadrats on 71 locations
+- Sistership: phylogeny of all palms based on multiple genes and fossil calibration
+- Reproductive isolation
+- Allopatry unlikely
+
+
+
+
+
+

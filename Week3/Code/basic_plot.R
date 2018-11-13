@@ -1,3 +1,8 @@
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
+
 # Load dataframe
 MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv")
 

@@ -2,6 +2,8 @@
 # Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
 # Date - Oct 2018
 
+# Edit of DataWrang.R using dplyr alternatives
+
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
