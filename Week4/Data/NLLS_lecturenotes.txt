@@ -1,0 +1,45 @@
+#### Fitting mathematical models to data using non-linear least squares ####
+
+Regression is a statistical measure that attempts to determine the strength
+of the relationship between one dependent variable (usually Y) and a series
+of other changing (independent) variables.
+
+An algorithm is a process or set of rules to be followed in calculations or 
+other problem-solving operations, especially by a computer
+
+ANOVA and regression are fitting mathematical models to data
+
+y = B1 + B2x
+- B1 and B2 here are parameters/coefficients
+- x is the variable
+- y is the response variable
+
+y = B1 + B2x + B3x^2
+- This equation is still linear because the parameters are still in 
+'simple' terms. It is only the parameter that is squared
+
+Ordinary least squares (OLS) regression = the line the minimises the residual sum of squares
+- i.e. minimises deviation from the line
+- Only single solution to that problem
+- Can check 'goodness' in R using diagnostic plots
+- R compares linear model to a null model (i.e. no correlation at all)
+
+OLS can be used to fit both linear and nonlinear equations that
+are intrinsically linear, e.g:
+- Straight line
+- Polynomial
+- i.e. the equation to be fitted (model) should be linear in the parameters
+- However, can get stuck in LOCAL OPTIMA
+
+Brute-force computation can be used to find close-to-optimal 
+least squares minimisation:
+- Choose initial values for the parameters we want to estimate
+- Then 'refine' the parameters iteratively by calculating the derivative
+approximately - this approximation is the Jacobian (the gradien)
+which is a matrix of the derivatives
+- Default NLSS method in R isn't very good
+- Whether a refinement has taken place in any step of the iteration
+is determined by re-calculating the residuals at that step (local optima can be an issue here)
+- If all goes well, optimal parameters will be output at the end
+
+NLSS necessary because biological phenomena rarely well-described by a linear equation
