@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""  """
+""" A practical example of regular expression use """
 
 __appname__ = 'blackbirds.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'

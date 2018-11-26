@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""  """
+""" Using the timeit module to improve speed """
 
 __appname__ = 'timeitme.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'

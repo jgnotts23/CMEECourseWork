@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-"""  """
+""" The Lotka-Volterra model with prey density-dependance
+incorporated  """
 
 __appname__ = 'LV2.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
@@ -15,7 +16,7 @@ import sys
 # Defining a function that returns the growth rate of 
 # consumer and resource population at any given step:
 def dCR_dt(pops, t=0):
-
+        """ The Lotka-Volterra model """
     R = pops[0]
     C = pops[1]
     dRdt = r * R * (1 - R / K) - a * R * C

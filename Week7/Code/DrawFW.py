@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""  """
+""" Plotting food web networks """
 
 __appname__ = 'DrawFW.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
@@ -14,7 +14,7 @@ import matplotlib.pyplot as p
 #C = connectance (probability of a connection between nodes)
 #N = number of species
 def GenRdmAdjList(N = 2, C = 0.5): 
-    """
+    """ Generates a synthetic food web with N-species and connectance C
     """
     Ids = range(N) #creates list of a N range
     ALst = [] #create list
@@ -42,10 +42,10 @@ Sizs = sc.random.uniform(SizRan[0],SizRan[1],MaxN)
 Sizs
 
 #Visualise the size distribution
+f1 = p.figure()
 p.hist(Sizs)
 p.hist(10 ** Sizs) #raw scale
-p.show()
-p.close('all')
+f1.savefig('../Results/sizedist.pdf')
 
 #Circular configuration
 pos = nx.circular_layout(Sps)
@@ -62,5 +62,4 @@ NodSizs= 1000 * (Sizs-min(Sizs))/(max(Sizs)-min(Sizs))
 
 #Render/plot graph
 nx.draw_networkx(G, pos, node_size = NodSizs)
-p.show()
-p.close('all')
+G.savefig('../Results/network.pdf')

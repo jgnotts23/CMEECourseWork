@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""  """
+""" The Lokta-Volterra model """
 
 __appname__ = 'LV1.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'

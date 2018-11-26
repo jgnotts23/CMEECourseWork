@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: LV1LV2_run.sh
-# Desc: 
+# Desc: Runs LV1.py and LV2.py and prints system times
 # Arguments: None
 # Date: Nov 2018
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""  """
+""" Learning numerical computing with Python """
 
 __appname__ = 'Num_computing.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'

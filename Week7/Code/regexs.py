@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""  """
+""" Regular expressions in python """
 
 __appname__ = 'regexs.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'

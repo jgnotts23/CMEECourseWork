@@ -40,8 +40,6 @@ Data2Fit <- subset(MyData, Suborder == "Anisoptera")
 
 Data2Fit <- Data2Fit[!is.na(Data2Fit$TotalLength),]
 
-plot(Data2Fit$TotalLength, Data2Fit$BodyWeight)
-
 #or with ggplot
 ggplot(Data2Fit, aes(x = TotalLength, y = BodyWeight)) + geom_point() #scatterplot
 
@@ -54,14 +52,15 @@ summary(PowFit) #same as lm() fit object
 Lengths <- seq(min(Data2Fit$TotalLength), max(Data2Fit$TotalLength), len=200)
 
 # Extract coefficient from model fit
-coef(PowFit)["a"]
-coef(PowFit)["b"]
+A <- coef(PowFit)["a"]
+B <- coef(PowFit)["b"]
 
 Predic2PlotPow <- powMod(Lengths, coef(PowFit)["a"], coef(PowFit)["b"])
 
+fun.1 <- y ~ a * x^b
 # Plot data and fitted model line
-plot(Data2Fit$TotalLength, Data2Fit$BodyWeight)
-lines(Lengths, Predic2PlotPow, col = 'blue', lwd = 2.5)
-
+ggplot(Data2Fit, aes(x = TotalLength, y = BodyWeight)) + 
+  geom_point() + 
+  geom_line(aes(Lengths), Predic2PlotPow)
 # Calculate confidence intervals on estimated parameters
 confint(PowFit)
