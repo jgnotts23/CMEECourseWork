@@ -1,0 +1,38 @@
+##### Ecological Neutral Theory #####
+
+Assumes all individuals are ecologically equivalent.
+
+Misconceptions
+- not the same as a null model
+- does not assume all species are the same
+- a model in which species are interchangeable is neutral
+
+So what does it mean?
+- The demographic properties of an individual are independent of its species diversity
+
+Voter model (1975)
+- purpose was to determine how people would vote
+	- pick random neighbour (not far away)
+	- you take their view or they take yours at random
+	- Keep going for a while and see what happens
+	- Patches of one colour formed (analagous to politics?)
+- replace voting intention with a species and people with a habitat and this model can be applied to biology
+- What we found
+	- found some impenetrable clumps forming
+	- there are edge effects
+	- eventually everyone in each connceted group holds the same view
+	- can introduce mutation (new colour) but likely to be outcompeted
+
+Model rules in brief:
+- In each timestep individuals die and are replaced with the offspring of another individual
+- Sometimes a new species is dropped in instead of an offspring of an exisiting species
+- Zero sum assumption is that an individual has to die for a new offspring to spawn, can be relaxed
+- Speciation can be introduced through a single individual or several (i.e. migration) or through protracted speciation which is mutations within some organisms that survive and spread and form new species (i.e. more biological)
+- spatial structure can be implemented by defining patch size (e.g. continent to island) or using dispersal kernel which uses a probability curve that dispersal will occur relative to the distance from the individual (less likely further away but still possible)
+
+Applications in island biogeography
+- MacArthur and Wilson's theory of island biogeography (1967) which factors in immigration and extinction
+- 
+
+
+

@@ -57,10 +57,15 @@ B <- coef(PowFit)["b"]
 
 Predic2PlotPow <- powMod(Lengths, coef(PowFit)["a"], coef(PowFit)["b"])
 
-fun.1 <- y ~ a * x^b
-# Plot data and fitted model line
-ggplot(Data2Fit, aes(x = TotalLength, y = BodyWeight)) + 
-  geom_point() + 
-  geom_line(aes(Lengths), Predic2PlotPow)
 # Calculate confidence intervals on estimated parameters
 confint(PowFit)
+
+### Exercise 1 ###
+p <- ggplot(Data2Fit, aes(x = TotalLength, y = BodyWeight)) + geom_point() #scatterplot
+p +
+  geom_smooth(colour = "blue",
+              width = 1,
+              se = FALSE,
+              method = "loess",
+              formula = y ~ x) # use 'adaptive' spline
+p

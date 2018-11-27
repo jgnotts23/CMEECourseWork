@@ -51,6 +51,7 @@ f1.savefig('../Results/sizedist.pdf')
 pos = nx.circular_layout(Sps)
 
 #Generate a networkx graph object
+f2 = p.figure()
 G = nx.Graph()
 
 #Add the nodes and links (edges)
@@ -62,4 +63,4 @@ NodSizs= 1000 * (Sizs-min(Sizs))/(max(Sizs)-min(Sizs))
 
 #Render/plot graph
 nx.draw_networkx(G, pos, node_size = NodSizs)
-G.savefig('../Results/network.pdf')
+f2.savefig('../Results/network.pdf')
