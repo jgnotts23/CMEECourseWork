@@ -1,0 +1,10 @@
+##############################
+Basic UNIX directory structure
+##############################
+
+/       Is the "root" directory
+/bin    Contains basic programs
+/etc    Contains configuration files
+/dev    Contains files connecting to devices (keyboard, mouse, screen, etc.)
+/home   Your home directory - where most documents are
+/tmp    Contains temporary files

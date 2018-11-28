@@ -1,0 +1,15 @@
+#######################
+UNIX keyboard shortcuts
+#######################
+
+Ctrl + Alt + t      Launch bash shell
+Tab                 Auto-complete
+Ctrl + A            Go to the beginning of the line
+Ctrl + E            Go to the end of the line
+Ctrl + L            Clear the screen
+Ctrl + U            Clear the line before cursor position
+Ctrl + K            Clear the line after the cursor
+Ctrl + C            Kill whatever you are running
+Ctrl + D            Exit (close) the current shell
+Ctrl + right arrow  Move cursor forward one whole word
+Ctrl + left arrow   Move cursor backward one whole word

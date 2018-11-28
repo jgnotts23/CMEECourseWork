@@ -32,7 +32,67 @@ Model rules in brief:
 
 Applications in island biogeography
 - MacArthur and Wilson's theory of island biogeography (1967) which factors in immigration and extinction
+
+
+##### High Performance Computing (HPC) #####
+- Embarassingly parallel problems
+	- Graphics
+	- Simulations with multiple parameters
+	- Little to no communication between cpus
+- Non-embarassingly parallel probelms
+	- Fluid dynamics
+	- A lot of the tasks run by a single program
+	- Lots of communication between cpus
+
+How do you parallelize your code?
+- Use job numbers in code so they can be run simultaneously
+- as.numeric(Sys.getenv("PBS_ARRAY_INDEX")) at top of code
+- e.g.
+	- for (i in 1:10){etc.    (one PC)
+	OR
+	- i <- as.numeric(Sys.getenv("PBS_ARRAY_INDEX")) at top of code   (HPC)
+	- do_simulation(i)
+- Important to specify random number seeds so simulations are identical
+
+Handling memory
+- Hard disk - slowest but biggest
+- RAM - faster but smaller
+- Cache - fastest but smallest
+
+- Better to run tasks out of RAM than hard disk on HPC then write to hard disk at the end
+- Output your code to a series of files (e.g. Output1.rda, Output2.rda, etc.)
+- Good idea to include parameters used in each output (and random number seed)
+- Write local code to read in series of output automatically
+- Build a timer into your code
+- Test your code locally to know your memory and time requirements
+- On linux type 'top' to see how much memory a process is using
+
+The practice of running code on a cluster
+- cx1, a cluster of many ordinary computers, high-throughput (what I'll be using)
+- cx2, massively parallel system, high-end
+- ax4, large shared memory tasks, big data
+
+- cx1.hpc.ic.ac.uk
+- Login.cx1.hpc.ic.ac.uk
+- Submit jobs to queue
+- $HOME, data stored here, 1TB allocation
+- ephemeral, for running larger jobs but only has 30 days lifetime
+- $TMPDIR, temporary directory, don't lost code here, is also the working directory
 - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

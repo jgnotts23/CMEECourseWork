@@ -1,0 +1,31 @@
+###################
+Basic UNIX commands
+###################
+
+man COMMAND         Show help page of a command
+whoami              Display your username
+pwd                 Show the current directory
+ls                  List the files in the directory 
+cd DIRNAME          Change directory 
+cd ..               Move one directory up
+cd /                Go to the root directory 
+cd ~ or just cd     Go to the home directory
+cp FROM TO          Copy a file, or a directory non-recursively
+cp -r FROM TO       Copy a directory recursively 
+mv FROM TO          Move or rename a file or directory
+touch FILENAME      Create an empty file 
+echo "My string"    Print a string 
+rm FILEorDIRNAME    Remove a file or directory non-recursively
+rm -r DIRNAME       Remove a directory recursively
+wc FILENAME         Count the number of lines and words in a file
+sort FILENAME       Sort the lines of a file and print results
+uniq                Shows only unique elements of a list
+cat FILENAME        Print the file on the screen
+less FILENAME       Progressivelt print a file on the screen ("q" to exit)
+head FILENAME       Print the first few lines of a file
+tail FILENAME       Print the last few lines of a file
+history             Show the last commands you typed
+date                Print current date
+file FILENAME       Determine the type of a file
+passwd              Change user password
+chmod FILENAME      Change file permissions

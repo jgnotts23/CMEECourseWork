@@ -43,4 +43,9 @@ return(a)
 }
 
 #7 - S
-#neutral_time_series <- function()
+neutral_time_series <- function(initial, duration){
+    for (i in (1:duration)){
+        initial <- neutral_generation(initial)
+        print(initial)
+    }
+}
