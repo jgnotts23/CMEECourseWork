@@ -77,9 +77,20 @@ The practice of running code on a cluster
 - Submit jobs to queue
 - $HOME, data stored here, 1TB allocation
 - ephemeral, for running larger jobs but only has 30 days lifetime
-- $TMPDIR, temporary directory, don't lost code here, is also the working directory
-- 
+- $TMPDIR, temporary directory, don't lost code here, is also the working directory so code needs to be move back to $HOME
 
+
+
+Coalescence
+- Shared gene at a point in time between two individuals/species
+- Advantages
+	- always at equilibrium
+	- much faster
+	- sampling based
+- Disadvantages
+	- not ideal for time series
+	- complex to program
+	- fewer ways in which model can be changed
 
 
 
