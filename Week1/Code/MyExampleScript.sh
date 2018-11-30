@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: MyExampleScript.sh
-# Desc: bash script to illustrate the 'echo' function
+# Desc: script to illustrate the 'echo' function and placeholders
 # Arguments: None
 # Date: Oct 2018
 

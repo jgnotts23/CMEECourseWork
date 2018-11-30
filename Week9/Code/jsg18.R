@@ -97,8 +97,8 @@ neutral_time_series_speciation <- function(community, v, duration){
 
 #12
 question_12 <- function(){
-    plot((neutral_time_series_speciation(initialise_max(100), v=0.1, duration=200)), col="blue", type="l", xlab="Generations", ylab="Species Richness")
-    lines((neutral_time_series_speciation(initialise_max(100), v=0.1, duration=200)), col="red")
+    plot((neutral_time_series_speciation(initialise_max(100), v=0.1, duration=200)), col="blue", type="l", xlab="Generations", ylab="Species Richness", ylim=c(0,100))
+    lines((neutral_time_series_speciation(initialise_min(100), v=0.1, duration=200)), col="red")
 }
 
 #13
@@ -107,6 +107,24 @@ species_abundance <- function(community){
 }
 
 #14
-octaves <- function(){
-    
+octaves <- function(community){
+    j <- tabulate(floor(log2(community)+1))
+    return(j)
+}
+
+#15
+sum_vect <- function(x,y){
+    if (length(x) < length(y)){
+        diff <- length(y) - length(x)
+        for (i in 1:diff){
+            x <- c(x, 0)
+            return(x)}
+        return(x + y)}
+    if (length(y) < length(x)){
+        diff <- length(x) - length(y)
+        for (i in 1:diff){
+            y <- c(y, 0)
+            return(y)}
+        return(x + y)}
+    else return(x + y)
 }

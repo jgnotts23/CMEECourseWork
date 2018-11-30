@@ -6,7 +6,8 @@
 # Arguments: 1-> tab delimited file
 # Date: Oct 2018
 
+#$1 is a placeholder for a variable, in this case the file name
 echo "Creating a comma delimited version of $1 ..."
-cat $1 | tr -s "\t" "," >> $1.csv
+cat $1 | tr -s "\t" "," >> $1.csv 
 echo "Done!"
 exit

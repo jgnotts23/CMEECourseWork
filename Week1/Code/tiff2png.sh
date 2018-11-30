@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: tiff2png.sh
-# Desc: bash script to convert a .tiff image to a .png image
+# Desc: Script to convert a .tiff image to a .png image
 # Arguments: 1 -> .png
 # Date: Oct 2018
 

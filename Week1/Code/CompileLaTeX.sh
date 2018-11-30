@@ -1,8 +1,8 @@
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
-# Script: CompileLaTex.sh
-# Desc: bash script to compile a LaTex document with references
-# Arguments: None
+# Script: CompileLaTeX.sh
+# Desc: Script to compile a LaTeX document with references
+# Arguments: 1 .tex file and 1 .bib file
 # Date: Oct 2018
 
 file="$1"
@@ -16,12 +16,23 @@ filename="${file%%.*}"
 pdflatex "$filename"
 printf "\n"
 
-# Moving all output files to ../Results 
-mv *.log *.aux *.bbl *.blg ../Results
+# Move output file to ../Results 
 mv "$filename".pdf ../Results
 
 {
         gnome-open "$filename.pdf"
 } &> /dev/null
+
+## Cleanup
+rm -f *~
+rm -f *.aux
+rm -f *.dvi
+rm -f *.log
+rm -f *.nav
+rm -f *.out
+rm -f *.snm
+rm -f *.toc
+rm -f *.bbl
+rm -f *.blg
 
 exit

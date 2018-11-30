@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: ConcatenateTwoFiles.sh
-# Desc: concatenate (merge) the contents of two files
+# Desc: Concatenate (merge) the contents of two files
 # Arguments: None
 # Date: Oct 2018
 
