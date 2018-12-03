@@ -116,15 +116,49 @@ octaves <- function(community){
 sum_vect <- function(x,y){
     if (length(x) < length(y)){
         diff <- length(y) - length(x)
-        for (i in 1:diff){
-            x <- c(x, 0)
-            return(x)}
-        return(x + y)}
+        z <- rep(0, diff)
+        x <- c(x, z)}
     if (length(y) < length(x)){
         diff <- length(x) - length(y)
-        for (i in 1:diff){
-            y <- c(y, 0)
-            return(y)}
-        return(x + y)}
-    else return(x + y)
+        z <- rep(0, diff)
+        y <- c(y, z)}
+    return(x + y)
 }
+
+#16 
+question_16 <- function(community, v, duration){
+    for (i in (1:200)){
+        community <- neutral_generation_speciation(community, v)}
+    abundance <- species_abundance(community)
+    oct <- octaves(abundance)
+    for (i in (1:duration)){
+        community <- neutral_generation_speciation(community, v)
+        if (i %% 20 == 0){
+            abundance <- species_abundance(community)
+            oct <- sum_vect(oct, octaves(abundance))
+        }
+    }
+    ave <- oct/101
+    red <- rgb(0, 0, 1, alpha=0.5)
+    barplot(ave, names.arg=seq(1:length(oct)), col=red, xlab="Bin", ylab="No. of species")
+}
+
+#17
+
+
+
+#keep for Q17
+# question_16 <- function(community, v, duration){
+#     community <- neutral_generation_speciation(initialise_max(100), 0.1)
+#     #abundance <- species_abundance(community)
+#     oct <- octaves(abundance)
+#     results <- list()
+#     for (i in (1:duration)){
+#         community <- neutral_generation_speciation(community, v)
+#         if (i %% 20 == 0){
+#             abundance <- species_abundance(community)
+#             oct <- octaves(abundance)
+#             results[[i]] <- oct
+#             return(results)}
+#     } #keep running total of sum and no. of averaging
+# }
