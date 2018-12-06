@@ -92,6 +92,11 @@ Coalescence
 	- complex to program
 	- fewer ways in which model can be changed
 
+### Fractals ###
+Mandelbrot - heavy-tailed distributions better than normal in finance
+	- Have an infinite variance
+	- Can be applied to seed dispersal
+
 
 
 

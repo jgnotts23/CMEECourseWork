@@ -1,0 +1,23 @@
+###########
+Intro to C
+###########
+
+Low-level computing - very close to binary (e.g. punch cards)
+- assembly language (usually processor-specific, up to 1970s was pretty much only programming)
+- C, one of the oldest programming languages
+- R, Python
+- RStudio
+- Excel
+High-level
+
+C++ probably most used of the C family nowadays.
+C is a subset of C++.
+
+Why use C?
+- Speeds up calculations
+- Create standalone exectuables (doesn't require interpreter)
+- Access to bit-level
+- Popular language, lots of support
+- Improve understanding of machine level and optimisation
+- Reading/using abundant C code in computational biology
+

@@ -142,6 +142,7 @@ question_16 <- function(community, v, duration){
     red <- rgb(0, 0, 1, alpha=0.5)
     barplot(ave, names.arg=seq(1:length(oct)), col=red, xlab="Bin", ylab="No. of species")
 }
+system.time(a <- question_16(initialise_max(100), 0.1, 2000))
 
 #17
 
@@ -162,3 +163,82 @@ question_16 <- function(community, v, duration){
 #             return(results)}
 #     } #keep running total of sum and no. of averaging
 # }
+
+#### Fractals ####
+#22
+A <- c(0,0)
+B <- c(3,4)
+C <- c(4,1)
+
+chaos_game <- function(A, B, C){
+    j <- list(A, B, C)
+    plot(NA, xlim=c(0,5), ylim=c(0,5), xlab="X", ylab="Y")
+    X <- c(0,0)
+    points(X[1], X[2], cex=0.1)
+    for (i in 1:100000){
+        y <- sample(1:3, 1)
+        choice <- j[[y]]
+        Xx <- (choice[1] - X[1]) / 2
+        Xy <- (choice[2] - X[2]) / 2
+        X <- X + c(Xx, Xy)
+        points(X[1], X[2], cex=0.1)}
+}
+
+#23
+plot(NA, xlim=c(-2,2), ylim=c(0,4), xlab="X", ylab="Y")
+
+turtle <- function(start, direction, length){
+    newx <- start[1] + (length * (cos(direction)))
+    newy <- start[2] + (length * (sin(direction)))
+    segments(start[1], start[2], newx, newy)
+    newvec <- c(newx, newy)
+    return(newvec)
+}
+
+#24
+elbow <- function(start, direction, length){
+    newvec <- turtle(start, direction, length)
+    turtle(c(newvec[1], newvec[2]), direction - (pi/4), (0.95 * length))
+}
+
+#25
+spiral <- function(start, direction, length){
+    newvec <- turtle(start, direction, length)
+    spiral(c(newvec[1], newvec[2]), direction - (pi/4), (0.95 * length))
+}
+
+#26
+spiral_2 <- function(start, direction, length){
+    newvec <- turtle(start, direction, length)
+    if (length > 0.05){
+        spiral_2(c(newvec[1], newvec[2]), direction - (pi/4), (0.95 * length))
+    }
+}
+
+#27
+tree <- function(start, direction, length){
+    newvec <- turtle(start, direction, length)
+    if (length > 0.05){
+        tree(c(newvec[1], newvec[2]), direction - (pi/4), (0.65 * length))
+        tree(c(newvec[1], newvec[2]), direction + (pi/4), (0.65 * length))
+    }
+}
+
+#28
+fern <- function(start, direction, length){
+    newvec <- turtle(start, direction, length)
+    if (length > 0.01){
+        fern(c(newvec[1], newvec[2]), direction + (pi/4), (0.38 * length))
+        fern(c(newvec[1], newvec[2]), direction, (0.87 * length))
+    }
+}
+
+#29
+fern_2 <- function(start, direction, length, dir=-1){
+    newvec <- turtle(start, direction, length)
+    if (length > 0.001){
+        dir <- -dir
+        fern_2(c(newvec[1], newvec[2]), direction + dir*(pi/4), (0.38 * length), -dir)
+        fern_2(c(newvec[1], newvec[2]), direction, (0.87 * length),dir)
+        }
+}
