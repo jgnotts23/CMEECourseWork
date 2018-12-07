@@ -21,3 +21,65 @@ Why use C?
 - Improve understanding of machine level and optimisation
 - Reading/using abundant C code in computational biology
 
+
+### Compiler ###
+- Composed of the PREPROCESSOR, COMPILER, LINKER
+- Preprocessor reads text, makes textual substitutions, errors, rewrites source code
+- Compiler interprets code and makes binary, in the form of object files
+- Linker makes the binary executable
+
+
+### Data Types ###
+- Integral, simple data structure, binary
+	- int: 1, 2, 3, 4
+	- char: 'a', 'b', 'B'
+	- _Bool: yes/no (i.e. 1/0 in binary)S
+- Floating point, to encode decimals, more complex as need to store the data before and after decimal point
+	- float: 1.234, 3.14159
+	- double
+
+### Data ###
+Can either be: 
+	- Variable (e.g. int, char)
+	- Constant literal (e.g. 1j, 'a'j)
+
+!a, if(a==0) are basically the same operator
+&&	Logical AND, both statements have to be true to evaluate to TRUE
+||	Logical OR, either statement can be true to evaluate to TRUE
+
+
+### Arrays in C ###
+String is just an array of characters in C
+
+Int = ~ 4 bytes
+Char = 1 byte
+Bool = 1 byte
+
+### Scope ###
+Area where a var/name has influence
+- Program: (e.g. global var)
+	- File
+		- Function
+			- 'Local'
+
+Can define functions at any of these levels and determines the order in which functions are executed.
+
+STACK
+- FILO = First in, Last out
+	- Also applies to functions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
