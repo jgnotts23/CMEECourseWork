@@ -44,6 +44,7 @@ def main(argv):
     taxa = csv.reader(f)
     first_row = next(taxa) # Avoids the headers
     csvwrite = csv.writer(g)
+    csvwrite.writerow(["Genus", "\t species"])
     oaks = set()
     for row in taxa:
         print(row)

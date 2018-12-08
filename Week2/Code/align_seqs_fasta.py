@@ -14,17 +14,44 @@ import sys
 import pdb
 import doctest
 
-## Constants ##
-
 ## Functions ##
-# These are the two sequences to match
-with open('../Data/sequences.csv','r') as fasta:
-    fasta = csv.reader(csvfile)
-    seq2 = str(next(sequences))
-    seq1 = str(next(sequences))
+# To extract names and sequences
+def read_fasta(fp):
+        name, seq = None, []
+        for line in fp:
+            line = line.rstrip()
+            if line.startswith(">"):
+                if name: yield (name, ''.join(seq))
+                name, seq = line, []
+            else:
+                seq.append(line)
+        if name: yield (name, ''.join(seq))
 
-print(seq1)
-print(seq2)
+
+# Assign and print
+if len(sys.argv) > 1:
+    with open(sys.argv[1]) as fp:
+        for name, seq in read_fasta(fp):
+            seq1 = seq
+            name1 = name
+            print("\nFASTA file 1:\n" + name + "\n",seq)
+    with open(sys.argv[2]) as fp:
+        for name, seq in read_fasta(fp):
+            seq2 = seq
+            name2 = name
+            print("\nFASTA file 2:\n" + name + "\n",seq)
+else:
+    with open("../Data/407228326.fasta") as fp:
+        for name, seq in read_fasta(fp):
+            seq1 = seq
+            name1 = name
+            print("\nFASTA file 1:\n" + name + "\n",seq)
+    with open("../Data/407228412.fasta") as fp:
+        for name, seq in read_fasta(fp):
+            seq2 = seq
+            name2 = name
+            print("\nFASTA file 2:\n" + name + "\n",seq)
+
 
 # assign the longest sequence s1, and the shortest to s2
 # l1 is the length of the longest, l2 that of the shortest
@@ -57,11 +84,11 @@ def calculate_score(s1, s2, l1, l2, startpoint):
                 matched = matched + "-"
 
     # build some formatted output
-    print("." * startpoint + matched)           
-    print("." * startpoint + s2)
-    print(s1)
-    print(score) 
-    print("")
+    # print("." * startpoint + matched)           
+    # print("." * startpoint + s2)
+    # print(s1)
+    # print(score) 
+    # print("")
 
     return score
 
@@ -79,14 +106,13 @@ for i in range(l1):
         my_best_align = "." * i + s2
         my_best_score = z
 
-print (my_best_align)
-print (s1)
-print ("Best score:", my_best_score)
+# print (my_best_align)
+# print (s1)
+# print ("Best score:", my_best_score)
 
-with open('../Results/bestalignment.txt','w') as results:
+with open('../Results/best_fasta_alignment.txt','w') as results:
     results.write(my_best_align + "\n")
     results.write(s1 + "\n")
     results.write("Best score:" + str(my_best_score))
 
 results.close 
-csvfile.close 
