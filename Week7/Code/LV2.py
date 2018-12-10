@@ -12,54 +12,52 @@ __version__ = '0.0.1'
 import scipy.integrate as integrate
 import scipy as sc
 import sys
+import matplotlib.pylab as p
 
 # Defining a function that returns the growth rate of 
 # consumer and resource population at any given step:
 def dCR_dt(pops, t=0):
-        """ The Lotka-Volterra model """
+        """ Returns growth rate of consumer and resource
+        at any given step """
+
         R = pops[0]
         C = pops[1]
-        dRdt = r * R * (1 - R / K) - a * R * C
+        dRdt = r * R * (1 - R / K) - a * R * C #K is density-dependence
         dCdt = -z * C + e * a * R * C
 
         return sc.array([dRdt, dCdt])
 
-#type(dCR_dt)
-#K = 50
-# Assign some parameter values:
-r = float(sys.argv[1])
-a = float(sys.argv[2])
-z = float(sys.argv[3])
-e = float(sys.argv[4])
-K = float(sys.argv[5])
 
-# Define the time vector; lets integrate from time
-# point 0 to 15, using 1000 sub-divisions of time:
-t = sc.linspace(0, 100, 1000) # time units are arbitary
+# Parameter values
+try:
+        r = float(sys.argv[1])
+        a = float(sys.argv[2])
+        z = float(sys.argv[3])
+        e = float(sys.argv[4])
+        K = float(sys.argv[5])
+except (IndexError, ValueError): #Defaults
+        r = 1.
+        a = 0.1
+        z = 0.6
+        e = 0.75
+        K = 50.0
 
-# Set initial conditions for the two populations 
-# 10 resources and 5 consumers per unit area
-# and convert the two into an array because dCR_dt
-# takes an array as an input
+# Define time vector
+t = sc.linspace(0, 100, 1000)
+
+# Set initial conditions
 R0 = 10
 C0 = 5
 RC0 = sc.array([R0, C0])
 
 # Numerically integrate this system with those starting conditions:
 pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
-#pops
-# so pops contains the results (population trajectories)
+
+# Calculate final R and C values
 rd_final = round(pops[999][0], 2)
 cd_final = round(pops[999][1], 2)
 
-## infodict is a dictionary with additional information
-#type(infodict)
-#infodict.keys()
-#infodict['message'] # Check integration
-
-### Plotting in Python ###
-
-import matplotlib.pylab as p
+### Plotting ###
 
 # Open empty figure object (like in ggplot in R)
 f1 = p.figure()

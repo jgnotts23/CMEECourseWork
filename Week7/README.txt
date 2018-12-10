@@ -21,7 +21,7 @@ An R script that creates a graph and outputs to the Results directory, fmr_plot.
 A script that outlines how numerical computing can be done with python. Includes manipulation of matrices and arrays.
 
 > LV1.py
-A script that runs the Lotka-Volterra model based on parameters provided by the user. Values for r, a, z and e should be entered in the command line when running the script. Two figures, LV_model.pdf and LV_model2.pdf will appear in the results directory.
+A script that runs the Lotka-Volterra model based on parameters provided by the user. Values for r, a, z and e can be entered in the command line when running the script, if not it will run with default values. Two figures, LV_model.pdf and LV_model2.pdf are output to the results directory.
 
 >LV2.py
 Similar to LV1.py but includes prey density-dependance in the model, K, which needs to be entered as an additional command-line argument. Outputs in the Results directory are called LV_model3.pdf and LV_model4.pdf.

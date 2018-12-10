@@ -7,9 +7,7 @@ __appname__ = 'profileme2.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
 __version__ = '0.0.1'
 
-# To find out what is slowing down your code you need to
-# 'profile' your code: locate the sections of your code
-# where speed bottlenecks exist
+# Alternative functions which are faster
 
 def my_squares(iters):
     """ Square every iteration """

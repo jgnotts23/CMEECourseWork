@@ -7,10 +7,6 @@ __appname__ = 'using_name.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
 __version__ = '0.0.1'
 
-## Imports ##
-
-## Constants ##
-
 ## Functions ##
 if __name__ == '__main__':
     print('This program is being run by itself')

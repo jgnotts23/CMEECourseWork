@@ -16,7 +16,7 @@ M = np.random.rand(1000,1000)
 
 # Define function
 def SumAllElements(M):
-    """ """
+    """ Sums all elements in a given matrix """
     Dimensions = M.shape
     Tot = 0 
     for i in range(Dimensions[0]):

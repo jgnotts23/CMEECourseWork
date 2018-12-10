@@ -12,6 +12,7 @@ __version__ = '0.0.1'
 _a_global = 10
 
 def a_function():
+    """ Function demonstrating scope """
     _a_global = 5
     _a_local = 4
     print("Inside the function, the value is ", _a_global)
@@ -27,6 +28,8 @@ print("Outside the function, the value is ", _a_global)
 _a_global = 10
 
 def a_function():
+    """ Function demonstrating scope """
+    
     global _a_global
     _a_global = 5
     _a_local = 4

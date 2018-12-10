@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""  """
+""" Demonstrating running an R script from python """
 
 __appname__ = 'run_fmr_R.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
@@ -16,4 +16,3 @@ subprocess.call (["/usr/bin/Rscript", "--vanilla", "fmr.R"])
 my_file = Path("../Results/fmr_plot.pdf")
 if my_file.is_file():
     print("\nfmr.R successfully run! See output in Results directory")
-

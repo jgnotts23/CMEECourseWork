@@ -17,15 +17,17 @@ import pickle
 ## Functions ##
 # To extract names and sequences
 def read_fasta(fp):
-        name, seq = None, []
-        for line in fp:
-            line = line.rstrip()
-            if line.startswith(">"):
-                if name: yield (name, ''.join(seq))
-                name, seq = line, []
-            else:
-                seq.append(line)
-        if name: yield (name, ''.join(seq))
+    """ Reads in a fasta file and extracts names and sequences """£
+
+    name, seq = None, []
+    for line in fp:
+        line = line.rstrip()
+        if line.startswith(">"):
+            if name: yield (name, ''.join(seq))
+            name, seq = line, []
+        else:
+            seq.append(line)
+    if name: yield (name, ''.join(seq))
 
 
 # Assign and print
@@ -70,6 +72,7 @@ else:
 # by returning the number of matches 
 # starting from arbitrary startpoint
 def calculate_score(s1, s2, l1, l2, startpoint):
+    """ Calculates alignment scores given 2 sequences """
     # startpoint is the point at which we want to start
     matched = "" # contains string for alignement
     score = 0
@@ -119,9 +122,3 @@ with open('../Results/better_fasta_alignment.txt','w') as results:
     results.write(s1 + "\n")
     results.write("Best score:" + str(my_best_scores[0]) + "\n\n")
 results.close
-
-# with open('../Results/better_fasta_alignment.txt','a') as results:
-#     results.write(my_best_alignments[1] + "\n")
-#     results.write(s1 + "\n")
-#     results.write("Best score:" + str(my_best_scores[1]))
-# results.close 

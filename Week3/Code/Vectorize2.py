@@ -13,7 +13,7 @@ import time
 
 a = np.random.uniform(0.5, 1.5, 1000)
 def stochrick(p0=np.random.uniform(0.5, 1.5, 1000), r=1.2, K=1, sigma=0.2, numyears=100):
-    """ """
+    """ Stochrick model """
     N = np.full([numyears, len(p0)], fill_value=np.nan)
     N[0,] = p0
 
@@ -25,7 +25,7 @@ def stochrick(p0=np.random.uniform(0.5, 1.5, 1000), r=1.2, K=1, sigma=0.2, numye
 
 
 def stochrickvect(p0=np.random.uniform(0.5, 1.5, 1000), r=1.2, K=1, sigma=0.2, numyears=100):
-    """ """
+    """ Vectorized stochrick model """
     N = np.full([numyears, len(p0)], fill_value=np.nan)
     N[0,] = p0
 
