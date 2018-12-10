@@ -20,6 +20,7 @@ MyData <- read.csv("../Data/trees.csv", header = TRUE) # import with headers
 # Creating a function to calculate tree height
 for (i in MyData){ #i here just means for the 'ith' row
         radians <- MyData$Angle.degrees * pi / 180 # Referencing columns directly
+        print(radians)
         height <- MyData$Distance.m * tan(radians)
         Tree.Height.m <- c(height) # Make a new vector called Tree,height.m
 }
