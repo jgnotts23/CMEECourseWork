@@ -20,3 +20,5 @@ echo "set to uppercase" | tr [:lower:] [:upper:]
 
 # Remove non-numbers
 echo "10.00 only numbers 1.33" | tr -d [:alpha:] | tr -s " " ","
+
+exit

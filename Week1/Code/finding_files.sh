@@ -33,3 +33,5 @@ find . -maxdepth 2 -not -name "*.txt"
 
 # Find only directories
 find . -type d -iname *dir*
+
+exit

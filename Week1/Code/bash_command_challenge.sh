@@ -10,5 +10,5 @@ find . -type f -exec ls -s {} \; | sort -n | head -10
 # -exec ls -s {} \; is saying list all matches with their file size
 # These results are then sorted by numerical string value
 # Then the first 10 results are printed
-
 # Essentially, it is finding and printing the 10 longest file names
+exit

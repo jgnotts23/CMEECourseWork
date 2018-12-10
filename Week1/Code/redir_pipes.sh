@@ -23,3 +23,5 @@ ls / | wc -l
 # List files in long format and sorted by modification time, newest first
 # Only print first 5 files
 ls -lt | head -5
+
+exit

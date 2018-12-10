@@ -7,10 +7,6 @@ __appname__ = 'scope.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
 __version__ = '0.0.1'
 
-## Imports ##
-
-## Constants ##
-
 ## Functions ##
 # Try this first
 _a_global = 10

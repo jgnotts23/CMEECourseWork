@@ -9,8 +9,6 @@ __version__ = '0.0.1'
 ## Imports ##
 import sys
 
-## Constants ##
-
 ## Functions ##
 print("This is the name of the script: ", sys.argv[0])
 print("Number of arguments: ", len(sys.argv))

@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+""" Demonstrating how to index and print tuple elements """
+
+__appname__ = 'tuple.py'
+__author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),
@@ -5,11 +14,9 @@ birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Tachycineata bicolor','Tree swallow',20.2),
         )
 
-# Birds is a tuple of tuples of length three: latin name, common name, mass.
-# write a (short) script to print these on a separate line or output block by species 
-# Hints: use the "print" command! You can use list comprehension!
+print("Bird data created:")
+print(birds)
 
-# ANNOTATE WHAT EVERY BLOCK OR IF NECESSARY, LINE IS DOING! 
-
-# ALSO, PLEASE INCLUDE A DOCSTRING AT THE BEGINNING OF THIS FILE THAT 
-# SAYS WHAT THE SCRIPT DOES AND WHO THE AUTHOR IS
+print("\nListing by species:")
+for item in birds:
+  print("{} {} {}".format(item[0], item[1], item[2]))

@@ -1,13 +1,14 @@
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: CompileLaTeX.sh
-# Desc: Script to compile a LaTeX document with references
+# Desc: Compiles a LaTeX document with references
 # Arguments: 1 .tex file and 1 .bib file
 # Date: Oct 2018
 
 file="$1"
-filename="${file%%.*}"
+filename="${file%%.*}" #strip name
 
+# Compile
 {
   pdflatex "$filename"
   bibtex "$filename"

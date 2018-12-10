@@ -14,8 +14,6 @@ import sys
 import pdb
 import doctest
 
-## Constants ##
-
 ## Functions ##
 # These are the two sequences to match
 with open('../Data/sequences.csv','r') as csvfile:
@@ -43,6 +41,7 @@ else:
 # by returning the number of matches 
 # starting from arbitrary startpoint
 def calculate_score(s1, s2, l1, l2, startpoint):
+    """Calculate match score between s1 and s2"""
     # startpoint is the point at which we want to start
     matched = "" # contains string for alignement
     score = 0

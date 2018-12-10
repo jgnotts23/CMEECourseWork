@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """ A demonstration of the use of loops and list comprehensions
-    to output data from a tuple of tuples with if statements """
+    to output data from a tuple of tuples """
 
 __appname__ = 'lc2.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
@@ -26,30 +26,37 @@ rainfall = (('JAN',111.4),
             ('DEC',142.2),
            )
 
+print("Rainfall data in 1910 imported from met office (UK)")
+print(rainfall)
+
 ## Functions ##
 # List comprehensions
 # Months when rain > 100mm
-high_lc = set([item[1] for item in rainfall if item[1] > 100])
+print("\nFinding months when rainfall exceeded 100mm with list comprehension...")
+high_lc = set([item for item in rainfall if item[1] > 100])
 print(high_lc)
 
 # Months when rain < 50mm
-low_lc = set([item[1] for item in rainfall if item[1] < 50])
+print("\nFinding months when rainfall was below 50mm with list comprehension...")
+low_lc = set([item[0] for item in rainfall if item[1] < 50])
 print(low_lc)
 
 
 # Conventional loops
 # Months when rain > 100mm
+print("\nFinding months when rainfall exceeded 100mm with a loop...")
 high_loop = set()
 for values in rainfall:
     if values[1] > 100:
-        high_loop.add(values[1])
+        high_loop.add(values)
 
 print(high_loop)
 
 # Months when rain < 50mm
+print("\nFinding months when rainfall was below 50mm with a loop...")
 low_loop = set()
 for values in rainfall:
     if values[1] < 50:
-        low_loop.add(values[1])
+        low_loop.add(values[0])
 
 print(low_loop)

@@ -8,4 +8,4 @@
 echo -e "\nThis is a shell script! \n" 
 # echo displays a line of text and -e enables interpretation of backslash escapes
 
-# Exit
+exit

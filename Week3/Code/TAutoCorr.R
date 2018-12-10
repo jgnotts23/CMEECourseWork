@@ -25,7 +25,7 @@ pval<-length(results[results>a])/length(results)
 
 
 # Open a pdf file
-pdf("../Data/rplot.pdf") 
+pdf("../Results/rplot.pdf") 
 # 2. Create a plot
 myhist <- hist(as.numeric(results), xlab="Correlation", main="Correlation Histogram")
 abline(v=a, col="red")

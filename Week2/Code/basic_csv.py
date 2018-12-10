@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" A script to learn how to read and write csv files with python """
+""" Demonstrating how to read and write csv files with python """
 
 __appname__ = 'basic_csv.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
@@ -9,21 +9,17 @@ __version__ = '0.0.1'
 ## Imports ##
 import csv
 
-## Constants ##
-
 ## Functions ##
 
 # Read a file containing:
 # 'Species', 'Infraorder', 'Family', 'Distribution', 'Body mass male (Kg)'
 f = open('../Data/testcsv.csv','r')
-
 csvread = csv.reader(f)
 temp = []
 for row in csvread:
     temp.append(tuple(row))
     print(row)
     print("The species is", row[0])
-
 f.close()
 
 # Write a file containing only species name and Body mass

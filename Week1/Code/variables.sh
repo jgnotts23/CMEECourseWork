@@ -1,8 +1,8 @@
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: variables.sh
-# Desc: script to illustrate the use of variables in UNIX
-# Arguments: None
+# Desc: Illustration of the use of variables in UNIX
+# Arguments: String and numbers entered by user at command line
 # Date: Oct 2018
 
 ## Shows the use of variables
@@ -18,3 +18,5 @@ read a b
 echo 'You entered' $a 'and' $b '. Their sum is:'
 mysum=`expr $a + $b`
 echo $mysum
+
+exit

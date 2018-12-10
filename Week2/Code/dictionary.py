@@ -7,8 +7,6 @@ __appname__ = 'dictionary.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
 __version__ = '0.0.1'
 
-## Imports ##
-
 ## Constants ##
 taxa = [ ('Myotis lucifugus','Chiroptera'),
          ('Gerbillus henleyi','Rodentia',),
@@ -22,8 +20,13 @@ taxa = [ ('Myotis lucifugus','Chiroptera'),
          ('Canis lupus', 'Carnivora'),
         ]
 
+print("Taxa data created:")
+print(taxa)
+
 ## Functions ##
+print("\nPopulating dictionary to map species to Order name...")
 taxa_dic = {x[1]:set() for x in taxa} # Create key with empty set
 for species in taxa:
     taxa_dic[species[1]].add(species[0])
 print(taxa_dic)
+print("Done!")

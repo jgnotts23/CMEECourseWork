@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 
-""" An application of loops and list comprehensionsS """
+""" An application of loops and list comprehensions """
 
 __appname__ = 'oaks.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
 __version__ = '0.0.1'
 
 ## Finds just those taxa that are oak trees from a list of species
-## Imports ##
-
 ## Constants ##
 taxa = [ 'Quercus robur', 
          'Fraxinus exelsior', 

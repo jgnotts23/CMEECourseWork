@@ -4,6 +4,7 @@
 
 # A script demonstrating how vectorisation can be used to speed up processes
 
+# Generate synthetic data
 M <- matrix(runif(1000000),1000,1000)
 
 SumAllElements <- function(M){  
@@ -17,7 +18,6 @@ SumAllElements <- function(M){
     return (Tot)
 }
 
-## Takes about 1 second for Samraat
-print(system.time(SumAllElements(M)))
-## Takes about 0.01 seconds for Samraat
-print(system.time(sum(M)))
+
+print(paste0("SumAllElements(M): ", as.numeric(system.time(SumAllElements(M))[3]), "s"))
+print(paste0("sum(M): ", as.numeric(system.time(sum(M))[3]), "s"))

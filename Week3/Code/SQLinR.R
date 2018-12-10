@@ -3,7 +3,7 @@
 # Date - Oct 2018
 
 #install the sqlite package
-install.packages('sqldf')
+#install.packages('sqldf')
 
 # To load the packages
 library(sqldf)

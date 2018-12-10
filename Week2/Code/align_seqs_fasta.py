@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-""" A program that takes sequence data inputs from a csv file
-    and finds the alignment with the highest score, outputting 
-    the result to a text file. """
+""" Same as align_seqs.py but takes any input files from command line """
 
 __appname__ = 'align_seqs_fasta.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'

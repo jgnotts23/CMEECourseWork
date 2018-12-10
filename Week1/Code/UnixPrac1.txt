@@ -30,5 +30,3 @@ g=$(tail -n +2 ../Data/E.coli.fasta | grep -o G | wc -l) &&
 t=$(tail -n +2 ../Data/E.coli.fasta | grep -o T | wc -l) && 
 c=$(tail -n +2 ../Data/E.coli.fasta | grep -o C | wc -l) && 
 result=$(echo "($a+$t)/($g+$c)" | bc -l) && echo "AT/GC ratio = $result"
-
-

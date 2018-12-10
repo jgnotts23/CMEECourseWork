@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: grep.sh
-# Desc: demonstrating grep
+# Desc: demonstrating the use of grep
 # Date: Nov 2018
 
 # grep is a command that matches strings in a file (based on regex)
@@ -40,3 +40,5 @@ grep -i -w -n ara spawannxs.txt
 
 # -v prints all lines that DO NOT match pattern
 grep -i -w -v ara spawannxs.txt
+
+exit

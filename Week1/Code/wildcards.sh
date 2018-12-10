@@ -32,3 +32,5 @@ ls *.txt # anything ending with ".txt"
 ls File?.txt # anything starting with "File", followed by 1 character, and ending with ".txt"
 ls File[1-2].txt # anything starting with "File", followed by 1 or 2, and ending with ".txt"
 ls File[!3].* # anything starting with "File", followed by anything except 3, and any ending
+
+exit

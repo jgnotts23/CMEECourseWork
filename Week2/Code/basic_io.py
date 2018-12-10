@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" A script to learn how to input and output with python """
+""" Learning how to input and output with python """
 
 __appname__ = 'basic_io.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
@@ -45,7 +45,7 @@ f.close()
 # To save an object (even complex) for later use
 my_dictionary = {"a key": 10, "another key": 11}
 
-import pickle 
+import pickle #Stores data for later use
 
 f = open('../Sandbox/testp.p', 'wb') ## note the b: accept binary files
 pickle.dump(my_dictionary, f)

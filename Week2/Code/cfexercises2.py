@@ -1,25 +1,23 @@
 #!/usr/bin/env python3
 
-"""Some functions to practice the use of control statements"""
+""" Some functions to practice the use of control statements """
 
 __appname__ = 'cfexercises2.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
 __version__ = '0.0.1'
 
-## Imports ##
 import sys
+import doctest
 
-## Constants ##
-
-## Functions ##
+### Functions ###
 def foo_1(x=1):
     """ Finds the value of a number, x, to the power of 0.5"""
-    return "foo_1(2): %d ^ 0.5 = " % x + str(x ** 0.5)
+    return "%d ^ 0.5 = " % x + str(x ** 0.5)
 
 def foo_2(x=2, y=1):
     """ Returns the highest number, x or y """ 
     if x > y:
-        return "foo_2(2, 1): %d is higher" % x + " than %d" % y
+        return "%d is higher" % x + " than %d" % y
     return "%d is higher" % y + " than %d" % x
 
 def foo_3(x=3, y=2, z=1):
@@ -41,7 +39,7 @@ def foo_4(x=5):
     result = 1
     for i in range(1, x + 1):
         result = result * i
-    return "foo_4(5): %d! = " % x + str(result)
+    return result
 
 def foo_5(x=5): 
     """ Alternative (recursive) function that calculates the factorial (!) of x """
@@ -58,12 +56,19 @@ def foo_6(x=5):
     return facto
 
 def main(argv):
+    print("foo_1(2): ")
     print(foo_1(2))
+    print("\nfoo_2(3,2): ")
     print(foo_2(3, 2))
+    print("\nfoo_3(3,2,1): ")
     print(foo_3(3, 2, 1))
+    print("\ffoo_4, foo_5, and foo_6 calculate x! with different methods:")
+    print("\nfoo_4(5): ")
     print(foo_4(5))
-    print(foo_5(5))
-    print(foo_6(5))
+    print("\nfoo_5(6): ")
+    print(foo_5(6))
+    print("\nfoo_6(4): ")
+    print(foo_6(4))
     return 0
 
 if (__name__ == "__main__"):

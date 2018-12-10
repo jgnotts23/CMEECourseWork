@@ -6,10 +6,6 @@ __appname__ = 'cfexercises1.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
 __version__ = '0.0.1'
 
-## Imports ##
-
-## Constants ##
-
 ## Functions ##
 for i in range(3, 17):
     print('hello')

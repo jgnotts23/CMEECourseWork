@@ -1,0 +1,38 @@
+###############################
+README - CMEE Coursework Week 4
+###############################
+
+### Description ###
+
+This directory and its subsidaries contains the code created in week 4 of the Computational Methods in Ecology and Evolution MSc at Imperial College London. Some code was provided by my supervisor, Samraat Pawar, and the rest is original content. Subdirectories have been created entitled 'Code', 'Data', 'Results' and 'Sandbox'. 'Code' contains several scripts. 'Data' contains data that was used to test the scripts and 'Results' is where any script outputs will appear. 'Sandbox' was created for practice purposes and can be ignored. The purpose of this project was to learn basic statistics in R.
+
+
+### Dependencies ###
+
+Everything in this project was created and run with the ubuntu 16.04 OS.
+Most of the code was either entered directly into the UNIX terminal or saved as a shell script created in Visual Studio Code 1.27.2. R scripts were run in R 3.2.3.
+
+
+### Authors/Contributors ###
+
+Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+Samraat Pawar, s.pawar@imperial.ac.uk
+
+
+### Useful Links ###
+
+github CMEE Coursework repository: https://github.com/jgnotts23/CMEECourseWork
+
+
+### .gitignore list ###
+
+*~
+*.tmp
+*.p
+*.pyc
+pickle
+/Week5/Data/GIS_Practical_1_files
+/Week3/Data/EcolArchives-E089-51-D1.csv
+/Miniproject/Data/BioTraits.csv
+
+

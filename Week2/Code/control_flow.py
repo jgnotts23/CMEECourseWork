@@ -12,8 +12,6 @@ __version__ = '0.0.1'
 ## Imports ##
 import sys # module to interface our program with the operating system
 
-## Constants ##
-
 ## Functions ##
 def even_or_odd(x=0): # if not specified, x should take value 0.
 

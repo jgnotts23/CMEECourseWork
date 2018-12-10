@@ -1,6 +1,7 @@
 #!/usr/bin/Rscript
 # Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
 # Date - Oct 2018
+# Desc - How to plot in R
 
 
 # Load dataframe

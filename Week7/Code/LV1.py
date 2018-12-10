@@ -69,7 +69,7 @@ p.ylabel('Population density')
 p.title('Consumer-Resource population dynamics \n' 
         "r= {},".format(str(r)) + "  a= {},".format(str(a)) + "  z= {},".format(str(z)) + "  e= {}".format(str(e)))
 
-f1.savefig('../Results/LV_model.pdf') # Save figure
+f1.savefig('../Results/LV1_model1.pdf') # Save figure
 
 
 #### Resource density x Consumer density ####
@@ -83,4 +83,4 @@ p.title('Consumer-Resource population dynamics')
 p.title('Consumer-Resource population dynamics \n' 
         "r= {},".format(str(r)) + "  a= {},".format(str(a)) + "  z= {},".format(str(z)) + "  e= {}".format(str(e)))
 
-f1.savefig('../Results/LV_model2.pdf') # Save figure
+f1.savefig('../Results/LV1_model2.pdf') # Save figure

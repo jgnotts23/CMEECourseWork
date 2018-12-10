@@ -2,7 +2,7 @@
 # Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
 # Date - Oct 2018
 
-# Runs the stochastic (with gaussian fluctuations) Ricker Eqn .
+# Runs the stochastic (with gaussian fluctuations) Ricker Eqn.
 
 rm(list=ls())
 
@@ -23,14 +23,9 @@ stochrick<-function(p0=runif(1000,.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 
 }
 
-print("Non-Vectorized Stochastic Ricker takes:")
-print(system.time(stochrick()))
-
 # Now write another function called stochrickvect that vectorizes the above 
 # to the extent possible, with improved performance: 
 
-
-rm(list=ls())
 
 stochrickvect<-function(p0=runif(1000,.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 {
@@ -42,12 +37,12 @@ stochrickvect<-function(p0=runif(1000,.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
   
   for (yr in 2:numyears) #for each population, loop through the years
   {
-    N[yr,]<-N[yr-1,]*exp(r*(1-N[yr-1,]/K)+rnorm(1,0,sigma))
+    N[yr,]<-N[yr-1,]*exp(r*(1-N[yr-1,]/K)+rnorm(length(p0),0,sigma))
   }
   
  return(N)
 
 }
 
-print("Vectorized Stochastic Ricker takes:")
-print(system.time(res2<-stochrickvect()))
+print(paste0("stochrick(): ", as.numeric(system.time(stochrick())[3]), "s"))
+print(paste0("stochrickvect(): ", as.numeric(system.time(stochrickvect())[3]), "s"))

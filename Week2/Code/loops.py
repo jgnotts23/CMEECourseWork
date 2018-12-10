@@ -6,10 +6,6 @@ __appname__ = 'loops.py'
 __author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
 __version__ = '0.0.1'
 
-## Imports ##
-
-## Constants ##
-
 ## Functions ##
 # FOR loops in Python
 for i in range(5):

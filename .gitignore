@@ -1,2 +1,8 @@
- 
+*~
+*.tmp
+*.p
+*.pyc
+pickle 
 /Week5/Data/GIS_Practical_1_files
+/Week3/Data/EcolArchives-E089-51-D1.csv
+/Miniproject/Data/BioTraits.csv

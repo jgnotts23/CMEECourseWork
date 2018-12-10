@@ -30,3 +30,5 @@ sudo dpkg -i <file>.deb
 
 # Install dependencies
 sudo apt-get install -f
+
+exit
