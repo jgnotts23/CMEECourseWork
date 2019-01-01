@@ -145,9 +145,6 @@ question_16 <- function(community, v, duration){
 system.time(a <- question_16(initialise_max(100), 0.1, 2000))
 
 #17
-
-
-
 #keep for Q17
 # question_16 <- function(community, v, duration){
 #     community <- neutral_generation_speciation(initialise_max(100), 0.1)

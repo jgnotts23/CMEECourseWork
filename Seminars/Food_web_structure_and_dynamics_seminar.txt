@@ -1,0 +1,15 @@
+#### Food Web Structure and Dynamics Across Space and Time ####
+
+Body size delimits the range of resources that a consumer can feasibly access and sets the rate of consumption. It also controls the flux, storage and turnover of energy and matter (as does stoichiometry).
+
+There is great variation in the stoichiometry of organisms.
+- Arthopods have high carbon and nitrogen levels in their exoskeletons
+- Phosphorous is important in endoskeletons
+
+N and P may be limiting elements in consumer-resource interactions.
+
+Elemental imbalances in consumer-resource interactions seem to be common in nature.
+
+One of the most pervasive human impacts on ecosystems is alteration of global nutrient budgets.
+
+

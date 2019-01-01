@@ -1,0 +1,14 @@
+########################################################################
+# Understanding the effectiveness of indoor based malaria vector control
+########################################################################
+- 48% reduction in mortality rates since 2000
+- Primarily through distribution of insecticde treated bednets (ITNs)
+- Number of cases decreases until 2013/14 but started to rise again since
+
+- Pyrethroids are currently only class of insecticides used on bednets
+- Mosquitoes are becoming increasingly resistant to the insecticide
+- Resistance to one pyrethroid tends to mean resistant to all
+
+- PBO LLIN nets more effective (and expensive) than standard LLIN nets
+- PHASE II studies show bed nets can deter house entry by mosquitoes
+- ~10% reduction in indoor biting rate over last 15 years, may reduce net effectiveness

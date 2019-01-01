@@ -1,0 +1,20 @@
+#### Earth Observation and Data Science ####
+- Matthias Forkel
+
+"Greenness" increasing over last 30 years, particularly in northern latitudes
+- tracking using satellite data
+- Microwave satellites can be used to track changes in biomass
+- Tropical forests decreasing but temperate forests increasing
+- GPP also increasing
+
+Fires can also be tracked
+- Decline in fires in some parts of Africa and Australia
+- Modelling data doesn't support this
+
+Vegetation dynamics modelled from climate data. Satellite data integrated too to optimise model. Many iterations reduce 'cost' of the model.
+
+Pattern-oriented model evaluation (machine learning)
+- Models predict that warm springs will produce warm summers and autumns but satellite data disagrees with this
+
+Data-driven fire model proved more accurate than process-driven model. 
+- 

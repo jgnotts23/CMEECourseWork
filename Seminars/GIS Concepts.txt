@@ -1,0 +1,151 @@
+###### GIS Concepts ######
+Geographic information systems (GIS)
+- Niche form of database
+- Still important but becoming less used 
+- Used by conservationists, police, delivery drivers etc. 
+- A way of creating, storing, manipulating, analysing and presenting geographic information
+- Good for spatial comparisons
+
+Any piece of data that can be located in space using:
+- a set of coordinates
+- a known coordinate system (both required)
+
+
+### Spherical coordinates ###
+
+Latitude is an angle above or below the equator:
+- Points of equal latitude form a parallel
+- Distance between parallels is constant
+- Can be +/- 90 degrees
+
+Longitude is an angle around the equator:
+- Points of equal longitude form a meridian 
+- Distance between meridians varies
+- Can be +/- 180 degrees
+- Degrees of longitude do not easily convert into distances due to spherical nature of the Earth
+
+The Earth is not a perfect sphere which complicates longitude and latitude further
+- Estimated reference ellipsoid (datums) vary
+- WGS 1984 most commonly used
+- This slight imperfection can actually skew coordinates quite significantly if not accounted for
+- Unfortunately, the Earth isn't an ellipsoid either. Distribution of mass is uneven and dynamic
+
+Geoid
+- Surface of equal gravitational force
+- Up and down are perpendicular to the local geoid
+- A level surface is tangent to the local geoid
+
+The Mason-Dixon Line
+- Between Maryland and Pennsylvannia which separated slave-owning South and non-slave-owning North
+- Huge operation to mark the line
+- Thought to be accurate to 50 feet but in reality some parts are 900 feet out
+- Local gravity caused by mountain ranges skewed their measurements
+
+WGS 1984
+- Combined datum and geoid giving standard global coordinate system
+- Uses modern satellite data to provide ellipsoid measurements and gravity model
+- Used by gps
+
+Local geographic datum
+- The fit between a geoid and a datum varies in space
+- Global models like WGS 1984 work well on average
+- Countries adopt local datum models that fit better locally
+- British National Grid uses OSGB 36 datum
+- Same latitude and longitude + different datum = datum shift
+- In Cornwall the local datum is about 70m E and 70m S from WGS 1964
+
+Spherical geometry
+- Great circles
+- Spherical 'triangle'
+- Spherical geometry = exact and fast
+- Ellipsoidal geometry = iterative and slow
+- Hard to scale spheres and represent them on paper
+
+Map projects can preserve:
+- Shape: conformal maps
+- Area: equal-area maps
+- Distance
+- Direction
+
+But most projected coordinate systems can only preserve one of these ^^
+
+
+### Data Types ###
+
+Raster data
+- An image covering a continuous surface
+- Made up of individual pixels, each with a value
+- Has a resolution (pixel size)
+- Needs origin and coordinate system
+- Categorical: e.g. land cover, species presence
+- Continuous: e.g. temperature, canopy cover
+- High resolution = big grid squares
+- Values can be blank or 0
+
+Vector data - a set of features, containing one of:
+- Individual points
+- Sets of connected points forming lines or polygons
+- Needs a coordinate system
+- Coordinates of points are a precise location, but may have precision or accuracy information
+- Features may have an attribute table
+
+
+### Remote Sensing ###
+
+Mapping landscapes manually
+- Very fine level of detail
+- Expensive, slow and inconsistent
+
+Maps from images
+- Aerial photography (1900s)
+- Satellite imagery (1950s)
+
+Remote sensors can be:
+- Passive: sense reflected solar radiation (e.g. photographs)
+- Active: emit and sense reflections (e.g. light, microwaves). Detect alteration in reflected light.
+
+LiDAR is popular currenly, very useful for forest mapping. Expensive as it requires an aeroplane and specialists/specialist equipment.
+
+Reflectance
+- Albedo: the proportion of radiation reflected from a surface (texture and angle strongly affect albedo)
+
+Multispectral images
+- The albedo of a surface varies with the wavelength of the radiation
+- Different surfaces have different relectance profiles
+- Composed of..
+
+Satellite orbits
+- High Earth geostationary orbits (weather)
+- Mid Earth orbits (navigation and communications)
+- Low Earth orbits (Earth observation) including sun synchronous orbit, controlling the time of day of observation
+
+Spatiotemporal resolution
+- Low Earth orbits:
+- Close to the planet
+- High spatial resolution
+- Narrow path widths
+- Small scenes
+- Less frequent
+- Satellite constellations can increase temporal resolution
+
+Spectral resolution
+- Determined by the satellite mission
+- Constrained by absorption of radiation by the atmosphere
+- Light gathering sets resolution and band width
+
+Using satellite images
+- Georeferencing: where is the image?
+- Orthorectification: remove perspective and terrain effects
+- Calibration: convert sensor value to an actual refectance value
+- Atmospheric correction: aerosols and water vapour can all impose spectral biases on reflected light and vary on a daily basis
+
+Vegetation indices
+- Normalised Difference Vegetation Index (NDVI) (chlorophyll density)
+- Enhanced Vegetation Index (EVI) (leaf density)
+
+Land cover
+- Spectral signatures differ between different surfaces (e.g. soil, water and vegetation)
+
+
+
+
