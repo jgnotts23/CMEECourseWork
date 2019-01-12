@@ -1,25 +1,32 @@
 #include <stdio.h>
 
-int main (void)
+int main()
 {
-    int i = 3;
+    int prime = 1; // the numbers to test
+    int divisor = 2; // the divisor number
+    int is_prime = 0; // the counter of number of primes
+    int n_prime = 0; // a conditional integer (if 0 it's not a prime, if 1 it's a prime)
 
-    for (i = 3; i < 101; ++i) {
-        int j = 2;
-        for (j = 2; j < 51; ++j) {
-            if (i % j == 0) {
-                printf("%i is not prime!\n");
+    while (prime < 100)
+    {
+        is_prime = 0; // Set the condition to 0 (not prime)
+
+        for(divisor = 2; divisor <= prime/2; ++divisor) // check the values between 2 and the prime number
+        {
+            if(prime % divisor == 0) // if the prime number can be divided only by itself, it's a prime number
+            {
+                is_prime = 1;  // Set the condition to 1 (is prime)
                 break;
             }
-            else {
-                printf("%i is prime!\n");
-            }
         }
-    printf("\n");
-    
 
-    }   
+        if (is_prime == 0) {
+            ++n_prime; // increment prime number counter
+            printf("Prime number %i is %i\n", n_prime, prime);
+        }
 
+        ++prime; // increment number counter
+    }
 
     return 0;
 }
