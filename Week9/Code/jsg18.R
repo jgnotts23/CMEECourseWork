@@ -5,58 +5,67 @@
 rm(list=ls())
 graphics.off()
 
-#1 - measure species richness based on input vector
+#1 - Measure species richness based on input community (as a vector)
+#     For example, species_richness(c(1,4,4,5,1,6,1)) will return 4
 species_richness <- function(community){
-    return(length(unique(community)))
+    return(length(unique(community))) #returns number of species
 }
 
-#2 - function to define max possible species in community
+#2 - Generates initial state for simulation community with max species richness 
+#     based on community size (an integer)
+#     For example, initisalise_max(7) will return the vector c(1, 2, 3, 4, 5, 6, 7) 
 initialise_max <- function(size){
     return(seq(1:size))
 }
 
-#3 - Monodominance
+#3 - Generates initial state for simulation community with min species richness (monodominance)
+#     based on community size (an integer)
+#     For example, initisalise_min(4) will return the vector c(1, 1, 1, 1) 
 initialise_min <- function(size){
     x <- rep(1, each=size)
     return(x)
 }
 
-#4 - Generating two random integers
+#4 - Choose 2 random integers from 1 to the input parameter, x, from a uniform distribution
 choose_two <- function(x){
-    sample(1:x, 2, replace=F)
+    sample(1:x, 2, replace=F) # replace=F to ensure 2 different numbers are returned
 }
 
-#5 - single step of neutral model sim
+#5 - Perform a single step of a neutral model simulation on a community vector
+#       Selects an individual to die and another to replace at random
 neutral_step <- function(community){
-    x <- choose_two(length(community))
-    new <- replace(community, x[1], community[x[2]])
-    return(new)
+    x <- choose_two(length(community)) # Randomly selecting 2 individuals
+    new <- replace(community, x[1], community[x[2]]) # Remove and replace
+    return(community)
 }
 
-#6 - several steps
+#6 - Perform several steps of a neutral simulation so that a generation has passed on a community vector
 neutral_generation <- function(community){
-    gentime <- ceiling(length(community)/2)
+    gentime <- ceiling(length(community)/2) # determines number of neutral_steps based on community size
     for (i in (1:gentime)){
         community <- neutral_step(community)
     }
 return(community)
 }
 
-#7 - S
+#7 - Perform neutral simulation and return time series of species richness in the system
+#       Takes an initial community vector and duration (number of gens) as inputs
 neutral_time_series <- function(initial, duration){
-    rich <- species_richness(initial)
-    timeseries <- c(rich)
+    rich <- species_richness(initial) # Record starting species richness
+    timeseries <- c(rich) # Initiialise vector to store species richness in
     for (i in (1:duration)){
         initial <- neutral_generation(initial)
         rich <- species_richness(initial)
-        timeseries <- c(timeseries, rich)
+        timeseries <- c(timeseries, rich) # Add to timeseries vector each loop
     }
     return(timeseries)
 }
 
-#8 - time series graph
+#8 - Time series graph of neutral model simulation with a system of 100 individuals and
+#       maximum starting diversity for 200 generations. No input parameters are required
 question_8 <- function(){
-    plot((neutral_time_series(initialise_max(100), duration=200)), type="l", xlab="Generations", ylab="Species Richness")
+    plot((neutral_time_series(initialise_max(100), duration=200)), type="l", 
+         xlab="Generations", ylab="Species richness")
 }
 
 #9 - 

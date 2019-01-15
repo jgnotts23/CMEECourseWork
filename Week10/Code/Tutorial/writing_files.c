@@ -4,7 +4,7 @@
 int main (void)
 {
     /* creating pointer to physical file on machine */
-    FILE * fpointer = fopen("../Results/employees.txt", "w"); // Writes new file, overwrites if it already exists
+    FILE * fpointer = fopen("../../Results/employees.txt", "w"); // Writes new file, overwrites if it already exists
 
     fprintf(fpointer, "Jim, Salesman\nPam, Receptionist\nOscar, Accounting\n"); // Data to be stored in file
 

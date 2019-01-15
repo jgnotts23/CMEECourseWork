@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void)
+{
+    float avgProfit;
+    int priceOfPumpkin = 10;
+    int sales = 59;
+    int daysWorked = 7;
+
+    // Using typecasting to temporarily treat a datatype as different type
+    avgProfit = ((float)priceOfPumpkin * (float)sales) / (float)daysWorked;
+
+    printf("Average daily profit: $%.2f\n", avgProfit);
+
+    return 0;
+}

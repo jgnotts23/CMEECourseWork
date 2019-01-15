@@ -65,42 +65,58 @@ octaves <- function(community){
 
 #17 - Cluster
 cluster_run <- function(speciation_rate, size, wall_time, interval_rich, interval_oct, burn_in_generations, output_file_name){
-    input_params <- list(speciation_rate, size, wall_time, interval_rich, interval_oct, burn_in_generations)
-    community <- initialise_min(size)
-    rich <- c()
-    abundance <- list()
-    i <- 0
-    gens <- 0
+    community <- initialise_min(size) #initialise community with minimal diversity
+    rich <- c() #vector to store species richness
+    abundance <- list() #list to store species abundance
+    i <- 0 #initialise iteration counter
+    gens <- 0 #initialise generations
     ptm <- proc.time()
     time <- proc.time() - ptm
     while (as.numeric(time[3]) < wall_time*60){
         community <- neutral_generation_speciation(community, speciation_rate)
-        if (gens <= burn_in_generations){
+        if (gens < burn_in_generations){
             if (gens %% interval_rich == 0){
                 rich <- c(rich, species_richness(community))
             }
         }
         if (gens %% interval_oct == 0){
             a <- species_abundance(community)
+            a <- octaves(a)
             i = i + 1
             abundance[[i]]=a
         }
         time <- proc.time() - ptm
         gens = gens + 1
     }
-    save(rich, abundance, community, wall_time, input_params, file = output_file_name)
+    end_community <- species_abundance(community)
+    input_params <- list(speciation_rate, size, wall_time, interval_rich, interval_oct, burn_in_generations)
+    save(input_params, end_community, rich, abundance, file=output_file_name)
 }
 
+set_J <- function(iter) {
+  if ((iter-1) %% 4 == 0) {
+    J <- 500
+  }
+  else if ((iter-2) %% 4 == 0) {
+    J <- 1000
+  } 
+  else if ((iter-3) %% 4 ==0) {
+    J <- 2500
+  }
+  else {
+    J <- 5000
+  }
+}
 
-#cluster_run(speciation_rate=0.1, size=100, wall_time=1, interval_rich=1, interval_oct=10, burn_in_generations=200, output_file_name="my_test_file_1.rda")
+iter <- as.numeric(Sys.getenv("PBS_ARRAY_INDEX"))
+#iter <- 1
+J <- set_J(iter)
+set.seed(iter)
+output_file <- paste(c("Output", iter, ".rda"), collapse = "")
 
-## a way to time an R expression
-# ptm <- proc.time()
-# for (i in 1:50){
-#     mad(stats::runif(500))
-#     a <- proc.time() - ptm
-#         while (as.numeric(a[3]) < 10){
-#             print("Hello!")
-#             a <- proc.time() - ptm
-#     }
-# }
+cluster_run(speciation_rate = 0.004361, size=J, wall_time = 690, interval_rich = 1, interval_oct = (J/10), burn_in_generations = (8*J), output_file_name = output_file)
+
+
+
+
+

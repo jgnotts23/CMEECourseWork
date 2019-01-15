@@ -45,7 +45,7 @@ boxplot(d1$Wing~d1$BirdID, ylab="Wing length (mm)")
 
 tbl_df(d1)
 glimpse(d1)
-d$Mass %>% cor.test(d$Tarsus, na.rm=TRUE) # %>% pipes the first obkect into the function
+d$Mass %>% cor.test(d$Tarsus, na.rm=TRUE) # %>% pipes the first object into the function
 
 d1 %>% 
   group_by(BirdID) %>% #group
