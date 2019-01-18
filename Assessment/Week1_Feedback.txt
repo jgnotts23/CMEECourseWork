@@ -1,4 +1,4 @@
-Starting weekly assessment for Jacob Stephen Matthew, Week1
+Starting weekly assessment for Jacob, Week1
 
 Current Points = 100
 
@@ -9,13 +9,13 @@ Note that:
 
 ======================================================================
 ======================================================================
-Your Git repo size this week is about 1.88 MiB on disk 
+Your Git repo size this week is about 4.24 MiB on disk 
 
 PART 1: Checking project workflow...
 
-Found the following directories in parent directory: Week1, Assessment, Week2, .git
+Found the following directories in parent directory: Week6, Week1, Seminars, Week7, Assessment, Week10, Week5, Week2, Week9, Week4, .git, Miniproject, Week3
 
-Found the following files in parent directory: README.txt, .gitignore
+Found the following files in parent directory: README.txt, temporary.tmp, .gitignore
 
 Checking for key files in parent directory...
 
@@ -23,8 +23,20 @@ Found .gitignore in parent directory, great!
 
 Printing contents of .gitignore:
 **********************************************************************
-*~ 
+*~
 *.tmp
+*.p
+*.pyc
+pickle 
+/Week5/Data/GIS_Practical_1_files
+/Week3/Data/EcolArchives-E089-51-D1.csv
+/Miniproject/Data/BioTraits.csv
+/Week4/Data/HandOutsandData'18
+/Week4/Data/Lectures'18
+/Week5/Data/GIS_2016
+/Week5/Data/GIS_Practical_1_files
+/Week10/Data/BiolStructs_C
+/CMEE_Exams
 **********************************************************************
 
 Found README in parent directory, named: README.txt
@@ -37,7 +49,7 @@ My CMEE Coursework Repository
 ======================================================================
 Looking for the weekly directories...
 
-Found 2 weekly directories: Week1, Week2
+Found 9 weekly directories: Week1, Week10, Week2, Week3, Week4, Week5, Week6, Week7, Week9
 
 The Week1 directory will be assessed 
 
@@ -64,45 +76,7 @@ README - CMEE Coursework Week 1
 
 ### Description
 
-This directory and its subsidaries contains the code created in week 1 of the Computational Methods in Ecology and Evolution MSc at Imperial College London. Some code was provided by my supervisor, Samraat Pawar, and the rest is original content. Subdirectories have been created entitled 'Code', 'Data', 'Results' and 'Sandbox'. 'Code' contains several bash scripts, a LaTex script, and some .txt files with additional code. 'Data' contains some data that was used to test some of the scripts and 'Results' is where any script outputs will appear. 'Sandbox' was created for practice purposes and can be ignored. The purpose of this project was to learn basic UNIX coding, learn how to use GIT and to learn the basics of LaTex.
-
-### Code
-
-> boilerplate.sh
-A basic shell script to act as a template for more complex scripts. Created to learn proper formatting with a simple output to show it works. "This is a shell script" should appear in the terminal if successful.
-
-> CompileLaTex.sh
-A bash script to compile a LaTex document with references. Output will appear in the 'Results' directory.
-
-> ConcatenateTwoFiles.sh
-A bash script to concatenate (merge) the contents of two files.
-
-> CountLines.sh
-A bash script to count the number of lines in a file. Output will appear in the terminal.
-
-> csvtospace.sh
-A bash script to convert a comma-separated-file (CSV) to a tab-separated-file (TSV). Output should appear in the same directory as the original file.
-
-> FirstBiblio.bib
-A file containing a reference for the LaTex example.
-
-> FirstExample.tex
-A file containing the code for a LaTex document.
-
-> MyExampleScript.sh
-A bash script illustrating the use of the 'echo' function. Output will appear in the terminal.
-
-> tabtocsv.sh
-A bash script to subsitute the tabs in a file with commas. Output will appear in the same directory with a .csv extension.
-
-> tiff2png.sh
-A bash script to convert a .tiff image to a .png image
-
-> UnixPrac1.txt
-A series of lines of code to answer the problems in the FASTA practical set by S. Pawar. Each line of code will answer the question it is related to. An E.coli.fasta file was used to test the code and is located in the 'Data' directory. Outputs will appear in the terminal.
-
-> variables.sh
-A bash script to illustrate the use of variables in UNIX. Outputs will appear in the terminal.
+This directory and its subsidaries contains the code created in week 1 of the Computational Methods in Ecology and Evolution MSc at Imperial College London. Some code was provided by my supervisor, Samraat Pawar, and the rest is original content. Subdirectories have been created entitled 'Code', 'Data', 'Results' and 'Sandbox'. 'Code' contains several bash scripts, a LaTex script, and some .txt files with additional code. 'Data' contains any data that was used to test the scripts and 'Results' is where any script outputs will appear. 'Sandbox' was created for practice purposes only and can be ignored. The purpose of this project was to learn basic UNIX coding, learn how to use GIT and to learn the basics of LaTex.
 
 
 ### Dependencies
@@ -120,25 +94,76 @@ Samraat Pawar, s.pawar@imperial.ac.uk
 ### Useful Links
 
 github CMEE Coursework repository: https://github.com/jgnotts23/CMEECourseWork
-github week 1 repository: https://github.com/jgnotts23/CMEECourseWork/tree/master/Week1
+
 
 ### .gitignore list
 
 *~
 *.tmp
+*.p
+*.pyc
+pickle 
+/Week5/Data/GIS_Practical_1_files
 
 **********************************************************************
 
-Found following files in results directory: ...
-Found 12 code files: ConcatenateTwoFiles.sh, CompileLaTex.sh, CountLines.sh, variables.sh, tiff2png.sh, csvtospace.sh, FirstExample.tex, MyExampleScript.sh, FirstBiblio.bib, UnixPrac1.txt, tabtocsv.sh, boilerplate.sh
-
-Found the following extra files: .tsv
-0.5 pt deducted per extra file
-
-Current Points = 99.5
+Found following files in results directory: README.txt...
+Found 23 code files: installing.sh, ConcatenateTwoFiles.sh, UNIX_commands.txt, README.txt, CountLines.sh, variables.sh, CompileLaTeX.sh, tiff2png.sh, dir_structure.txt, csvtospace.sh, FirstExample.tex, MyExampleScript.sh, FirstBiblio.bib, UnixPrac1.txt, tabtocsv.sh, finding_files.sh, UNIX_shortcuts.txt, grep.sh, bash_command_challenge.sh, redir_pipes.sh, boilerplate.sh, wildcards.sh, tr.sh
 
 ======================================================================
 Testing script/code files...
+
+======================================================================
+Inspecting script file installing.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: installing.sh
+# Desc: how to install/uninstall in linux
+# Arguments: None
+# Date: Nov 2018
+
+### Installing from main repositories ###
+sudo apt install r-base # sudo (super user do)
+
+### Installing from other repositories ###
+# Add repository
+sudo add-apt-repository ppa:atareao/atareao
+
+# Update repository package list
+sudo apt-get update 
+
+# Install
+sudo apt-get install my-weather-indicator
+
+### Removing softare ###
+sudo apt remove totem
+
+### Installing from downloaded *.deb file ###
+# First download the .deb package then:
+cd ~/Downloads
+
+# De-package
+sudo dpkg -i <file>.deb 
+
+# Install dependencies
+sudo apt-get install -f
+
+exit**********************************************************************
+
+Testing installing.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 10.00746s
 
 ======================================================================
 Inspecting script file ConcatenateTwoFiles.sh...
@@ -148,14 +173,16 @@ File contents are:
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: ConcatenateTwoFiles.sh
-# Desc: concatenate (merge) the contents of two files
-# Arguments: None
+# Desc: Concatenate (merge) the contents of two files
+# Arguments: Two files
 # Date: Oct 2018
 
 cat $1 > $3
 cat $2 >> $3
 echo "Merged File is"
-cat $3**********************************************************************
+cat $3
+
+exit**********************************************************************
 
 Testing ConcatenateTwoFiles.sh...
 
@@ -171,57 +198,102 @@ ConcatenateTwoFiles.sh: line 8: $3: ambiguous redirect
 ConcatenateTwoFiles.sh: line 9: $3: ambiguous redirect
 
 ======================================================================
-Inspecting script file CompileLaTex.sh...
+Inspecting script file UNIX_commands.txt...
 
 File contents are:
 **********************************************************************
-#!/bin/bash
-# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
-# Script: CompileLaTex.sh
-# Desc: bash script to compile a LaTex document with references
-# Arguments: None
-# Date: Oct 2018
+###################
+Basic UNIX commands
+###################
 
-file="$1"
-filename="${file%%.*}"
+man COMMAND         Show help page of a command
+whoami              Display your username
+pwd                 Show the current directory
+ls                  List the files in the directory 
+cd DIRNAME          Change directory 
+cd ..               Move one directory up
+cd /                Go to the root directory 
+cd ~ or just cd     Go to the home directory
+cp FROM TO          Copy a file, or a directory non-recursively
+cp -r FROM TO       Copy a directory recursively 
+mv FROM TO          Move or rename a file or directory
+touch FILENAME      Create an empty file 
+echo "My string"    Print a string 
+rm FILEorDIRNAME    Remove a file or directory non-recursively
+rm -r DIRNAME       Remove a directory recursively
+wc FILENAME         Count the number of lines and words in a file
+sort FILENAME       Sort the lines of a file and print results
+uniq                Shows only unique elements of a list
+cat FILENAME        Print the file on the screen
+less FILENAME       Progressivelt print a file on the screen ("q" to exit)
+head FILENAME       Print the first few lines of a file
+tail FILENAME       Print the last few lines of a file
+history             Show the last commands you typed
+date                Print current date
+file FILENAME       Determine the type of a file
+passwd              Change user password
+chmod FILENAME      Change file permissions**********************************************************************
 
-{
-  pdflatex "$filename"
-  bibtex "$filename"
-  pdflatex "$filename"
-} &> /dev/null
-pdflatex "$filename"
-printf "\n"
+Testing UNIX_commands.txt...
 
-# Moving all output files to ../Results 
-mv *.log *.aux *.bbl *.blg ../Results
-mv "$filename".pdf ../Results
+======================================================================
+Inspecting script file README.txt...
 
-{
-        gnome-open "$filename.pdf"
-} &> /dev/null
-
-exit**********************************************************************
-
-Testing CompileLaTex.sh...
-
-Output (only first 500 characters): 
-
+File contents are:
 **********************************************************************
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex)
- restricted \write18 enabled.
-**
-! End of file on the terminal... why?
+###################################
+README - CMEE Coursework Week1 CODE
+###################################
+.
+├── bash_command_challenge.sh
+	Answer to the bash challenge question
+├── boilerplate.sh
+	Simple boilerplate for shell scripts
+├── CompileLaTeX.sh
+	Complies a LaTeX .pdf from a .tex and .bib input
+├── ConcatenateTwoFiles.sh
+	Concatenates two files
+├── CountLines.sh
+	Counts the number of lines in a file
+├── csvtospace.sh
+	Converts comma-separated files to space-separated files
+├── dir_structure.txt
+	Notes on UNIX directory structure
+├── finding_files.sh
+	Demonstrates how to find files in UNIX
+├── FirstBiblio.bib
+	Example bibliography to cobine with FirstExample.tex
+├── FirstExample.tex
+	Example LaTeX document script
+├── grep.sh
+	Demonstrates the use of grep
+├── installing.sh
+	Demonstrates installation in UNIX
+├── MyExampleScript.sh
+	Demonstrates echo and placeholders
+├── redir_pipes.sh
+	Demonstrates redirecting and pipes in UNIX
+├── tabtocsv.sh
+	Converts space-separated files to comma-separated files
+├── tiff2png.sh
+	Converts .tif images to .png images
+├── tr.sh
+	Demonstrates the use of tr
+├── UNIX_commands.txt
+	Notes on basic UNIX commands
+├── UnixPrac1.txt
+	Answers to the UNIX practical, involves analysis of FASTA files in the Data directory
+├── UNIX_shortcuts.txt
+	Notes on UNIX shortcuts
+├── variables.sh
+	Illustrates the use of variables in UNIX
+└── wildcards.sh
+	Demonstrates the use of wildcards in UNIX
 
-
+0 directories, 23 files
 **********************************************************************
 
-Encountered error:
-mv: cannot stat '*.log': No such file or directory
-mv: cannot stat '*.aux': No such file or directory
-mv: cannot stat '*.bbl': No such file or directory
-mv: cannot stat '*.blg': No such file or directory
-mv: cannot stat '.pdf': No such file or directory
+Testing README.txt...
 
 ======================================================================
 Inspecting script file CountLines.sh...
@@ -231,13 +303,15 @@ File contents are:
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: CountLines.sh
-# Desc: bash script to count the number of lines in a file
-# Arguments: line number count
+# Desc: counts the number of lines in a file
+# Arguments: any file
 # Date: Oct 2018
 
-NumLines=`wc -l < $1`
+NumLines=`wc -l < $1` # < redirects file contents to standard input of the comand 
 echo "The file $1 has $NumLines lines"
-echo**********************************************************************
+echo
+
+exit**********************************************************************
 
 Testing CountLines.sh...
 
@@ -260,15 +334,15 @@ File contents are:
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: variables.sh
-# Desc: bash script to illustrate the use of variables in UNIX
-# Arguments: None
+# Desc: Illustration of the use of variables in UNIX
+# Arguments: String and numbers entered by user at command line
 # Date: Oct 2018
 
-# Shows the use of variables
-MyVar='some string'
+## Shows the use of variables
+MyVar='some string' # explicit declaration
 echo 'The current value of the variable is' $MyVar
 echo 'Please enter a new string'
-read MyVar
+read MyVar # read from user
 echo 'The current value of the variable is' $MyVar
 
 ## Reading multiple values
@@ -276,7 +350,9 @@ echo 'Enter two numbers separated by spaces(s)'
 read a b
 echo 'You entered' $a 'and' $b '. Their sum is:'
 mysum=`expr $a + $b`
-echo $mysum**********************************************************************
+echo $mysum
+
+exit**********************************************************************
 
 Testing variables.sh...
 
@@ -296,35 +372,124 @@ Encountered error:
 expr: syntax error
 
 ======================================================================
+Inspecting script file CompileLaTeX.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: CompileLaTeX.sh
+# Desc: Compiles a LaTeX document with references
+# Arguments: 1 .tex file and 1 .bib file
+# Date: Oct 2018
+
+file="$1"
+filename="${file%%.*}" #strip name
+
+# Compile
+{
+  pdflatex "$filename"
+  bibtex "$filename"
+  pdflatex "$filename"
+} &> /dev/null
+pdflatex "$filename"
+printf "\n"
+
+# Move output file to ../Results 
+mv "$filename".pdf ../Results
+
+{
+        gnome-open "$filename.pdf"
+} &> /dev/null
+
+## Cleanup
+rm -f *~
+rm -f *.aux
+rm -f *.dvi
+rm -f *.log
+rm -f *.nav
+rm -f *.out
+rm -f *.snm
+rm -f *.toc
+rm -f *.bbl
+rm -f *.blg
+
+exit**********************************************************************
+
+Testing CompileLaTeX.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+**
+! End of file on the terminal... why?
+
+
+**********************************************************************
+
+Encountered error:
+mv: cannot stat '.pdf': No such file or directory
+
+======================================================================
 Inspecting script file tiff2png.sh...
 
 File contents are:
 **********************************************************************
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
-# Script: tiff2png.sh
-# Desc: bash script to convert a .tiff image to a .png image
-# Arguments: 1 -> .png
+# Script: tif2png.sh
+# Desc: Script to convert a .tif image to a .png image
+# Arguments: 1 -> .tif
 # Date: Oct 2018
 
-for f in *.tif;
-    do
-        echo "Converting $f";
-        convert "$f"  "$(basename "$f" .tif).png";
-    done**********************************************************************
+echo "Creating a .png version of $1 ..."
+
+# Change file extension
+filename="${1//.png/.tif}"
+
+# Extract basename and change output directory
+new_filename=$(basename $filename)
+out_filename="../Results/$new_filename"
+
+# Output
+cat $1 >> $out_filename
+echo "Done! The file has been saved as $out_filename"
+exit**********************************************************************
 
 Testing tiff2png.sh...
 
 Output (only first 500 characters): 
 
 **********************************************************************
-Converting *.tif
+Creating a .png version of  ...
+Done! The file has been saved as ../Results/
 
 **********************************************************************
 
 Encountered error:
-convert: unable to open image `*.tif': No such file or directory @ error/blob.c/OpenBlob/2712.
-convert: no images defined `*.png' @ error/convert.c/ConvertImageCommand/3210.
+basename: missing operand
+Try 'basename --help' for more information.
+tiff2png.sh: line 18: ../Results/: Is a directory
+
+======================================================================
+Inspecting script file dir_structure.txt...
+
+File contents are:
+**********************************************************************
+##############################
+Basic UNIX directory structure
+##############################
+
+/       Is the "root" directory
+/bin    Contains basic programs
+/etc    Contains configuration files
+/dev    Contains files connecting to devices (keyboard, mouse, screen, etc.)
+/home   Your home directory - where most documents are
+/tmp    Contains temporary files**********************************************************************
+
+Testing dir_structure.txt...
 
 ======================================================================
 Inspecting script file csvtospace.sh...
@@ -334,13 +499,22 @@ File contents are:
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: csvtospace.sh
-# Desc: bash script to convert a .csv file to a .tsv file
-# Arguments: 1 -> .tsv
+# Desc: Script to convert a .csv file to a space separated
+# Arguments: 1 .csv file
 # Date: Oct 2018
 
 echo "Creating a tab separated version of $1 ..."
-cat $1 | tr -s "\t" "," >> $1.tsv
-echo "Done!"
+
+# Change file extension
+filename="${1//.csv/_space.txt}"
+
+# Extract basename and change output directory
+new_filename=$(basename $filename)
+out_filename="../Results/$new_filename"
+
+# Replace commas with spaces and output
+cat $1 | tr -s "," "  " >> $out_filename
+echo "Done! The file has been saved as $out_filename"
 exit**********************************************************************
 
 Testing csvtospace.sh...
@@ -349,13 +523,14 @@ Output (only first 500 characters):
 
 **********************************************************************
 Creating a tab separated version of  ...
-Done!
+Done! The file has been saved as ../Results/
 
 **********************************************************************
 
-Code ran without errors
-
-Time consumed = 0.00915s
+Encountered error:
+basename: missing operand
+Try 'basename --help' for more information.
+csvtospace.sh: line 18: ../Results/: Is a directory
 
 ======================================================================
 Inspecting script file FirstExample.tex...
@@ -386,8 +561,7 @@ File contents are:
 
   \bibliographystyle{plain}
   \bibliography{FirstBiblio.bib}
-\end{document}\grid
-**********************************************************************
+\end{document}\grid**********************************************************************
 
 Testing FirstExample.tex...
 
@@ -399,15 +573,17 @@ File contents are:
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: MyExampleScript.sh
-# Desc: bash script to illustrate the 'echo' function
-# Arguments: None
+# Desc: Illustrates the 'echo' function and placeholders
+# Arguments: String from command line
 # Date: Oct 2018
 
 msg1="Hello"
 msg2=$USER
 echo "$msg1 $msg2"
 echo "Hello $USER"
-echo**********************************************************************
+echo
+
+exit**********************************************************************
 
 Testing MyExampleScript.sh...
 
@@ -422,7 +598,7 @@ Hello mhasoba
 
 Code ran without errors
 
-Time consumed = 0.00434s
+Time consumed = 0.00451s
 
 ======================================================================
 Inspecting script file FirstBiblio.bib...
@@ -437,8 +613,7 @@ File contents are:
   number={13},
   pages={639--641},
   year={1905}
-}
-**********************************************************************
+}**********************************************************************
 
 Testing FirstBiblio.bib...
 
@@ -478,10 +653,7 @@ a=$(tail -n +2 ../Data/E.coli.fasta | grep -o A | wc -l) &&
 g=$(tail -n +2 ../Data/E.coli.fasta | grep -o G | wc -l) && 
 t=$(tail -n +2 ../Data/E.coli.fasta | grep -o T | wc -l) && 
 c=$(tail -n +2 ../Data/E.coli.fasta | grep -o C | wc -l) && 
-result=$(echo "($a+$t)/($g+$c)" | bc -l) && echo "AT/GC ratio = $result"
-
-
-**********************************************************************
+result=$(echo "($a+$t)/($g+$c)" | bc -l) && echo "AT/GC ratio = $result"**********************************************************************
 
 Testing UnixPrac1.txt...
 
@@ -493,14 +665,22 @@ File contents are:
 #!/bin/bash
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
 # Script: tabtocsv.sh
-# Desc: substitute the tabs in the files with commas
-# saves the output into a .csv file
+# Desc: substitute the spaces in the files with commas
 # Arguments: 1-> tab delimited file
 # Date: Oct 2018
 
-echo "Creating a comma delimited version of $1 ..."
-cat $1 | tr -s "\t" "," >> $1.csv
-echo "Done!"
+echo "Creating a comma separated version of $1 ..."
+
+# Change file extension
+filename="${1//.txt/.csv}"
+
+# Extract basename and change output directory
+new_filename=$(basename $filename)
+out_filename="../Results/$new_filename"
+
+# Replace spaces with commas and output
+cat $1 | tr -s " " "," >> $out_filename
+echo "Done! The file has been saved as $out_filename"
 exit**********************************************************************
 
 Testing tabtocsv.sh...
@@ -508,14 +688,326 @@ Testing tabtocsv.sh...
 Output (only first 500 characters): 
 
 **********************************************************************
-Creating a comma delimited version of  ...
-Done!
+Creating a comma separated version of  ...
+Done! The file has been saved as ../Results/
+
+**********************************************************************
+
+Encountered error:
+basename: missing operand
+Try 'basename --help' for more information.
+tabtocsv.sh: line 18: ../Results/: Is a directory
+
+======================================================================
+Inspecting script file finding_files.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: finding_files.sh
+# Desc: demonstrating finding files in UNIX
+# Date: Nov 2018
+
+cd ../Sandbox
+mkdir TestFind
+cd TestFind
+mkdir -p Dir1/Dir11/Dir111 # -p ensures no errors if file already exists
+mkdir Dir2
+mkdir Dir3
+touch Dir1/File1.txt
+touch Dir1/File1.csv
+touch Dir1/File1.tex
+touch Dir2/File2.txt
+touch Dir2/file2.csv
+touch Dir2/File2.tex
+touch Dir1/Dir11/Dir111/File111.txt
+touch Dir3/File3.txt
+
+# Find particular files
+find . -name "File1.txt"
+
+# Ignore cases and use wildcards
+find . -iname "fi*.txt"
+
+# Exclude sub-directories
+find . -maxdepth 2 -name "*.txt"
+
+# Exclude certain files
+find . -maxdepth 2 -not -name "*.txt"
+
+# Find only directories
+find . -type d -iname *dir*
+
+exit**********************************************************************
+
+Testing finding_files.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+./Dir1/File1.txt
+./Dir1/Dir11/Dir111/File111.txt
+./Dir1/File1.txt
+./Dir3/File3.txt
+./Dir2/File2.txt
+./Dir1/File1.txt
+./Dir3/File3.txt
+./Dir2/File2.txt
+.
+./Dir1
+./Dir1/Dir11
+./Dir1/File1.csv
+./Dir1/File1.tex
+./Dir3
+./Dir2
+./Dir2/File2.tex
+./Dir2/file2.csv
+./Dir1
+./Dir1/Dir11
+./Dir1/Dir11/Dir111
+./Dir3
+./Dir2
 
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.00811s
+Time consumed = 0.02769s
+
+======================================================================
+Inspecting script file UNIX_shortcuts.txt...
+
+File contents are:
+**********************************************************************
+#######################
+UNIX keyboard shortcuts
+#######################
+
+Ctrl + Alt + t      Launch bash shell
+Tab                 Auto-complete
+Ctrl + A            Go to the beginning of the line
+Ctrl + E            Go to the end of the line
+Ctrl + L            Clear the screen
+Ctrl + U            Clear the line before cursor position
+Ctrl + K            Clear the line after the cursor
+Ctrl + C            Kill whatever you are running
+Ctrl + D            Exit (close) the current shell
+Ctrl + right arrow  Move cursor forward one whole word
+Ctrl + left arrow   Move cursor backward one whole word**********************************************************************
+
+Testing UNIX_shortcuts.txt...
+
+======================================================================
+Inspecting script file grep.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: grep.sh
+# Desc: demonstrating the use of grep
+# Date: Nov 2018
+
+# grep is a command that matches strings in a file (based on regex)
+
+cd ../Sandbox
+# Download test file
+wget http://www.cep.unep.org/pubs/legislation/spawannxs.txt 
+
+# Print first 50 lines
+head -n 50 spawannxs.txt 
+
+# Move file and change directory
+mv spawannxs.txt ../Data/
+cd ../Data
+
+# Let's look for falcons
+grep Falco spawannxs.txt
+
+# Make it cast-insensitive
+grep -i Falco spawannxs.txt
+
+# Let's find the "Ara" macaws
+grep -i ara spawannxs.txt # Returns some non-ara results
+
+# Solve this by specifying only full word matches
+grep -i -w ara spawannxs.txt
+
+# Show line(s) after the one that was matched using -A x
+grep -i -w -A 1 ara spawannxs.txt # shows 1 line after match
+
+# -B shows lines before
+grep -i -w -B 1 ara spawannxs.txt
+
+# -n shows line number of match
+grep -i -w -n ara spawannxs.txt
+
+# -v prints all lines that DO NOT match pattern
+grep -i -w -v ara spawannxs.txt
+
+exit**********************************************************************
+
+Testing grep.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+ANNEX I
+List of Species of Marine and Coastal Flora 
+Protected Under Article 11(1)(a)
+
+TRACHAEOPHYTA (Vascular Plants)
+
+Family		Genus		Species
+
+Aquifoliaceae	Ilex		cookii
+Bignoniaceae	Crescentia	mirabilis
+Bignoniaceae	Crescentia	portoricensis
+Boraginaceae	Cordia		wagnerorum
+Buxaceae	Buxus		vahlii
+Cactaceae	Echinocereus 	reichenbachii var. albertii
+Cactaceae	Harrisia	fragrans
+Cactaceae	Harrisia	portoricensis
+Cactaceae	Leptocereus	grantianus
+Cactaceae	Leptocereus	wrightii
+Cactacea
+**********************************************************************
+
+Encountered error:
+--2019-01-02 12:47:32--  http://www.cep.unep.org/pubs/legislation/spawannxs.txt
+Resolving www.cep.unep.org (www.cep.unep.org)... 173.230.137.102
+Connecting to www.cep.unep.org (www.cep.unep.org)|173.230.137.102|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 13467 (13K) [text/plain]
+Saving to: ‘spawannxs.txt’
+
+     0K .......... ...                                        100%  221M=0s
+
+2019-01-02 12:47:32 (221 MB/s) - ‘spawannxs.txt’ saved [13467/13467]
+
+
+======================================================================
+Inspecting script file bash_command_challenge.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: bash_command_challenge.sh
+# Desc: A challenge question
+# Date: Nov 2018
+
+# What does this do?
+find . -type f -exec ls -s {} \; | sort -n | head -10
+# -type f, means the file is a regular file
+# -exec ls -s {} \; is saying list all matches with their file size
+# These results are then sorted by numerical string value
+# Then the first 10 results are printed
+# Essentially, it is finding and printing the 10 longest file names
+exit**********************************************************************
+
+Testing bash_command_challenge.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+4 ./bash_command_challenge.sh
+4 ./boilerplate.sh
+4 ./CompileLaTeX.sh
+4 ./ConcatenateTwoFiles.sh
+4 ./CountLines.sh
+4 ./csvtospace.sh
+4 ./dir_structure.txt
+4 ./finding_files.sh
+4 ./FirstBiblio.bib
+4 ./FirstExample.tex
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02531s
+
+======================================================================
+Inspecting script file redir_pipes.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: redir_pipes.sh
+# Desc: demonstrating redirection and pipes
+# Date: Nov 2018
+
+# Redirecting output to a file, if the file already exists it wil be overwritten
+echo "My first line." > ../Results/test.txt
+cat ../Results/test.txt
+
+# Append the output to a file, if the file does not exist, it will be created.
+echo "My second line" >> ../Results/test.txt
+cat ../Results/test.txt
+
+# Listing all files in directory and listing in a file
+ls / >> ../Results/ListRootDir.txt
+cat ../Results/ListRootDir.txt
+
+# Commands can also be concatenated with pipes "|"
+# How many files in root directory?
+ls / | wc -l
+
+# List files in long format and sorted by modification time, newest first
+# Only print first 5 files
+ls -lt | head -5
+
+exit**********************************************************************
+
+Testing redir_pipes.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+My first line.
+My first line.
+My second line
+bin
+boot
+cdrom
+dev
+etc
+home
+initrd.img
+initrd.img.old
+lib
+lib64
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+vmlinuz
+vmlinuz.old
+26
+total 92
+-rw-rw-r-- 1 mhasoba mhasoba  511 Jan  2 12:17 bash_command_challenge.sh
+-rw-rw-r-- 1 mhasoba mhasoba  304 Jan  2 12:17 boilerplate.sh
+-rw-rw-r-- 1 mhasoba mhasoba  631 Jan  2 12:17 CompileLaTeX.sh
+-rw-rw-r-- 1 mhasoba mhasoba  258 Jan  2 12:17 ConcatenateTwoFiles.sh
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.01138s
 
 ======================================================================
 Inspecting script file boilerplate.sh...
@@ -532,7 +1024,7 @@ File contents are:
 echo -e "\nThis is a shell script! \n" 
 # echo displays a line of text and -e enables interpretation of backslash escapes
 
-# Exit**********************************************************************
+exit**********************************************************************
 
 Testing boilerplate.sh...
 
@@ -547,19 +1039,160 @@ This is a shell script!
 
 Code ran without errors
 
-Time consumed = 0.00532s
+Time consumed = 0.00307s
+
+======================================================================
+Inspecting script file wildcards.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: wildcards.sh
+# Desc: demonstrating wildcards
+# Date: Nov 2018
+
+# Wildcards can be used to find files based on their names
+# First, make some test files
+mkdir ../Sandbox/TestWild
+cd ../Sandbox/TestWild
+touch File1txt
+touch File2.txt
+touch File3.txt
+touch File4.txt
+touch File1.csv
+touch File2.csv
+touch File3.csv
+touch File4.csv
+touch Anotherfile.csv
+touch Anotherfile.txt
+ls 
+ls | wc -l
+
+# "?"	    Any single character, except a leading dot (hidden files).
+# "*"	    Zero or more characters, except a leading dot (hidden files).
+# "[A-Z]"	Define a class of characters (e.g., upper-case letters).
+
+# Finding files
+ls * # finds all except hidden files (leading dot)
+ls File* # anything starting with "File"
+ls *.txt # anything ending with ".txt"
+ls File?.txt # anything starting with "File", followed by 1 character, and ending with ".txt"
+ls File[1-2].txt # anything starting with "File", followed by 1 or 2, and ending with ".txt"
+ls File[!3].* # anything starting with "File", followed by anything except 3, and any ending
+
+exit**********************************************************************
+
+Testing wildcards.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Anotherfile.csv
+Anotherfile.txt
+File1.csv
+File1txt
+File2.csv
+File2.txt
+File3.csv
+File3.txt
+File4.csv
+File4.txt
+10
+Anotherfile.csv
+Anotherfile.txt
+File1.csv
+File1txt
+File2.csv
+File2.txt
+File3.csv
+File3.txt
+File4.csv
+File4.txt
+File1.csv
+File1txt
+File2.csv
+File2.txt
+File3.csv
+File3.txt
+File4.csv
+File4.txt
+Anotherfile.txt
+File2.txt
+File3.txt
+File4.txt
+File2.txt
+File3.txt
+File4.txt
+File2.txt
+File1.csv
+File2.csv
+File2.txt
+File4.csv
+File4.txt
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.01860s
+
+======================================================================
+Inspecting script file tr.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: tr.sh
+# Desc: demonstrating the use of tr
+# Date: Nov 2018
+
+# tr is an abbreviation or translate or transliterate
+# It deletes or subsitutes characters
+
+# Remove excess spaces
+echo "Remove    excess      spaces." | tr -s "\b" " "
+# -s squeezes repeats into one occurence of that character
+
+# Remove all the "a"s
+echo "remove all the as" | tr -d "a"
+# -d deletes characters
+
+# Set to uppercase
+echo "set to uppercase" | tr [:lower:] [:upper:]
+
+# Remove non-numbers
+echo "10.00 only numbers 1.33" | tr -d [:alpha:] | tr -s " " ","
+
+exit**********************************************************************
+
+Testing tr.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Remove excess spaces.
+remove ll the s
+SET TO UPPERCASE
+10.00,1.33
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.01030s
 
 ======================================================================
 ======================================================================
 Finished running scripts
 
-Ran into 5 errors
+Ran into 8 errors
 
-======================================================================
 ======================================================================
 
 FINISHED WEEKLY ASSESSMENT
 
-Current Points for the Week = 99.5
+Current Points for the Week = 100.0
 
 NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!

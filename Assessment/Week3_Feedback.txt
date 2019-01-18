@@ -9,13 +9,13 @@ Note that:
 
 ======================================================================
 ======================================================================
-Your Git repo size this week is about 3.00 MiB on disk 
+Your Git repo size this week is about 4.24 MiB on disk 
 
 PART 1: Checking project workflow...
 
-Found the following directories in parent directory: Week1, Assessment, Week2, .git, Miniproject, Week3
+Found the following directories in parent directory: Week6, Week1, Seminars, Week7, Assessment, Week10, Week5, Week2, Week9, Week4, .git, Miniproject, Week3
 
-Found the following files in parent directory: README.txt, .gitignore
+Found the following files in parent directory: README.txt, temporary.tmp, .gitignore
 
 Checking for key files in parent directory...
 
@@ -23,8 +23,20 @@ Found .gitignore in parent directory, great!
 
 Printing contents of .gitignore:
 **********************************************************************
-*~ 
+*~
 *.tmp
+*.p
+*.pyc
+pickle 
+/Week5/Data/GIS_Practical_1_files
+/Week3/Data/EcolArchives-E089-51-D1.csv
+/Miniproject/Data/BioTraits.csv
+/Week4/Data/HandOutsandData'18
+/Week4/Data/Lectures'18
+/Week5/Data/GIS_2016
+/Week5/Data/GIS_Practical_1_files
+/Week10/Data/BiolStructs_C
+/CMEE_Exams
 **********************************************************************
 
 Found README in parent directory, named: README.txt
@@ -37,7 +49,7 @@ My CMEE Coursework Repository
 ======================================================================
 Looking for the weekly directories...
 
-Found 3 weekly directories: Week1, Week2, Week3
+Found 9 weekly directories: Week1, Week10, Week2, Week3, Week4, Week5, Week6, Week7, Week9
 
 The Week3 directory will be assessed 
 
@@ -64,70 +76,7 @@ README - CMEE Coursework Week 3
 
 ### Description ###
 
-This directory and its subsidaries contains the code created in week 3 of the Computational Methods in Ecology and Evolution MSc at Imperial College London. Some code was provided by my supervisor, Samraat Pawar, and the rest is original content. Subdirectories have been created entitled 'Code', 'Data', 'Results' and 'Sandbox'. 'Code' contains several scripts, predominantly in R. 'Data' contains some data that was used to test some of the scripts and 'Results' is where any script outputs will appear. 'Sandbox' was created for practice purposes and can be ignored. The purpose of this project was to learn basic R coding.
-
-### Code ###
-
-> apply1.R
-A script demonstrating the use of apply to apply the same function to rows/columns of a matrix.
-
-> apply2.R
-A script showing how you can use apply to define your own functions
-
-> basic_io.R
-A simple script to demonstrate how to input and output files in R. A warning may show because the scipt appends column names to a file that already has column names but this is to be expected.
-
-> boilerplate.R
-A boilerplate R script which demonstrates the use of basic functions and arguments. Should return 4 arguments and print their data type.
-
-> break.R
-A script demonstrating the use of a break in R to break out of a loop. When i = 20, the loop will stop.
-
-> browse.R
-A script demonstrating the use of browse in R. The script will run until the first iteration of the loop, at which point the console enters browser mode where variables present at that point can be examined. Enter 'Q' to quit.
-
-> control.R
-Some code demonstrating control flow statements in R. 
-
-> DataWrang.R
-A script demonstrating how to wrangle data in R.
-
-> DataWrangTidy.R
-A script demonstrating the use of tidyr and dplyr in R to wrangle data. Both packages are required to run this script
-
-> get_TreeHeight.R
-A modified version of TreeHeight.R that allows any .csv file to be used as an input and will output results in the Results directory. A modified version of the input file name is used for identification. The script should be run in the command like using Rscript and an input file needs to be specified.
-
-> map.R
-A script that creates a world map and plots species locations on it. The R maps package is required to run this.
-
-> next.R
-A script demonstrating the use of next to move to the next iteration of a loop.
-For numbers between 1 and 10 it will print only odd numbers.
-
-> preallocate.R
-A script demonstrating the use of preallocation in R to speed up processes. The first output is a function without preallocation and the second is a function that uses preallocation. Preallocation reduces the system time drastically.
-
-> run_get_TreeHeight.sh
-Unix shell script that tests get_TreeHeight.R, using the example input, trees.csv from the Data directory.
-
-> sample.R
-A sample R script that generates a random population and samples it using vectorisation and for loops. Mean of each population is only calculated if the sample size > 30.
-
-> TAutoCorr.R
-A script that examines temperature in Florida over the 20th century. The correlation coefficient between successive years is calculated and repeated 10000 times with random permutations. A histogram is plotted and outputted to the Data directory. A red line indicates a p-value approximation. The pdf in the Data directory entitled 'TAutoCorr.pdf' shows figure with annotations.
-
-> try.R
-A script demonstrating the use of try in R.
-
-> TreeHeight.R
-This script calculates the heights of trees given distance from base and angle to top. The script reads a file caled trees.csv in the Data directory and should output the results in a file called TreeHts.csv in the Results directory.
-
-> Vectorize1.R
-This script demonstrates how vectorisation can be used to speed up processes in R, rather than using loops. Two system times will be printed; the first for the loop and the second for the vector.
-
-> Vectorize2.R
-This script uses a stochastic Ricker model to demonstrate how vectorisation can improve process speed. The system times for both the non-vectorised and vectorised versions will be displayed.
+This directory and its subsidaries contains the code created in week 3 of the Computational Methods in Ecology and Evolution MSc at Imperial College London. Some code was provided by my supervisor, Samraat Pawar, and the rest is original content. Subdirectories have been created entitled 'Code', 'Data', 'Results' and 'Sandbox'. 'Code' contains several scripts, predominantly in R. 'Data' contains data that was used to test the scripts and 'Results' is where any script outputs will appear. 'Sandbox' was created for practice purposes and can be ignored. The purpose of this project was to learn basic R coding.
 
 
 ### Dependencies ###
@@ -151,17 +100,24 @@ github CMEE Coursework repository: https://github.com/jgnotts23/CMEECourseWork
 
 *~
 *.tmp
+*.p
+*.pyc
+pickle
+/Week5/Data/GIS_Practical_1_files
+/Week3/Data/EcolArchives-E089-51-D1.csv
+/Miniproject/Data/BioTraits.csv
+
+
 **********************************************************************
 
-Found following files in results directory: PP_Results.csv, Pred_Lattice.pdf, Prey_Lattice.pdf, MyLinReg.pdf, SizeRatio_Lattice.pdf, MyBars.pdf...
-ideally, Results directory should be empty other than, perhaps, a readme. 
+Found following files in results directory: README.txt...
 
-Found 28 code files: browse.R, PP_Regress.R, apply1.R, basic_plot.R, sample.R, run_get_TreeHeight.sh, boilerplate.R, TreeHeight.R, PP_Lattice.R, next.R, Vectorize1.R, SQLinR.R, break.R, plotLin.R, basic_io.R, try.R, apply2.R, get_TreeHeight.R, TAutoCorr.R, Vectorize2.R, DataWrangTidy.R, preallocate.R, DataWrang.R, TAutoCorr.tex, map.R, MyBars.R, control.R, poundhill_example.R
+Found 33 code files: browse.R, README.txt, PP_Regress.R, Vectorize2.py, apply1.R, basic_plot.R, sample.R, run_get_TreeHeight.sh, get_TreeHeight.py, boilerplate.R, TreeHeight.R, PP_Lattice.R, Vectorize_speed.sh, next.R, Vectorize1.R, SQLinR.R, break.R, plotLin.R, basic_io.R, Vectorize1.py, try.R, apply2.R, get_TreeHeight.R, TAutoCorr.R, Vectorize2.R, DataWrangTidy.R, preallocate.R, DataWrang.R, TAutoCorr.tex, map.R, MyBars.R, control.R, poundhill_example.R
 
-Found the following extra files: Rplots.pdf, t(log(MyDF$Prey.mass), xlab = "Predator Mass (kg)", ylab = "Count", , Test.sqlite, .DataWrang.R.swp
+Found the following extra files: TAutoCorr.aux, TAutoCorr.log, TAutoCorr.synctex.gz, TAutoCorr.fls, TAutoCorr.fdb_latexmk, TAutoCorr.pdf, .DataWrang.R.swp
 0.5 pt deducted per extra file
 
-Current Points = 98.0
+Current Points = 96.5
 
 ======================================================================
 Testing script/code files...
@@ -220,14 +176,98 @@ debug: browser()
 
 Code ran without errors
 
-Time consumed = 0.11496s
+Time consumed = 0.11186s
+
+======================================================================
+Inspecting script file README.txt...
+
+File contents are:
+**********************************************************************
+###################################
+README - CMEE Coursework Week2 CODE
+###################################
+.
+├── apply1.R
+	Demonstrating the use of apply to apply the same function to rows/columns of a matrix
+├── apply2.R
+	Showing how you can use apply to define your own functions
+├── basic_io.R
+	A simple script to demonstrate how to input and output files in R. A warning may show 		because the scipt appends column names to a file that already has column names but this 	is to be expected
+├── basic_plot.R
+	Demonstrating the plotting function in R
+├── boilerplate.R
+	A boilerplate R script which demonstrates the use of basic functions and arguments. 		Should return 4 arguments and print their data type
+├── break.R
+	A script demonstrating the use of a break in R to break out of a loop. When i = 20, the 	loop will stop
+├── browse.R
+	A script demonstrating the use of browse in R. The script will run until the first 		iteration of the loop, at which point the console enters browser mode where variables 		present at that point can be examined. Enter 'Q' to quit
+├── control.R
+	Demonstrating control flow statements in R 
+├── DataWrang.R
+	Demonstrating how to wrangle data in R
+├── DataWrangTidy.R
+	A script demonstrating the use of tidyr and dplyr in R to wrangle data. Both packages 		are required to run this script
+├── get_TreeHeight.py
+	A python equivalent of get_TreeHeight.R
+├── get_TreeHeight.R
+	A modified version of TreeHeight.R that allows any .csv file to be used as an input and 	will output results to the Results directory. A modified version of the input file name 	is used for identification. The script should be run in the command like using Rscript 		and an input file needs to be specified
+├── map.R
+	A script that creates a world map and plots species locations on it. The R maps package 	is required to run this
+├── MyBars.R
+	Using ggplot to plot bargraphs
+├── next.R
+	A script demonstrating the use of next to move to the next iteration of a loop.
+	For numbers between 1 and 10 it will print only odd numbers
+├── plotLin.R
+	Demonstrates how to annotate a plot in R, output to Results directory
+├── poundhill_example.R
+	Practice loading datasets into R
+├── PP_Lattice.R
+	A script that creates three lattice graphs based on feeding interaction data. Mean and 		medians are calculated in each instance and saved to a csv file. All outputs will appear 		in the Results directory
+├── PP_Regress.R
+	A script that reproduces a figure shown by my demonstrater, S. Pawar. Output to the 		Results directory
+├── preallocate.R
+	A script demonstrating the use of preallocation in R to speed up processes. The first 		output is of a function without preallocation and the second is a function that uses 		preallocation. Preallocation reduces the system time drastically
+├── run_get_TreeHeight.sh
+	Unix shell script that tests get_TreeHeight.R and get_TreeHeight.py, using the example 		input, trees.csv from the Data directory.
+├── sample.R
+	A sample R script that generates a random population and samples it using vectorisation 	and for loops. Mean of each population is only calculated if the sample size > 30
+├── SQLinR.R
+	Some practice using SQLite in R
+├── TAutoCorr.R
+	A script that examines temperature in Florida over the 20th century. The correlation 		coefficient between successive years is calculated and repeated 10000 times with random 	permutations. A histogram is plotted and outputted to the Results directory. A red line 	indicates a p-value approximation. The pdf 'TAutoCorr.pdf' shows figure with annotations
+├── TAutoCorr.tex
+	Code for a LaTeX document with the figure from TAutoCorr.R in it with annotations
+├── TreeHeight.R
+	This script calculates the heights of trees given distance from base and angle to top. 		The script reads a file caled trees.csv in the Data directory and should output the 		results in a file called TreeHts.csv in the Results directory
+├── try.R
+	A script demonstrating the use of try in R
+├── Vectorize1.py
+	A python equivalent of Vectorize1.R
+├── Vectorize1.R
+	This script demonstrates how vectorisation can be used to speed up processes in R, 		rather than using loops
+├── Vectorize2.py
+	A python equivalent of Vectorize2.R
+├── Vectorize2.R
+	This script uses a stochastic Ricker model to demonstrate how vectorisation can improve 	process speed
+└── Vectorize_speed.sh
+	This script compares the speeds of Vectorize1.R, Vectorize1.py, Vectorize2.R and 		Vectorize2.py.
+
+0 directories, 33 files
+**********************************************************************
+
+Testing README.txt...
 
 ======================================================================
 Inspecting script file PP_Regress.R...
 
 File contents are:
 **********************************************************************
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
 
+# Reproducing a figure by S. Pawar
 
 MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv")
 
@@ -235,20 +275,20 @@ require(ggplot2)
 require(dplyr)
 require(plyr)
 
-
+# Open pdf and draw the graph
 pdf(file = "../Results/PP_Regress.pdf", 8, 15)
 p <- ggplot(MyDF, aes(x = Predator.mass,
                 y = Prey.mass,
                 colour = Predator.lifestage,)) +
-                geom_point(shape=3) +
+                geom_point(shape=3) + #Shape of data points
                 xlab("Prey Mass in grams") +
                 ylab("Predator mass in grams") +
-                facet_grid(Type.of.feeding.interaction ~ .) +
-                coord_fixed(0.25) +
+                facet_grid(Type.of.feeding.interaction ~ .) + #split by
+                coord_fixed(0.25) + #scale axes
                 guides(colour = guide_legend(nrow = 1)) +
-                scale_y_continuous(trans='log10', limits=c(1e-09, 1e+07)) +
+                scale_y_continuous(trans='log10', limits=c(1e-09, 1e+07)) + #set scales
                 scale_x_continuous(trans='log10', limits=c(1e-10, 1e+04)) +
-                geom_smooth(method="lm", fullrange=T) +
+                geom_smooth(method="lm", fullrange=T) + #add linear regression
                 theme(legend.title = element_text(face="bold")) +
                 theme_bw() +
                 theme(legend.position="bottom")    
@@ -256,9 +296,10 @@ print(p)
 graphics.off()
 
 
-
+#Apply linear model to data susbet by feeding interaction
 lmfit <- dlply(MyDF, .(Type.of.feeding.interaction, Predator.lifestage), function(MyDF) lm(log(Predator.mass)~log(Prey.mass), data=MyDF))
 
+#Extract desired statistics
 stats_out <- ldply(lmfit, function(MyDF) {
     intercept <- summary(MyDF)$coefficients[1]
     slope <- summary(MyDF)$coefficients[2]
@@ -267,13 +308,17 @@ stats_out <- ldply(lmfit, function(MyDF) {
     data.frame(r2, intercept, slope, p.value)
     })
 
+#Compute F statistic
 F.statistic <- ldply(lmfit, function(MyDF) summary(MyDF)$fstatistic[1])
 
+#Merge into new dataframe
 stats_out <- merge(stats_out, F.statistic, by = c("Type.of.feeding.interaction","Predator.lifestage"),all=T)
 
+#Rename some columns
 names(stats_out)[7] <- "F.statistic"
 names(stats_out)[4] <- "Gradient"
 
+#Output to csv
 write.csv(stats_out, "../Results/PP_Regress_Results.csv", row.names = FALSE, quote = FALSE)
 
 print(stats_out)
@@ -330,6 +375,76 @@ Warning messages:
 5: Removed 153 rows containing missing values (geom_smooth). 
 
 ======================================================================
+Inspecting script file Vectorize2.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+
+""" Runs the stochastic (with gaussian fluctuations) Ricker Eqn. """
+
+__appname__ = 'Vectorize2.py'
+__author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+
+import numpy as np
+import timeit
+import time
+
+a = np.random.uniform(0.5, 1.5, 1000)
+def stochrick(p0=np.random.uniform(0.5, 1.5, 1000), r=1.2, K=1, sigma=0.2, numyears=100):
+    """ Stochrick model """
+    N = np.full([numyears, len(p0)], fill_value=np.nan)
+    N[0,] = p0
+
+    for pop in range(len(p0)):
+        for yr in range(1, numyears):
+           N[yr,pop] = N[yr-1,pop]*np.exp(r*(1-N[yr-1,pop]/K)+np.random.normal(0,sigma))
+
+    return(N)
+
+
+def stochrickvect(p0=np.random.uniform(0.5, 1.5, 1000), r=1.2, K=1, sigma=0.2, numyears=100):
+    """ Vectorized stochrick model """
+    N = np.full([numyears, len(p0)], fill_value=np.nan)
+    N[0,] = p0
+
+    #for pop in range(len(p0)):
+    for yr in range(1, numyears):
+        N[yr,] = N[yr-1,]*np.exp(r*(1-N[yr-1,]/K)+np.random.normal(0,sigma,len(p0)))
+
+    return(N)
+
+
+start = time.clock()
+stochrick()
+print("stochrick(): %.3f" % (time.clock() - start) + "s")
+
+start = time.clock()
+stochrickvect()
+print("stochrickvect(): %.3f" % (time.clock() - start) + "s")**********************************************************************
+
+Testing Vectorize2.py...
+
+Vectorize2.py is a Python script file;
+ checking for docstrings...
+
+Found one or more doctrings!
+
+Output (only first 500 characters): 
+
+**********************************************************************
+stochrick(): 0.456s
+stochrickvect(): 0.007s
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.58162s
+
+======================================================================
 Inspecting script file apply1.R...
 
 File contents are:
@@ -360,24 +475,30 @@ Testing apply1.R...
 Output (only first 500 characters): 
 
 **********************************************************************
- [1]  0.27929765  0.22895032  0.16658075 -0.02533313  0.49695459 -0.26732555
- [7] -0.18615122 -0.10279042 -0.02013322  0.11330229
- [1] 0.4293333 1.6130083 1.0909004 0.9105661 0.5994349 1.9532584 0.4596275
- [8] 1.8932678 1.3817632 3.7338166
- [1]  0.454810537 -0.154827730 -0.494068338  0.126599796  0.600769392
- [6]  0.399586241 -0.001810821 -0.358214684  0.001560015  0.108947646
+ [1]  0.49644697 -0.40152051 -0.08735718  0.45428128  0.17131379  0.59860421
+ [7] -0.24287001  0.39728103 -0.03316267 -0.30620217
+ [1] 0.8776769 1.2433146 2.0484519 1.6967279 0.9762691 0.8854715 0.9119440
+ [8] 1.6831509 0.7226694 2.1269885
+ [1] -0.15408908  0.12488688 -0.55047755 -0.24849333  0.82421624  0.24921256
+ [7] -0.02105974  0.21930290  0.28349039  0.31982546
 
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.07610s
+Time consumed = 0.07299s
 
 ======================================================================
 Inspecting script file basic_plot.R...
 
 File contents are:
 **********************************************************************
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+# Desc - How to plot in R
+
+
 # Load dataframe
 MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv")
 
@@ -501,7 +622,7 @@ Output (only first 500 characters):
 
 Code ran without errors
 
-Time consumed = 1.81519s
+Time consumed = 1.78873s
 
 ======================================================================
 Inspecting script file sample.R...
@@ -536,22 +657,22 @@ Testing sample.R...
 Output (only first 500 characters): 
 
 **********************************************************************
-[1] "Mean of this sample was: 0.209777992944438"
-[1] "Mean of this sample was: 0.246050966983915"
-[1] "Mean of this sample was: 0.0312251482328887"
-[1] "Mean of this sample was: 0.273281498770012"
-[1] "Mean of this sample was: -0.190060773427181"
-[1] "Mean of this sample was: 0.103886128582966"
-[1] "Mean of this sample was: -0.00961153688660744"
-[1] "Mean of this sample was: 0.199519322791151"
-[1] "Mean of this sample was: -0.011797256580316"
-[1] "Mean of this sample was: -0.168064175464955"
-[1] 
+[1] "Mean of this sample was: -0.524557067983845"
+[1] "Mean of this sample was: -0.14348045032685"
+[1] "Mean of this sample was: -0.239018239679626"
+[1] "Mean of this sample was: -0.377680195726651"
+[1] "Mean of this sample was: -0.0584335121371309"
+[1] "Mean of this sample was: -0.262839017064666"
+[1] "Mean of this sample was: -0.337523689698506"
+[1] "Mean of this sample was: -0.23401675860364"
+[1] "Mean of this sample was: -0.386709705627423"
+[1] "Mean of this sample was: -0.258768428159993"
+[1
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.09664s
+Time consumed = 0.09961s
 
 ======================================================================
 Inspecting script file run_get_TreeHeight.sh...
@@ -559,11 +680,9 @@ Inspecting script file run_get_TreeHeight.sh...
 File contents are:
 **********************************************************************
 #!/bin/bash
-
 # Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
-#!/bin/bash
 # Script: run_get_TreeHeight.sh
-# Desc: tests get_TreeHeight.sh
+# Desc: tests get_TreeHeight.R and get_TreeHeight.py
 # Date: Oct 2018
 
 echo "Testing get_TreeHeight.R..."
@@ -571,6 +690,18 @@ echo "Testing get_TreeHeight.R..."
 Rscript get_TreeHeight.R ../Data/trees.csv
 
 file="../Results/trees_treeheights.csv"
+if [ ! -f "$file" ]
+then
+    echo "Not successful :("
+else
+    echo "Success! :), see output in Results Directory"
+fi 
+
+echo "Testing get_TreeHeight.py..."
+
+python3 get_TreeHeight.py ../Data/trees.csv
+
+file="../Results/trees_treeheights_py.csv"
 if [ ! -f "$file" ]
 then
     echo "Not successful :("
@@ -585,12 +716,67 @@ Output (only first 500 characters):
 **********************************************************************
 Testing get_TreeHeight.R...
 Success! :), see output in Results Directory
+Testing get_TreeHeight.py...
+Not successful :(
 
 **********************************************************************
 
-Code ran without errors
+Encountered error:
+run_get_TreeHeight.sh: line 21: 17102 Segmentation fault      (core dumped) python3 get_TreeHeight.py ../Data/trees.csv
 
-Time consumed = 0.11007s
+======================================================================
+Inspecting script file get_TreeHeight.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+
+""" A program that identifies oaks from a list of taxa. 
+    A bug was initially present but has been removed and 
+    doctests have been added to test the functions.  """
+
+__appname__ = 'oaks_debugme.py'
+__author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+import pandas as pd
+import scipy as sc
+import math
+import os
+import sys
+
+pd.set_option("display.precision", 13)
+MyData = pd.read_csv(sys.argv[1], sep=',', float_precision='round_trip')
+MyDF = pd.DataFrame(data=MyData)
+
+MyDF["Tree.Height.m"] = MyDF["Angle.degrees"].apply(lambda x: math.tan(x * (math.pi / 180)))
+MyDF['Tree.Height.m'] = MyDF['Tree.Height.m']*MyDF['Distance.m']
+
+
+# Stripping file extension of input file
+name = os.path.splitext(os.path.basename(sys.argv[1]))[0]
+
+# Writing new .csv with results in
+MyDF.to_csv("../Results/" + name + "_treeheights_py.csv", float_format="%.13f")**********************************************************************
+
+Testing get_TreeHeight.py...
+
+get_TreeHeight.py is a Python script file;
+ checking for docstrings...
+
+Found one or more doctrings!
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error:
+Traceback (most recent call last):
+  File "get_TreeHeight.py", line 18, in <module>
+    MyData = pd.read_csv(sys.argv[1], sep=',', float_precision='round_trip')
+IndexError: list index out of range
 
 ======================================================================
 Inspecting script file boilerplate.R...
@@ -631,7 +817,7 @@ Output (only first 500 characters):
 
 Code ran without errors
 
-Time consumed = 0.08964s
+Time consumed = 0.08687s
 
 ======================================================================
 Inspecting script file TreeHeight.R...
@@ -660,6 +846,7 @@ MyData <- read.csv("../Data/trees.csv", header = TRUE) # import with headers
 # Creating a function to calculate tree height
 for (i in MyData){ #i here just means for the 'ith' row
         radians <- MyData$Angle.degrees * pi / 180 # Referencing columns directly
+        print(radians)
         height <- MyData$Distance.m * tan(radians)
         Tree.Height.m <- c(height) # Make a new vector called Tree,height.m
 }
@@ -676,27 +863,36 @@ Testing TreeHeight.R...
 Output (only first 500 characters): 
 
 **********************************************************************
-
+  [1] 0.7205179 0.7772984 0.4388850 0.4072922 0.6693186 0.5862964 0.5178055
+  [8] 0.7100103 0.4705219 0.4660527 0.5873175 0.4896914 0.6918192 0.6795706
+ [15] 0.7334685 0.6749079 0.5474498 0.4589105 0.4629792 0.7535023 0.6323814
+ [22] 0.6753010 0.4073612 0.7479627 0.5471224 0.7549934 0.6242560 0.7450835
+ [29] 0.4551580 0.6128619 0.5100516 0.5268797 0.7106167 0.5766007 0.6385746
+ [36] 0.6296430 0.4180707 0.5414678 0.6130493 0.5260245 0.3638899 0.4002606
+ [43] 0.5345860 0.4473686 0.5375234 0.7121396
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.09573s
+Time consumed = 0.09691s
 
 ======================================================================
 Inspecting script file PP_Lattice.R...
 
 File contents are:
 **********************************************************************
-# # Script that draws and saves 3 lattice graphs
-# # by feeding interaction type:
-#     # Predator mass
-#     # Prey mass
-#     # Size ratio of prey mass over predator mass
-# # Use logarithms of masses for all 3 plots
-# # Script will also calculate mean and median
-# # predator mass, prey mass, and predator-prey
-# # size-ratios to a csv file 
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
+# Script that draws and saves 3 lattice graphs
+# by feeding interaction type (log):
+     # Predator mass
+     # Prey mass
+     # Size ratio of prey mass over predator mass
+# Script will also calculate mean and median of
+# predator mass, prey mass, and predator-prey (log)
+# size-ratios and output to a csv file 
 
 MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv", header=T)
 
@@ -785,6 +981,58 @@ The following objects are masked from ‘package:base’:
 
 
 ======================================================================
+Inspecting script file Vectorize_speed.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+# Author: Jacob Griffiths jacob.griffiths18@imperial.ac.uk
+# Script: Vectorize_speed.sh
+# Desc: Comparing system times of the vectorization scripts
+# Date: Nov 2018
+
+echo "Running Vectorize1.R"
+
+Rscript Vectorize1.R
+
+
+echo "Running Vectorize1.py"
+
+python3 Vectorize1.py
+
+echo "Running Vectorize2.R"
+
+Rscript Vectorize2.R
+
+echo "Running Vectorize2.py"
+
+python3 Vectorize2.py**********************************************************************
+
+Testing Vectorize_speed.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Running Vectorize1.R
+[1] "SumAllElements(M): 0.083s"
+[1] "sum(M): 0.001s"
+Running Vectorize1.py
+SumAllElements(M): 0.299s
+M.sum(): 0.001s
+Running Vectorize2.R
+[1] "stochrick(): 0.252s"
+[1] "stochrickvect(): 0.018s"
+Running Vectorize2.py
+stochrick(): 0.483s
+stochrickvect(): 0.007s
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 1.61465s
+
+======================================================================
 Inspecting script file next.R...
 
 File contents are:
@@ -816,7 +1064,7 @@ Output (only first 500 characters):
 
 Code ran without errors
 
-Time consumed = 0.08391s
+Time consumed = 0.09194s
 
 ======================================================================
 Inspecting script file Vectorize1.R...
@@ -829,6 +1077,7 @@ File contents are:
 
 # A script demonstrating how vectorisation can be used to speed up processes
 
+# Generate synthetic data
 M <- matrix(runif(1000000),1000,1000)
 
 SumAllElements <- function(M){  
@@ -842,34 +1091,35 @@ SumAllElements <- function(M){
     return (Tot)
 }
 
-## Takes about 1 second for Samraat
-print(system.time(SumAllElements(M)))
-## Takes about 0.01 seconds for Samraat
-print(system.time(sum(M)))**********************************************************************
+
+print(paste0("SumAllElements(M): ", as.numeric(system.time(SumAllElements(M))[3]), "s"))
+print(paste0("sum(M): ", as.numeric(system.time(sum(M))[3]), "s"))**********************************************************************
 
 Testing Vectorize1.R...
 
 Output (only first 500 characters): 
 
 **********************************************************************
-   user  system elapsed 
-  0.076   0.000   0.078 
-   user  system elapsed 
-  0.000   0.000   0.001 
+[1] "SumAllElements(M): 0.084s"
+[1] "sum(M): 0.001s"
 
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.21451s
+Time consumed = 0.22666s
 
 ======================================================================
 Inspecting script file SQLinR.R...
 
 File contents are:
 **********************************************************************
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 #install the sqlite package
-install.packages('sqldf')
+#install.packages('sqldf')
 
 # To load the packages
 library(sqldf)
@@ -938,16 +1188,38 @@ Testing SQLinR.R...
 Output (only first 500 characters): 
 
 **********************************************************************
-
+<SQLiteResult>
+  SQL  CREATE TABLE Consumer
+       (OriginalID TEXT,
+        ConKingdom TEXT,
+        ConPhylum TEXT,
+        ConSpecies TEXT)
+  ROWS Fetched: 0 [complete]
+       Changed: 0
+<SQLiteResult>
+  SQL  INSERT INTO Consumer
+         VALUES (1, 'Animalia', 'Arthropoda', 'Chaoborus trivittatus')
+  ROWS Fetched: 0 [complete]
+       Changed: 1
+<SQLiteResult>
+  SQL  INSERT INTO Consumer
+         VALUES (2, 'Animalia', 'Arthropoda', 'Chaoborus americanus')
+  ROWS Fetched: 0 [complete]
+       C
 **********************************************************************
 
 Encountered error:
-Installing package into ‘/usr/local/lib/R/site-library’
-(as ‘lib’ is unspecified)
-Warning in install.packages("sqldf") :
-  'lib = "/usr/local/lib/R/site-library"' is not writable
-Error in install.packages("sqldf") : unable to install packages
-Execution halted
+Loading required package: gsubfn
+Loading required package: proto
+Loading required package: RSQLite
+Warning message:
+Closing open result set, pending rows 
+Warning message:
+Closing open result set, pending rows 
+Warning message:
+Closing open result set, pending rows 
+Warning message:
+Closing open result set, pending rows 
 
 ======================================================================
 Inspecting script file break.R...
@@ -1000,13 +1272,17 @@ i equals  19
 
 Code ran without errors
 
-Time consumed = 0.09791s
+Time consumed = 0.10441s
 
 ======================================================================
 Inspecting script file plotLin.R...
 
 File contents are:
 **********************************************************************
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 require(ggplot2)
 
 # Create linear regression "data"
@@ -1092,6 +1368,65 @@ In write.table(MyData[1, ], file = "../Results/MyData.csv", append = TRUE) :
   appending column names to file
 
 ======================================================================
+Inspecting script file Vectorize1.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+
+""" A script demonstrating how vectorisation can be used to speed up processes  """
+
+__appname__ = 'Vectorize1.py'
+__author__ = 'Jacob Griffiths (jacob.griffiths18@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+
+import numpy as np
+import timeit
+import time
+
+# Generate synthetic data
+M = np.random.rand(1000,1000)
+
+# Define function
+def SumAllElements(M):
+    """ Sums all elements in a given matrix """
+    Dimensions = M.shape
+    Tot = 0 
+    for i in range(Dimensions[0]):
+        for j in range(Dimensions[1]):
+            Tot = Tot + M[i,j]
+        
+    return(Tot)
+
+start = time.clock()
+SumAllElements(M)
+print("SumAllElements(M): %.3f" % (time.clock() - start) + "s")
+
+start = time.clock()
+M.sum()
+print("M.sum(): %.3f" % (time.clock() - start) + "s")**********************************************************************
+
+Testing Vectorize1.py...
+
+Vectorize1.py is a Python script file;
+ checking for docstrings...
+
+Found one or more doctrings!
+
+Output (only first 500 characters): 
+
+**********************************************************************
+SumAllElements(M): 0.294s
+M.sum(): 0.001s
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.44738s
+
+======================================================================
 Inspecting script file try.R...
 
 File contents are:
@@ -1127,20 +1462,34 @@ Testing try.R...
 Output (only first 500 characters): 
 
 **********************************************************************
-[1] "Mean of this sample was: 0.185876284123332"
-[1] "Mean of this sample was: 0.100656689730728"
-[1] "Mean of this sample was: -0.0939160652714066"
-[1] "Mean of this sample was: -0.119177226516297"
-[1] "Mean of this sample was: -0.141810888078058"
-[1] "Mean of this sample was: -0.150685403282459"
-[1] "Mean of this sample was: 0.0624862824873513"
-[1] "Mean of this sample was: -0.0544872990882275"
-[1] "Mean of this sample was: 0.15042799259032"
-[1] "Mean of this sample was: -0.25411009303545"
-[1] 
+[1] "Mean of this sample was: -0.295104216125437"
+[1] "Mean of this sample was: -0.00466834980881243"
+[1] "Mean of this sample was: 0.135277060563821"
+[1] "Mean of this sample was: 0.0929808824908207"
+[1] "Mean of this sample was: 0.0421766214754598"
+[1] "Mean of this sample was: -0.11780086430768"
+[1] "Mean of this sample was: -0.0166698960743595"
+[1] "Mean of this sample was: -0.152727913725386"
+[1] "Mean of this sample was: -0.388224736808479"
+[1] "Mean of this sample was: -0.324121189768162"
+
 **********************************************************************
 
 Encountered error:
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
+Error in doit(x) : Couldn't calculate mean: too few unique points!
 Error in doit(x) : Couldn't calculate mean: too few unique points!
 Error in doit(x) : Couldn't calculate mean: too few unique points!
 Error in doit(x) : Couldn't calculate mean: too few unique points!
@@ -1229,18 +1578,18 @@ Testing apply2.R...
 Output (only first 500 characters): 
 
 **********************************************************************
-           [,1]        [,2]       [,3]        [,4]       [,5]        [,6]
- [1,] -90.34913 -0.82009628 -169.50136 -0.98977117 -0.7519396  122.675666
- [2,] -47.73898  0.45438361   13.27126  0.63874175 -0.3599254    9.854084
- [3,] 109.35746 -0.23819723   31.76780  1.54025913 -1.5249637  177.115890
- [4,] -58.13383  0.10677072  -70.71652 -1.06597168 -0.1709074 -161.130497
- [5,] -14.10080  0.95537097  123.91727  0.04212639 -0.1161029  -71.795017
- [6,]  96.03773  0.41530122  146.50428 -0.26113991 -0.684
+             [,1]        [,2]        [,3]        [,4]      [,5]        [,6]
+ [1,]   46.934194  0.27559213  260.375555 -0.55111631 -54.69550   53.336701
+ [2,]   67.492640 -0.75255306  -93.495966 -1.41525514  12.62325  206.916452
+ [3,]   64.363636 -0.90286001  -38.242345  1.30436756 -17.82565   30.222990
+ [4,]  -41.872982  0.42808234    9.478418 -1.46406940   8.57530    9.252428
+ [5,]   -6.457322 -1.93512517   18.909151 -1.41998389 -60.93902   75.108657
+ [6,]   56.003471  0.47963104   55.066766 -1.
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.10391s
+Time consumed = 0.09107s
 
 ======================================================================
 Inspecting script file get_TreeHeight.R...
@@ -1331,7 +1680,7 @@ pval<-length(results[results>a])/length(results)
 
 
 # Open a pdf file
-pdf("../Data/rplot.pdf") 
+pdf("../Results/rplot.pdf") 
 # 2. Create a plot
 myhist <- hist(as.numeric(results), xlab="Correlation", main="Correlation Histogram")
 abline(v=a, col="red")
@@ -1359,7 +1708,7 @@ pdf
 
 Code ran without errors
 
-Time consumed = 0.60995s
+Time consumed = 0.58219s
 
 ======================================================================
 Inspecting script file Vectorize2.R...
@@ -1370,7 +1719,7 @@ File contents are:
 # Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
 # Date - Oct 2018
 
-# Runs the stochastic (with gaussian fluctuations) Ricker Eqn .
+# Runs the stochastic (with gaussian fluctuations) Ricker Eqn.
 
 rm(list=ls())
 
@@ -1391,14 +1740,9 @@ stochrick<-function(p0=runif(1000,.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 
 }
 
-print("Non-Vectorized Stochastic Ricker takes:")
-print(system.time(stochrick()))
-
 # Now write another function called stochrickvect that vectorizes the above 
 # to the extent possible, with improved performance: 
 
-
-rm(list=ls())
 
 stochrickvect<-function(p0=runif(1000,.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
 {
@@ -1410,33 +1754,29 @@ stochrickvect<-function(p0=runif(1000,.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
   
   for (yr in 2:numyears) #for each population, loop through the years
   {
-    N[yr,]<-N[yr-1,]*exp(r*(1-N[yr-1,]/K)+rnorm(1,0,sigma))
+    N[yr,]<-N[yr-1,]*exp(r*(1-N[yr-1,]/K)+rnorm(length(p0),0,sigma))
   }
   
  return(N)
 
 }
 
-print("Vectorized Stochastic Ricker takes:")
-print(system.time(res2<-stochrickvect()))**********************************************************************
+print(paste0("stochrick(): ", as.numeric(system.time(stochrick())[3]), "s"))
+print(paste0("stochrickvect(): ", as.numeric(system.time(stochrickvect())[3]), "s"))**********************************************************************
 
 Testing Vectorize2.R...
 
 Output (only first 500 characters): 
 
 **********************************************************************
-[1] "Non-Vectorized Stochastic Ricker takes:"
-   user  system elapsed 
-   0.26    0.00    0.26 
-[1] "Vectorized Stochastic Ricker takes:"
-   user  system elapsed 
-  0.008   0.000   0.010 
+[1] "stochrick(): 0.242s"
+[1] "stochrickvect(): 0.017s"
 
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.36207s
+Time consumed = 0.34392s
 
 ======================================================================
 Inspecting script file DataWrangTidy.R...
@@ -1446,6 +1786,8 @@ File contents are:
 #!/usr/bin/Rscript
 # Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
 # Date - Oct 2018
+
+# Edit of DataWrang.R using dplyr alternatives
 
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
@@ -1591,7 +1933,7 @@ Output (only first 500 characters):
 
 Code ran without errors
 
-Time consumed = 10.00470s
+Time consumed = 10.00401s
 
 ======================================================================
 Inspecting script file DataWrang.R...
@@ -1666,8 +2008,9 @@ Output (only first 500 characters):
 [6,] "Agrostis gigantea"    ""   
 **********************************************************************
 
-Encountered error:
-Loading required package: reshape2
+Code ran without errors
+
+Time consumed = 10.00581s
 
 ======================================================================
 Inspecting script file TAutoCorr.tex...
@@ -1676,7 +2019,7 @@ File contents are:
 **********************************************************************
 \documentclass{article}
 \usepackage{graphicx}
-\graphicspath{ {../Data/} }
+\graphicspath{ {../Results/} }
  
 \begin{document}
 Analysis of the change in temperature in Florida during the 20th Century.
@@ -1690,8 +2033,7 @@ Figure 1: Histogram of correlations between years
 \grid
 \grid
 \grid
-\grid
-**********************************************************************
+\grid**********************************************************************
 
 Testing TAutoCorr.tex...
 
@@ -1737,6 +2079,12 @@ Inspecting script file MyBars.R...
 
 File contents are:
 **********************************************************************
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+# Desc - Using ggplot 
+
+
 require(ggplot2)
 
 a <- read.table("../Data/Results.txt", header = TRUE)
@@ -1865,6 +2213,7 @@ Output (only first 500 characters):
 
 **********************************************************************
 [1] "a is TRUE"
+[1] "Less than a half"
 [1] "1  squared is 1"
 [1] "2  squared is 4"
 [1] "3  squared is 9"
@@ -1884,19 +2233,22 @@ Output (only first 500 characters):
 [1] "17  squared is 289"
 [1] "18  squared is 324"
 [1] "19  squared is 361"
-[1] "20  squared is 400"
-[1] "2
+[1] "20 
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.09779s
+Time consumed = 0.09564s
 
 ======================================================================
 Inspecting script file poundhill_example.R...
 
 File contents are:
 **********************************************************************
+#!/usr/bin/Rscript
+# Author - Jacob Griffiths, jacob.griffiths18@imperial.ac.uk
+# Date - Oct 2018
+
 # Load the data into R
 # Using as.matrix, setting the header and using stringsAsFactors
 # guarantees the data are imported "as is" so they can be wrangled
@@ -1932,19 +2284,19 @@ Output (only first 500 characters):
 
 Code ran without errors
 
-Time consumed = 0.08845s
+Time consumed = 0.08260s
 
 ======================================================================
 ======================================================================
 Finished running scripts
 
-Ran into 11 errors
+Ran into 12 errors
 
 ======================================================================
 ======================================================================
 
 FINISHED WEEKLY ASSESSMENT
 
-Current Points for the Week = 98.0
+Current Points for the Week = 96.5
 
 NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
