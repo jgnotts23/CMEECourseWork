@@ -3,14 +3,11 @@
 *.p
 *.pyc
 pickle 
-/Week5/Data/GIS_Practical_1_files
-/Week3/Data/EcolArchives-E089-51-D1.csv
-/Miniproject/Data/BioTraits.csv
-/Week4/Data/HandOutsandData'18
-/Week4/Data/Lectures'18
-/Week5/Data/GIS_2016
-/Week5/Data/GIS_Practical_1_files
-/Week10/Data/BiolStructs_C
+/Week3/Data
+/Miniproject/Data
+/Week4/Data
+/Week5/Data
+/Week10/Data
 /CMEE_Exams
 /Week11/Data
 /Week11/Results
@@ -19,3 +16,5 @@ pickle
 /Week12/Data
 /Week12/Results
 /Week14/Data
+/Week15/statistical_inference
+/Week15/Data

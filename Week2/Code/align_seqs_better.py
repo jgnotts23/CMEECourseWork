@@ -17,7 +17,7 @@ import pickle
 ## Functions ##
 # To extract names and sequences
 def read_fasta(fp):
-    """ Reads in a fasta file and extracts names and sequences """£
+    """ Reads in a fasta file and extracts names and sequences """
 
     name, seq = None, []
     for line in fp:
