@@ -1,0 +1,100 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Part 1: Bayesian Thinking"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## The eyes and the brain"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<center> \"I've just seen the Loch Ness monster in Silwood!\" <center>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "What does this information tell you about the existence of Nessie? The classic frequentist, or likelihoodist, approach involves making inferences from observed data. In this case, it may lead to the conclusion that Nessie exists."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's denote $D$ (data) as the set of observations specifying whether I tell you that I saw Nessie ($D = 1$) or not ($D = 0$). $D$ is our *sample space*, the set of all possible outcomes of the experiment, and $D = {0,1}$. We want to make some inferences on the probability that Nessie exists. Let's denote this probability $N$."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "We can define a likelihood function for $p(D|N)$. For instance, assuming that our observation is $D = 1$, we could set $p(D=1|N=0) = 0.01$ (probability Nessie *was* observed, given she *does not* exist) and $p(D=1|N=1)=0.90$ (probability Nessie *was* observed, given she *does* exist)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's make is slightly more complicated and imagine several other people tell you they saw Nessie. Let's assume the above likelihood functions are valid for each observer $l$. Then the log-likelihood of $N=0$ is given by:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\\begin{align}\n",
+    "\\sum_{l=1}^{3} log(p(D=1|N=0)) = -6.91\n",
+    "\\end{align}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "R",
+   "language": "R",
+   "name": "ir"
+  },
+  "language_info": {
+   "codemirror_mode": "r",
+   "file_extension": ".r",
+   "mimetype": "text/x-r-source",
+   "name": "R",
+   "pygments_lexer": "r",
+   "version": "3.2.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
