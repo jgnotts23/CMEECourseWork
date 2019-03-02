@@ -6,16 +6,16 @@
 # Clear and import
 rm(list = ls())
 graphics.off()
-require("minpack.lm")
 
 bio <- read.csv(file="../Data/BioTraits.csv")
 
-# Subset to FinalID, OriginalTraitValue, OriginalTraitUnit, ConTemp, AmbientTempUnit
-bio <- bio[c(3, 8, 9, 67, 68)]
+# Subset to FinalID, OriginalTraitValue, ConTemp, AmbientTempUnit
+bio <- bio[c(3, 8, 67, 68)]
 
 # Remove negative and 0 zero trait values
 bio <- bio[!is.na(bio$OriginalTraitValue),]
-bio <- bio[bio$OriginalTraitValue > 0, ]
+bio <- bio[!is.na(bio$ConTemp),]
+#bio <- bio[bio$OriginalTraitValue > 0, ]
 
 # Remove datasets with <5 data points
 bio <- bio[bio$FinalID %in% names(table(bio$FinalID))[table(bio$FinalID) >= 5],]
