@@ -1,0 +1,14 @@
+# continiour time logistic model
+# first define the parameters
+par k=3, r=1
+
+# now the model
+n' = r*n*(k-n)
+
+# and the initial conditions
+init n=0.01
+
+@ ylo=0, yhi=5, xhi=3, total=3
+@ autoxmin=-5, autoxmax=5, autoymin=-5, autoymax=5, parmax=5, parmin=-5
+
+d

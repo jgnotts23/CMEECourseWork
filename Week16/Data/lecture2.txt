@@ -1,0 +1,7 @@
+################################
+Ecological Modelling - Lecture 2
+################################
+
+Intraspecific competition - competition between individuals of the same species reduced the per capita growth rate.
+
+Interspecific competition - also has the potential to reduce the growth rate through exploitation/interference competition.

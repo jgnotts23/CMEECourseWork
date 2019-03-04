@@ -16,7 +16,8 @@ from matplotlib import pylab
 from scipy import stats
 import csv
 import math
-import timeit
+import time
+import cProfile
 
 ###############################
 ########### IMPORT ############
@@ -30,7 +31,8 @@ k = 8.617e-5 # botzmann constant
 Tref = 283.15 #Reference temp
 
 # Cubic polynomial
-def cubic(params, x, data):
+def cubic(params, Kelvin, trait):
+    x = Kelvin
     B0 = params['B0']
     B1 = params['B1']
     B2 = params['B2']
@@ -38,33 +40,23 @@ def cubic(params, x, data):
 
     model = B0 + B1*x + B2*(x**2) + B3*(x**3)
 
-    return model - data #return residuals
+    return model - trait #return residuals
 
 # Briere model
-def Briere(params, x, data):
+def Briere(params, Kelvin, trait):
+    x = Kelvin
     B0 = params['B0_Briere']
     T0 = params['T0'] # minimum trait temp
     Tm = params['Tm'] # max trait temp
 
     model = (B0*x*(x-T0))*(abs(Tm-x)**(1/2))
 
-    return model - data
+    return model - trait
 
-# Schoolfield model (full)
-def School(params, x, data):
-    B0 = params['B0']
-    E = params['E']
-    El = params['El']
-    Tl = params['Tl']
-    Eh = params['Eh']
-    Th = params['Th']
-
-    model = B0 * (np.exp((-E / k) * ((1 / x) - (1 / 283.15))) / (1 + np.exp((El / k) * (1 / Tl - (1 / x))) + np.exp((Eh / k) * (1 / Th - (1 / x)))))
-
-    return model - data
 
 # Schoolfield model (El and Tl omitted)
-def School_nolow(params, x, data):
+def School_nolow(params, Kelvin, trait):
+    x = Kelvin
     B0 = params['B0_School']
     E = params['E']
     Eh = params['Eh']
@@ -72,69 +64,80 @@ def School_nolow(params, x, data):
 
     model = (B0*(np.exp((-E/k)*((1/x)-(1/283.15))))) / (1 + (np.exp(Eh/k*((1/Th)-(1/x)))))
 
-    return model - data
+    return model - trait
 
 # Starting parameter calculator
-def start_params(x, data):
+#def start_params(Celsius, Kelvin, trait):
 
-    # Split data by Tpk and log-transform
-    try:
-        pk_index = np.argmax(data)
-        Tpk = x[pk_index] #Temp at which peak metabolic rate occurs
+    # x = Kelvin
+    # C = Celsius
+    # # Split data by Tpk and log-transform
+    # try:
+    #     pk_index = np.argmax(trait)
+    #     Tpk = x[pk_index] #Temp at which peak metabolic rate occurs
 
-        # B0
-        B0_indx = (np.abs(x - Tref)).argmin() #get index of nearest val to reference
+    #     # B0
+    #     B0_indx = (np.abs(x - Tref)).argmin() #get index of nearest val to reference
 
-        left_x = 1 / (k * (x[0:(pk_index+1)]))
-        right_x = 1/ (k * (x[pk_index:(x.size)]))
-        left_data = np.log(data[0:(pk_index+1)])
-        right_data = np.log(data[pk_index:(x.size)])
+    #     left_x = 1 / (k * (x[0:(pk_index+1)]))
+    #     right_x = 1/ (k * (x[pk_index:(x.size)]))
+    #     left_trait = np.log(trait[0:(pk_index+1)])
+    #     right_trait = np.log(trait[pk_index:(x.size)])
 
-        # Linear regression on log-transformed data
-        slopeL, interceptL, r_valueL, p_valueL, std_errL = stats.linregress(left_x, left_data)
-        slopeR, interceptR, r_valueR, p_valueR, std_errR = stats.linregress(right_x, right_data)
+    #     # Linear regression on log-transformed data
+    #     slopeL, interceptL, r_valueL, p_valueL, std_errL = stats.linregress(left_x, left_trait)
+    #     slopeR, interceptR, r_valueR, p_valueR, std_errR = stats.linregress(right_x, right_trait)
     
-        E = slopeL
-        if math.isnan(E):
-            E = 0.65
+    #     E = slopeL
+    #     if math.isnan(E):
+    #         E = 0.65
 
-        Eh = slopeR
-        if math.isnan(Eh):
-            Eh = 1.3
+    #     Eh = slopeR
+    #     if math.isnan(Eh):
+    #         Eh = 1.3
 
-        # Calculate Th and reverse log-transformation
-        Th = ((((np.mean(right_data)) - interceptR) / (slopeR))**(-1)) / k
-        if math.isnan(Th):
-            Th = np.argmax(x)
+    #     # Calculate Th and reverse log-transformation
+    #     Th = ((((np.mean(right_trait)) - interceptR) / (slopeR))**(-1)) / k
+    #     if math.isnan(Th):
+    #         Th = np.argmax(x)
 
-    except ValueError:
-        E = 0.65
-        Eh = 1.3
-        Th = np.argmax(x)
-        B0_indx = (np.abs(x - Tref)).argmin() #get index of nearest val to reference
+    # except ValueError:
+    #     E = 0.65
+    #     Eh = 1.3
+    #     Th = np.argmax(x)
+    #     B0_indx = (np.abs(x - Tref)).argmin() #get index of nearest val to reference
 
+    School_B0 = np.array(dataset.B0)[0]
+    T0 = np.array(dataset.T0)[0]
+    Th = np.array(dataset.Th)[0]
+    E = np.array(dataset.E)[0]
+    Tm = np.array(dataset.Tm)[0]
+    Eh = np.array(dataset.Eh)[0]
+    Tpk = np.array(dataset.Tpk)[0]
 
     cubic_params = Parameters()
-    cubic_params.add('B0', value=min(data))
-    cubic_params.add('B1', value=0.1)
-    cubic_params.add('B2', value=0.1)
-    cubic_params.add('B3', value=0.1)
+    cubic_params.add('B0', value=1)
+    cubic_params.add('B1', value=1)
+    cubic_params.add('B2', value=1)
+    cubic_params.add('B3', value=1)
 
     Briere_params = Parameters() 
-    Briere_params.add('B0_Briere', value=0.002)
-    Briere_params.add('T0', value=min(x), min = (min(x)-100))
-    Briere_params.add('Tm', value=max(x), max=(max(x)+100))
+    Briere_params.add('B0_Briere', value=1)
+    Briere_params.add('T0', value=T0, max = Tm)
+    Briere_params.add('Tm', value=Tm, min = T0)
 
     School_params = Parameters()
-    School_params.add('B0_School', value=data[B0_indx])
+    School_params.add('B0_School', value=School_B0)
     School_params.add('E', value=E, max=Eh)
-    School_params.add('Eh', value=Eh, min=E)
-    School_params.add('Th', value=Th, min=Tpk, max=max(x + 100))
+    School_params.add('Eh', value=Eh, min = E)
+    School_params.add('Th', value=Th, min=Tpk)
 
 
     return cubic_params, Briere_params, School_params
 
-def add_vals(i):
+#def add_vals(i):
+
+    ndata = len(trait)
 
     #initial values
     if cubic_params != 0:
@@ -157,10 +160,7 @@ def add_vals(i):
     else:
         Init_B0_Briere = 'NA'
         Init_T0 = 'NA'
-        Init_Tm = 'NA' 
-        Briere_AIC = 'NA'
-        Briere_BIC = 'NA'
-        Briere_chi = 'NA'      
+        Init_Tm = 'NA'      
 
     if School_params != 0:
         a = School_params.valuesdict()
@@ -182,33 +182,34 @@ def add_vals(i):
         B1 = a['B1']
         B2 = a['B2']
         B3 = a['B3']
-        cub_AIC = cub_out.aic 
-        cub_BIC = cub_out.bic
-        cub_chi = cub_out.chisqr
+        cub_AICc = AICc(cub_out.aic, cub_out.ndata, 4)
+        #cub_nfev = cub_out.nfev
+        #cub_residuals = cub_out.residual
+
     else:
         B0 = 'NA'
         B1 = 'NA'
         B2 = 'NA'
         B3 = 'NA' 
-        cub_AIC = 'NA' 
-        cub_BIC = 'NA'
-        cub_chi = 'NA'     
+        cub_AICc = 'NA' 
+        #cub_nfev = 'NA'
+        #cub_residuals = 'NA'  
 
     if Briere_out != 0:
         a = Briere_out.params.valuesdict()
         B0_Briere = a['B0_Briere']
         T0 = a['T0']
         Tm = a['Tm']
-        Briere_AIC = Briere_out.aic 
-        Briere_BIC = Briere_out.bic
-        Briere_chi = Briere_out.chisqr
+        Briere_AICc = AICc(Briere_out.aic, Briere_out.ndata, 3)
+        #Briere_nfev = Briere_out.nfev
+        #Briere_residuals = Briere_out.residual
     else:
         B0_Briere = 'NA'
         T0 = 'NA'
         Tm = 'NA'
-        Briere_AIC = 'NA'
-        Briere_BIC = 'NA'
-        Briere_chi = 'NA' 
+        Briere_AICc = 'NA'
+        #Briere_nfev = 'NA'
+        #Briere_residuals = 'NA'
 
     if School_out != 0:
         a = School_out.params.valuesdict()
@@ -216,53 +217,58 @@ def add_vals(i):
         E = a['E']
         Eh = a['Eh']
         Th = a['Th']
-        School_AIC = School_out.aic 
-        School_BIC = School_out.bic
-        School_chi = School_out.chisqr
+        School_AICc = AICc(School_out.aic, School_out.ndata, 4)
+        #School_nfev = School_out.nfev
+        #School_residuals = School_out.residual
 
     else:
         B0_School = 'NA'
         E = 'NA'
         Eh = 'NA'
         Th = 'NA'
-        School_AIC = 'NA'
-        School_BIC = 'NA'
-        School_chi = 'NA'
+        School_AICc = 'NA'
+        #School_nfev = 'NA'
+        #School_residuals = 'NA'
 
-    new_row = pd.Series([i, Init_B0, B0, Init_B1, B1, Init_B2, B2, Init_B3, B3, Init_B0_Briere, B0_Briere, Init_T0, T0, Init_Tm, Tm, Init_B0_School, B0_School, Init_E, E, Init_Eh, Eh, Init_Th, Th, cub_AIC, cub_BIC, cub_chi, Briere_AIC, Briere_BIC, Briere_chi, School_AIC, School_BIC, School_chi, cub_R2, Briere_R2, School_R2], index=(colnames))
+    new_row = pd.Series([i, ndata, Init_B0, B0, Init_B1, B1, Init_B2, B2, Init_B3, B3, \
+            cub_AICc, cub_R2, \
+            Init_B0_Briere, B0_Briere, Init_T0, T0, Init_Tm, Tm, \
+            Briere_AICc, Briere_R2, \
+            Init_B0_School, B0_School, Init_E, E, Init_Eh, Eh, Init_Th, Th, \
+            School_AICc, School_R2], index=(colnames))
 
-    return new_row
+    #residual_new_row = pd.Series([i, cub_residuals, Briere_residuals, School_residuals], index=(residual_colnames))
 
-def Gaussian(School_out, School_params):
+    return new_row #residual_new_row
+
+def Gaussian(School_out, School_params, Kelvin, trait):
     # Make aic of starting params the current best
-    #best_aic = School_out.aic
-    best_R2 = r_squared(School_out, data)
+    best_AICc = AICc(School_out.aic, School_out.ndata, 4)
     a = School_out.params.valuesdict()
     best_E = a['E']
     
     # See if current best is better than default:
-    School_params.add('E', value=0.65, max=(1.30))
-    School_out = minimize(School_nolow, School_params, args=(x, data))
-    new_R2 = r_squared(School_out, data)
-    if new_R2 > best_R2:
-        best_R2 = new_R2
+    School_params.add('E', value=0.65, max=3, min=0)
+    School_out = minimize(School_nolow, School_params, args=(Kelvin, trait))
+    new_AICc = AICc(School_out.aic, School_out.ndata, 4)
+    if new_AICc < best_AICc:
+        best_AICc = new_AICc
         a = School_out.params.valuesdict()
         best_E = a['E']
 
-    School_params.add('E', value=best_E, max=(2*best_E))
+    School_params.add('E', value=best_E, min=0, max=3)
 
     i = 0
     # Draw from a random distribution with mean E
     while i < 5:
         new_E = np.random.normal(best_E, 1)
-        School_params.add('E', value=new_E, max=(2*new_E))
+        School_params.add('E', value=new_E, min=0, max=3)
         try:
-            School_out = minimize(School_nolow, School_params, args=(x, data))
-            #new_aic = School_out.aic
-            new_R2 = r_squared(School_out, data)
+            School_out = minimize(School_nolow, School_params, args=(Kelvin, trait))
+            new_AICc = AICc(School_out.aic, School_out.ndata, len(School_out.var_names))
 
-            if new_R2 > best_R2:
-                best_R2 = new_R2
+            if new_AICc < best_AICc:
+                best_AICc = new_AICc
                 a = School_out.params.valuesdict()
                 best_E = a['E']
 
@@ -270,95 +276,194 @@ def Gaussian(School_out, School_params):
             continue
         
         #print(best_E)
-        #print(best_aic)
+        #print(best_AICc)
         i = i + 1
 
+    #print(best_AICc)
     
-    School_params.add('E', value=best_E, max=2*best_E)
+    School_params.add('E', value=best_E, min=0, max=3)
 
     return School_out, School_params
 
-def r_squared(output, data):
+def r_squared(output, trait):
 
-    a = 1 - output.redchi / np.var(data)
+    a = 1 - output.redchi / np.var(trait)
 
     return a
+
+def AICc(AIC, n, K):
+    if n - K - 1 != 0:
+        AICc = AIC + ((2*(K**2) + 2*K) / (n - K - 1))
+    else:
+        AICc = AIC
+
+    return AIC
 
 #######################################
 ############### Fitting ###############
 #######################################
+cubic_params = Parameters()
+cubic_params.add('B0', value=1)
+cubic_params.add('B1', value=1)
+cubic_params.add('B2', value=1)
+cubic_params.add('B3', value=1)
+a = cubic_params.valuesdict()
+Init_B0 = a['B0']
+Init_B1 = a['B1']
+Init_B2 = a['B2']
+Init_B3 = a['B3']
+
+Briere_params = Parameters() 
+Briere_params.add('B0_Briere', value=1)
+a = Briere_params.valuesdict()
+Briere_Init_B0 = a['B0_Briere']
+
+School_params = Parameters()
 
 FinalIDs = np.unique(bio.FinalID)
-colnames = ('FinalID', 'Init_B0', 'B0', 'Init_B1', 'B1', 'Init_B2', 'B2', 'Init_B3', 'B3', 'Init_B0_Briere', 'B0_Briere', 'Init_T0', 'T0', 'Init_Tm', 'Tm', 'Init_B0_School', 'B0_School', 'Init_E', 'E', 'Init_Eh', 'Eh', 'Init_Th', 'Th', 'cub_AIC', 'cub_BIC', 'cub_chi', 'Briere_AIC', 'Briere_BIC', 'Briere_chi', 'School_AIC', 'School_BIC', 'School_chi', 'cub_R2', 'Briere_R2', 'School_R2')
+colnames = ('FinalID', 'ndata', 'Init_B0', 'B0', 'Init_B1', 'B1', 'Init_B2', 'B2', 'Init_B3', 'B3', \
+            'cub_AICc', 'cub_R2',  \
+            'Init_B0_Briere', 'B0_Briere', 'Init_T0', 'T0', 'Init_Tm', 'Tm', \
+            'Briere_AICc', 'Briere_R2', \
+            'Init_B0_School', 'B0_School', 'Init_E', 'E', 'Init_Eh', 'Eh', 'Init_Th', 'Th', \
+            'School_AICc', 'School_R2')
+residual_colnames = ('FinalID', 'cub_residuals', 'Briere_residuals', 'School_residuals')
 proper_fit = pd.DataFrame(columns=(colnames))
-iteration = 0
+new_row = pd.Series(['NA', 'NA', Init_B0, 'NA', Init_B1, 'NA', Init_B2, 'NA', Init_B3, 'NA', \
+                    'NA', 'NA', Briere_Init_B0, 'NA', 'NA', 'NA', 'NA', 'NA', \
+                    'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA'], index=(colnames))
+#residuals = pd.DataFrame(columns=(residual_colnames))
 
 
-for i in FinalIDs:
-    iteration = iteration + 1
-    dataset = bio.loc[(bio.FinalID == i)]
+def fitting():
+    start = time.time()
+    iteration = 0
+    for i in FinalIDs:
+        ## ASSIGN ##
+        iteration = iteration + 1
+        dataset = bio.loc[(bio.FinalID == i)]
+        new_row['FinalID'] = i
+        new_row['ndata'] = len(i)
 
-    # Assign variables
-    x = np.array(dataset.Kelvins)
-    data = np.array(dataset.OriginalTraitValue)
+        Kelvin = np.array(dataset.Kelvin)
+        #Celsius = np.array(dataset.ConTemp)
+        trait = np.array(dataset.OriginalTraitValue)
+        #trait_scalar = np.array(dataset.trait_scalar)[0]
 
-    # Scale any negatives
-    if min(data) < 0:
-        lowest = min(data)
-        data = data + np.abs(lowest)
+        School_B0 = np.array(dataset.B0)[0]
+        new_row['Init_School_B0'] = School_B0
+        T0 = np.array(dataset.T0)[0]
+        new_row['Init_T0'] = T0
+        Th = np.array(dataset.Th)[0]
+        new_row['Init_Th'] = Th
+        E = np.array(dataset.E)[0]
+        new_row['Init_E'] = E
+        Tm = np.array(dataset.Tm)[0]
+        new_row['Init_Tm'] = Tm
+        Eh = np.array(dataset.Eh)[0]
+        new_row['Init_Eh'] = Eh
+        Tpk = np.array(dataset.Tpk)[0]
+        #new_row['Tpk'] = Tpk
 
-    try:
-        cubic_params, Briere_params, School_params = start_params(x, data)
-    except ValueError:
-        School_params = 0
+        Briere_params.add('T0', value=T0, min=0, max = Tpk)
+        Briere_params.add('Tm', value=Tm, min = Tpk, max=500)
 
-    # Fit models
-    if cubic_params != 0:
+        School_params = Parameters()
+        School_params.add('B0_School', value=School_B0)
+        School_params.add('E', value=E, min=0, max = 10)
+        School_params.add('Eh', value=Eh, min=0, max = 20)
+        School_params.add('Th', value=Th, min=Tpk, max=400)
+
         try:
-            cub_out = minimize(cubic, cubic_params, args=(x, data))
-            cub_R2 = r_squared(cub_out, data)
+            cub_out = minimize(cubic, cubic_params, args=(Kelvin, trait))
+            cub_R2 = r_squared(cub_out, trait)
+            a = cub_out.params.valuesdict()
+            new_row['B0'] = a['B0']
+            new_row['B1'] = a['B1']
+            new_row['B2'] = a['B2']
+            new_row['B3'] = a['B3']
+            new_row['cub_R2'] = cub_R2
+            cub_AICc = AICc(cub_out.aic, cub_out.ndata, 4)
+            new_row['cub_AICc'] = cub_AICc
+
         except ValueError:
             cub_out = 0
-            cub_R2 = 'NA'
 
-    if Briere_params != 0:
         try:
-            Briere_out = minimize(Briere, Briere_params, args=(x, data))
-            Briere_R2 = r_squared(Briere_out, data)
+            Briere_out = minimize(Briere, Briere_params, args=(Kelvin, trait))
+            Briere_R2 = r_squared(Briere_out, trait)
+            a = Briere_out.params.valuesdict()
+            new_row['B0_Briere'] = a['B0_Briere']
+            new_row['T0'] = a['T0']
+            new_row['Tm'] = a['Tm']
+            new_row['Briere_R2'] = Briere_R2
+            Briere_AICc = AICc(Briere_out.aic, Briere_out.ndata, 3)
+            new_row['Briere_AICc'] = Briere_AICc
+
         except ValueError:
             Briere_out = 0
-            Briere_R2 = 'NA'
-    
-    if School_params != 0:
+        
         try:
-            School_out = minimize(School_nolow, School_params, args=(x, data))
-            # plt.plot(x, data, 'x')
-            # plt.plot(x, School_nolow(School_out.params, x, data) + data, 'r')
-            # plt.show()
-            School_R2 = r_squared(School_out, data)
-            
-            if School_R2 < 0.7:
+            School_out = minimize(School_nolow, School_params, args=(Kelvin, trait))
+            School_R2 = r_squared(School_out, trait)
+            a = School_out.params.valuesdict()
+            new_row['B0_School'] = a['B0_School']
+            new_row['E'] = a['E']
+            new_row['Eh'] = a['Eh']
+            new_row['Th'] = a['Th']
+            new_row['School_R2'] = School_R2
+            School_AICc = AICc(School_out.aic, School_out.ndata, 4)
+            new_row['School_AICc'] = School_AICc
+                
+            if School_R2 < 0:
                 try:
-                    School_out, School_params = Gaussian(School_out, School_params)
-                    School_R2 = r_squared(School_out, data)
+                    School_out, School_params = Gaussian(School_out, School_params, Kelvin, trait)
+                    School_R2 = r_squared(School_out, trait)
+                    a = School_out.params.valuesdict()
+                    new_row['B0_School'] = a['B0_School']
+                    new_row['E'] = a['E']
+                    new_row['Eh'] = a['Eh']
+                    new_row['Th'] = a['Th']
+                    new_row['School_R2'] = School_R2
+                    School_AICc = AICc(School_out.aic, School_out.ndata, 4)
+                    new_row['School_AICc'] = School_AICc
+
                 except ValueError:
                     School_out = 0
-                    School_R2 = 'NA' 
 
         except ValueError:
-            #School_out = 0
-            #R2 = 'NA'
             try:
-                School_out, School_params = Gaussian(School_out, School_params)
-                School_R2 = r_squared(School_out, data)
+                School_out, School_params = Gaussian(School_out, School_params, Kelvin, trait)
+                School_R2 = r_squared(School_out, trait)
+                a = School_out.params.valuesdict()
+                new_row['B0_School'] = a['B0_School']
+                new_row['E'] = a['E']
+                new_row['Eh'] = a['Eh']
+                new_row['Th'] = a['Th']
+                new_row['School_R2'] = School_R2
+                School_AICc = AICc(School_out.aic, School_out.ndata, 4)
+                new_row['School_AICc'] = School_AICc
+
             except ValueError:
                 School_out = 0
-    
-    new_row = add_vals(i)
-    proper_fit = proper_fit.append(new_row, ignore_index=True)
-    print("Fit " + str(iteration) + " complete")
+
+        
+        proper_fit.loc[iteration] = new_row
 
 
+        #new_row = add_vals(i)  #, residual_new_row
+        #proper_fit = proper_fit.append(new_row, ignore_index=True)
+        #residuals = residuals.append(residual_new_row, ignore_index=True)
+
+        print("Fit " + str(iteration) + " complete")
+
+    end = time.time()
+    print("Time taken: " + str(end-start) + " secs")
+
+    return proper_fit
+
+## RUN ##
+proper_fit = fitting()
 
 
 
@@ -367,30 +472,41 @@ for i in FinalIDs:
 ###################
 
 
-proper_fit.to_csv('../Data/test.csv')
+proper_fit.to_csv('../Data/proper_fit.csv')
+# residuals.to_csv('../Data/residuals.csv')
+
+
+
+        # plt.plot(x, data, 'x')
+        # plt.plot(x, School_nolow(School_out.params, x, data) + data, 'r')
+        # plt.show()
 
 
 
 
+    # try:
+    #     cubic_params, Briere_params, School_params = start_params(Celsius, Kelvin, trait)
+    # except ValueError:
+    #     School_params = 0
+
+    # Fit models
+    #if cubic_params != 0:
+# ##### Testing #####
+
+# test = bio.loc[(bio.FinalID == "MTD3631")]
+
+# # Assign variables
+# x = np.array(test.Kelvins)
+# data = np.array(test.OriginalTraitValue)
+
+# cubic_params, Briere_params, School_params = start_params(x, data)
+
+# School_out = minimize(School_nolow, School_params, args=(x, data))
+# lmfit.printfuncs.report_fit(School_out.params, min_correl=0.5)
 
 
-
-##### Testing #####
-
-test = bio.loc[(bio.FinalID == "MTD3631")]
-
-# Assign variables
-x = np.array(test.Kelvins)
-data = np.array(test.OriginalTraitValue)
-
-cubic_params, Briere_params, School_params = start_params(x, data)
-
-School_out = minimize(School_nolow, School_params, args=(x, data))
-lmfit.printfuncs.report_fit(School_out.params, min_correl=0.5)
-
-
-plt.close()
-plt.plot(x, data, 'x')
-plt.plot(x, School_nolow(School_out.params, x, data) + data, 'r')
-plt.show()
+# plt.close()
+# plt.plot(x, data, 'x')
+# plt.plot(x, School_nolow(School_out.params, x, data) + data, 'r')
+# plt.show()
 
