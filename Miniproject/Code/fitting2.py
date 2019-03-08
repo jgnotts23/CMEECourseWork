@@ -370,8 +370,8 @@ def fitting():
 
         School_params = Parameters()
         School_params.add('B0_School', value=School_B0)
-        School_params.add('E', value=E, min=0, max = 10)
-        School_params.add('Eh', value=Eh, min=0, max = 20)
+        School_params.add('E', value=E, min=0, max = 3)
+        School_params.add('Eh', value=Eh, min=0, max = 6)
         School_params.add('Th', value=Th, min=Tpk, max=400)
 
         try:

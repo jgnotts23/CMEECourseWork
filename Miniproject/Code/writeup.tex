@@ -1,60 +1,57 @@
 \documentclass[twoside,twocolumn]{article}
 
-\usepackage{blindtext} % Package to generate dummy text throughout this template 
+\usepackage[sc]{mathpazo} 
+\usepackage[T1]{fontenc} 
+\linespread{2} 
+\usepackage{microtype} 
+\usepackage[english]{babel} 
+\usepackage{natbib}
+\usepackage[switch]{lineno} 
 
-\usepackage[sc]{mathpazo} % Use the Palatino font
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-\linespread{1.05} % Line spacing - Palatino needs more space between lines
-\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} 
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} 
+\usepackage{booktabs} 
 
-\usepackage[english]{babel} % Language hyphenation and typographical rules
+\usepackage{lettrine} 
 
-\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
-\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
-\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{enumitem} 
+\setlist[itemize]{noitemsep} 
 
-\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{abstract} 
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} 
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} 
 
-\usepackage{enumitem} % Customized lists
-\setlist[itemize]{noitemsep} % Make itemize lists more compact
+\usepackage{titlesec} 
+\renewcommand\thesection{\Roman{section}} 
+\renewcommand\thesubsection{\roman{subsection}} 
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} 
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}
 
-\usepackage{abstract} % Allows abstract customization
-\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
-\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} 
+\fancyfoot{} 
+\fancyhead[C]{Miniproject $\bullet$ March 2019 $\bullet$ J. Griffiths} % Custom header text
+\fancyfoot[RO,LE]{\thepage} 
 
-\usepackage{titlesec} % Allows customization of titles
-\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
-\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
-\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
-\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+\usepackage{titling} 
 
-\usepackage{fancyhdr} % Headers and footers
-\pagestyle{fancy} % All pages have headers and footers
-\fancyhead{} % Blank out the default header
-\fancyfoot{} % Blank out the default footer
-\fancyhead[C]{Running title $\bullet$ May 2016 $\bullet$ Vol. XXI, No. 1} % Custom header text
-\fancyfoot[RO,LE]{\thepage} % Custom footer text
+\usepackage{hyperref} 
 
-\usepackage{titling} % Customizing the title section
 
-\usepackage{hyperref} % For hyperlinks in the PDF
+\setlength{\droptitle}{-4\baselineskip} 
 
-%----------------------------------------------------------------------------------------
-%	TITLE SECTION
-%----------------------------------------------------------------------------------------
-
-\setlength{\droptitle}{-4\baselineskip} % Move the title up
-
-\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
-\posttitle{\end{center}} % Article title closing formatting
-\title{Modelling Thermal Responses of Metabolic Traits} % Article title
-\author{%
+\pretitle{\begin{center}\Huge\bfseries} 
+\posttitle{\end{center}} 
+\title{Modelling Thermal Responses of Metabolic Traits} 
+\author{
 \textsc{Jacob Griffiths} \\
-\normalsize Imperial College London \\ % Your institution
-\normalsize \href{mailto:jacob.griffiths18@imperial.ac.uk}{jacob.griffiths18@imperial.ac.uk} % Your email address
+\normalsize Imperial College London \\ 
+\normalsize \href{mailto:jacob.griffiths18@imperial.ac.uk}{jacob.griffiths18@imperial.ac.uk}
 }
-\date{\today} % Leave empty to omit a date
-\renewcommand{\maketitlehookd}{%
+\date{\today} 
+\renewcommand{\maketitlehookd}{
+
 \begin{abstract}
 \noindent Hello this is the Abstract
 \end{abstract}
@@ -62,19 +59,20 @@
 
 \begin{document}
 
-% Print the title
 \maketitle
 
+\linenumbers
 \section{Introduction}
 
 \lettrine[nindent=0em,lines=3]{T}emperature is a fundamental parameter in
-the realm of metabolic biology. Metabolic processes are catalysed by enzymes
+almost all processes and its importance in metabolic biology is well documented \citep{Montoya2012, Dell2011,DeLong2017}. 
+Metabolic processes are catalysed by enzymes
 which depend on kinetic, and ultimately heat, energy to function. As temperature
 decreases, atoms and molecules move progressively slower and thus metabolic rates
-decrease accordingly whereas when temperature increases, metabolic rates increase
-until the thermal optimum is reached. That is, the temperature at which optimal
+decrease accordingly whereas when temperature increases, metabolic rates increase rapidly
+until the thermal optimum is reached  \citep{DeLong2017, Dell2011}. That is, the temperature at which optimal
 metabolic rate occurs ($T_{pk}$ or $T_{opt}$). Beyond this, increasing temperature
-will start to hinder the metabolic rate as the proteins that enzymes are made of 
+will start to hinder the metabolic rate as the proteins that enzymes are composed of 
 will start to denature until the process stops entirely. These metabolic responses 
 to temperature exhibit a remarkably similar pattern, often referred to as Thermal 
 Performance Curves (TPCs), across an array of metabolic processes and taxa. This 
@@ -82,87 +80,133 @@ makes the study of TPCs a useful tool of comparison for all life on Earth as all
 species depend on metabolism for their energy. Furthermore, an increased understanding
 of how species respond to temperature is imperitive in a rapidly warming world. 
 If we can find some plasticity in a species' temperature tolerance then perhaps it will
-have a better chance of avoiding the mass extinction that is sweeping our planet.
+have a better chance of avoiding the mass extinction that is sweeping our planet,
+although some recent findings suggest the scope for adaptation may be limited \citep{Tuzun2018}.
 Of course, there are other ways a species may adapt through latitudinal range shifting 
 or evolution, but the latter seems unlikely in the time-frame available and the former
 is only possible for mobile species with suitable habitats to move to.
 
+\subsection{Models}
+Three models were used in this study to compare their ability to fit to each dataset within BioTraits.
+Firstly, the cubic polynomial was used as a phenomenological model with the following form:
+\begin{equation}
+B = B_0 + B_1T + B_2T^2 + B_3T^3
+\end{equation}
+Where $B$ is the responding trait value and $T$ is the temperature.
+Secondly, the Briere model \citep{Briere1999} was used as an alternative phenomenological model:
+\begin{equation}
+  B = B_0T(T - T_{0})\sqrt{T_{m} - T}
+\end{equation}
+Where $T_{0}$ and $T_{m}$ are the minimum and maximum tolerances for the trait, $B$, and $B_0$ 
+is a normalisation constant. Whilst this model is phenomenological, it can still provide useful 
+biological information when fit as it provides an estimate of the minimum and maximum thermal 
+tolerances of a particular trait for a particular organism. However, it falls short of the definition
+of a mechanistic model as the model provides no insight into the underlying biological mechanisms at work.
+Therefore, the third model used in this study was a simplified version of the Sharpe-Schoolfield \citep{Schoolfield1981}
+model to provide a mechanistic comparison as it was formulated from thermodynamic and enzyme 
+kinetic theory. The full model is given by:
+\begin{equation}
+  B = \frac{B_{0}e^{\frac{-E}{k}(\frac{1}{T} - \frac{1}{283.15})}}{1 + e^{\frac{E_l}{k}(\frac{1}{T_l} - \frac{1}{T})} + e^{\frac{E_h}{k}(\frac{1}{T_h} - \frac{1}{T})}}
+\end{equation}
+And the simplified:
+\begin{equation}
+  B = \frac{B_{0}e^{\frac{-E}{k}(\frac{1}{T} - \frac{1}{283.15})}}{1 + e^{\frac{E_h}{k}(\frac{1}{T_h} - \frac{1}{T})}}
+\end{equation}
+Where $k$ is the Boltzmann constant ($8.617 \times 10^{-5}  \ $eV$ \ \dot K^{-1}$), $B_0$ is the trait value at a 
+reference temperature (283.15 K in this study), $E_l$ is the low-temperature deactivation energy (eV) of the enzyme and controls
+the behaviour of the curve at very low temperatures and $T_l$ is the temperature at which 50\% of the enzyme is low-temperature deactivated.
+$E_h$ is the high-temperature deactivation energy of the enzyme and controls the behaviour of the curve at high temperatures and $T_h$ is the 
+temperature at which 50\% of the enzyme is high-temperature deactivated. $E$ is the activation energy which controls the behaviour of the curve 
+in the enzyme's 'normal operating range', that is before $T_pk$ but not at low temperatures. The simplified version was chosen for this study
+as low-temperature deactivation is weak and a lot of datasets within BioTraits lacked sufficient data at low temperatures. It also allows for 
+more datasets to be used as the minimum number of datapoints required for the six-parameter full model would be larger than for the four-parameter
+simplified version.
 
 
-
-%------------------------------------------------
 
 \section{Methods}
 
-Maecenas sed ultricies felis. Sed imperdiet dictum arcu a egestas. 
-\begin{itemize}
-\item Donec dolor arcu, rutrum id molestie in, viverra sed diam
-\item Curabitur feugiat
-\item turpis sed auctor facilisis
-\item arcu eros accumsan lorem, at posuere mi diam sit amet tortor
-\item Fusce fermentum, mi sit amet euismod rutrum
-\item sem lorem molestie diam, iaculis aliquet sapien tortor non nisi
-\item Pellentesque bibendum pretium aliquet
-\end{itemize}
-\blindtext % Dummy text
+\subsection{Data}
+The database used in this study, BioTraits, was provided by my supervisor,
+Dr. Samraat Pawar and is an extension of the database used by \cite{Dell2011}. It consists of 
+2165 unique thermal responses of metabolic 
+processes from 1010 publications. Predominantly, respiration, growth and photosynthetic
+rate are the metabolic process being measured against temperature. BioTraits includes species from many 
+Phyla and with diverse life histories but a majority of representitives are terrestrial
+species, often Arthropods. 
+\\
+\\
+As this dataset contains 155 columns and 25826 rows, it was first refined to a handful
+of relevant columns for this study to improve computational speed, namely the trait value and temperature.
+Rows with missing values for these columns were removed and any sub-dataset with less than five 
+datapoints was removed as this is the minimum required to estimate four parameter models like the cubic
+polynomial and simplified Schoolfield. 
 
-Text requiring further explanation\footnote{Example footnote}.
+\subsection{Parameter estimation}
+Using R, starting parameters for every unique sub-dataset in BioTraits were calcualted.
+For the cubic polynomial model, starting parameters of 1 were used for all four parameters.
+For Briere, estimates for $T_{0}$ and $T_{m}$ were made using
+the minimum and maximum recorded temperatures respectively. For Schoolfield, A reference temperature of 10 
+degrees Celsius (283.15 K) was used for as this has been used effectively in previous publications \citep{Dell2011} and $B_{0}$ 
+was estimated as the recorded trait value nearest to this temperature, by definition. The peak metabolic rate $B_{max}$ was then
+calculated ($T_{pk}$ being the corresponding temperature at this trait value) and the dataset was split around this value. If $B_{max}$ occurred at the highest recorded temperature 
+(i.e. the rate had not started descending yet) the dataset was not split and the following regression was carried 
+out on the whole dataset. The trait values of each side were logged and the reciprocals
+of the temperature values were multiplied by the boltzmann constant ($8.617 \times 10^{-5} eV \cdot K^{-1}$). Linear 
+regression was carried out on the left-hand (below $T_{pk}$) data and the estimate for $E$ was taken to be the gradient
+of this line, with the $Eh$ estimate being twice this value. If regression failed, default estimates of $0.65$ for $E$
+and $1.3$ for $Eh$ were used as recommended defaults from the literature and $E$ was given bounds of 0 to 3 while $Eh$ was bounded between
+0 and 6 \citep{Montoya2012, Dell2011}. $Th$ was estimated by 
+calculating the nearest recorded temperature to $B_{max} / 2$ as $Th$ is the temperature at which half the enzyme 
+units have been made inactive so this provides a good estimate, with a lower bound of $T_{pk}$ and an upper bound of 400 Kelvin applied 
+\citep{Sal2018}. For datasets with no datapoints after $B_{max}$, $Th$ was given a starting value equal to $T_{max}$. 
 
-%------------------------------------------------
+\subsection{Model comparison}
+The Akaike Information Criterion (AIC) \citep{A1974} was used to compare model fits within each dataset and is given by the formula assuming the 
+model is univariate, is linear in its parameters and has normally-distributed residuals:
+\begin{equation}
+  AIC = 2k - 2\ln(\hat{L})
+\end{equation}
+Where $\hat{L}$ is the maximum likelihood estimation and $k$ is the number of parameters for the model.
+This method was chosen as it rewards the relative goodness of fit between models on the same data but penalises number of parameters used 
+as this can sometimes lead to overfitting. However, despite this penalty, AIC can still be prone to favouring models with more parameters if 
+the sample size is small. This can be circumvented by using AICc \citep{Hurvich1989}, an extension of AIC given by:
+\begin{equation}
+  AICc = AIC + \frac{2k^2 + 2k}{n-k-1}
+\end{equation}
+Where $n$ is the sample size and $k$ is the number of parameters as before. It should be noted that as $n \to \infty$, the additional parameter
+penalty tends to zero and thus AICc tends to AIC, making it suitable for large samples too. As some of the datasets used in this analysis had only a handful of datapoints,
+AICc was used to compare models instead of AIC.
+\\
+In addition to AICc, adjusted $R^2$, or $\bar{R}^2$, was used as an alternative comparison tool. Generally attributed to \cite{Wright1921}, 
+$R^2$ is purely a measure of goodness of fit and is given by:
+\begin{equation}
+  R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
+\end{equation}
+Where $SS_{res}$ is the sum of the squared residuals of the model and $SS_{tot}$ is the total sum of squares. A score of 1 is a 'perfect' fit
+and a negative score is considered a worse first than a straight, horizontal line through the mean as a model. Similar to AIC, $R^2$ is susceptible
+to overfitting as the addition of a new parameter will always improve the score. Fortunately, adjusted $R^2$, $\bar{R}^2$:
+\begin{equation}
+  R^2 = 1 - \frac{VAR_{res}}{VAR_{tot}}
+\end{equation}
+Where $VAR_{res} = SS_{res}/n$ and $VAR_{tot} = SS_{tot}/n$, only improves its score if an additional parameter improves the model more than would
+be expected by chance, making it less susceptible to overfitting and a better comparative tool for this study.
+
 
 \section{Results}
+The cubic polynomial may have no biological underpinning but is sacrificing realism much different to sacrificing precision \citep{Levins1966}?
 
-\begin{table}
-\caption{Example table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
 
-\blindtext % Dummy text
 
-\begin{equation}
-\label{eq:emc}
-e = mc^2
-\end{equation}
 
-\blindtext % Dummy text
-
-%------------------------------------------------
 
 \section{Discussion}
 
-\subsection{Subsection One}
 
-A statement requiring citation \cite{Figueredo:2009dg}.
-\blindtext % Dummy text
 
-\subsection{Subsection Two}
+\bibliographystyle{agsm}
+\bibliography{Miniproject}
 
-\blindtext % Dummy text
 
-%----------------------------------------------------------------------------------------
-%	REFERENCE LIST
-%----------------------------------------------------------------------------------------
-
-\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
-
-\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
-Figueredo, A.~J. and Wolf, P. S.~A. (2009).
-\newblock Assortative pairing and life history strategy - a cross-cultural
-  study.
-\newblock {\em Human Nature}, 20:317--330.
- 
-\end{thebibliography}
-
-%----------------------------------------------------------------------------------------
 
 \end{document}
