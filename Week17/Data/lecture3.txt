@@ -1,0 +1,55 @@
+##################
+### Lecture 3 ####
+##################
+
+ML question - very similar to practicals
+Evolutionary modelling - focus on Tim's stuff only
+
+Bayesian:
+- Parameters are random in nature, follow another pdf (with hyper parameters)
+- Can incorporate prior knowledge
+- Inference based on posterior distribution (= prior x likelihood (or evidence))
+- Posterior is a pdf (area = 1)
+- Point estimates: posterior mean/median
+- Confidence interval and its interpretation from quantiles of the posterior (e.g. 2.5% and 97.5%, "95% chance that the true parameters lie within the C.I.)
+- More incoming data: current posterior can act as prior for new observations
+- Hypothesis testing: Bayes factor
+
+Classical (MLE):
+- Parameters are fixed but unknown (real numbers, non-random)
+- Cannot incorporate prior knowledge
+- Inference based solely on likelihood function
+- Likelihood is not a pdf (area != 1)
+- Point estimates: points where the log-likelihood function is maximised
+- Confidence interval and its interpretation: 2 (or 0.5 x X^2k for k parameters) units below the peak of the log-likelihood. Parameters are numbers, its logically flawed to make any probabalistic statements on numbers. Therefore, "If i repeat the experiment for many many times and obtain many many C.I.s, then 05% of those C.I.s will have the true parameters covered.
+- More incoming data: recalculate the whole thing
+- Hypothesis testing: likelihood-ratio test for nested models
+
+Equivalence: Bayesian with a uniform prior = Likelihood
+
+Markov chain
+- A random process, series of random variables
+- There are several states (possible outcomes)
+- Transits between states by chance over time
+- Memoryless - transition prob only depend on current state
+- Trans prob can be represented in Markob matrix
+- Time-homogenous Marov chain: a special time of Markov chain whose transition prob remains same over time
+
+JC69 substitution model
+- Can be modelled with Markov matrices
+- Nucleotide substitution, mutation into one of four states
+
+Wright-Fisher model as Markov chain
+- For diploids, if effective pop size is N, the possible number of alleles (states) are {0:2N}
+- two alleles A and B
+- dimension of matrix is (2N+1)^2
+- Genetic drift changes allele freq over generations
+- If freq of allele A is k/2N now, number of allele A in next gen follows binomial(2N, k/2N)
+
+Markov matrix probs:
+- non-negative
+- row sum to one
+- If markov matrix M is time-homogenous, then the transitin probs for T steps ahead is M^T
+- we can analyse long-term behaviour of M, some have limiting distrib
+- 
+
